@@ -1,0 +1,8 @@
+----- 1.10 -----
+ATTENTION: Dreamteck Splines 1 will only be receiving bug fixes from now on. New features are coming in version 2.0 on June 15 2019
+
+FIX: The SplineMesh now properly preserves lightmap coordinates
+FIX: The console will now log an error message when attempting to generate a mesh that has more than the supported by Unity 64000 vertices per mesh.
+FIX: Marking mesh generators as double sided no longer throws an exception
+FIX: Improved the direction calculation for Linear splines
+FIX: Improved the Particle Controller behavior (detection of new particles)
