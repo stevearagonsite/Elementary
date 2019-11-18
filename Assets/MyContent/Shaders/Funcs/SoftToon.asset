@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78b2425a2284af743826c689403a4924, type: 3}
+  m_Name: SoftToon
+  m_EditorClassIdentifier: 
+  m_functionInfo: "// Made with Amplify Shader Editor\n// Available at the Unity Asset
+    Store - http://u3d.as/y3X \n/*ASEBEGIN\nVersion=13101\n7;29;1352;692;2640.198;1145.058;4.043114;True;True\nNode;AmplifyShaderEditor.ObjSpaceLightDirHlpNode;29;-1852.333,-81.08325;Float;False;1;0;FLOAT;0.0;False;1;FLOAT3\nNode;AmplifyShaderEditor.NegateNode;8;-1542.823,-149.77;Float;False;1;0;FLOAT3;0.0;False;1;FLOAT3\nNode;AmplifyShaderEditor.RangedFloatNode;9;-1309.134,52.87848;Fixed;False;Property;_Cutofblend;Cut
+    of blend;0;0;0.4;0.01;3;0;1;FLOAT\nNode;AmplifyShaderEditor.RangedFloatNode;10;-1302.225,-175.5322;Float;False;Property;_Cutoffangle;Cut
+    off angle;1;0;0.03;-1;1;0;1;FLOAT\nNode;AmplifyShaderEditor.NormalVertexDataNode;7;-1560.766,21.6445;Float;False;0;5;FLOAT3;FLOAT;FLOAT;FLOAT;FLOAT\nNode;AmplifyShaderEditor.SimpleAddOpNode;11;-949.0984,-171.2876;Float;False;2;2;0;FLOAT;0.0;False;1;FLOAT;0.0;False;1;FLOAT\nNode;AmplifyShaderEditor.DotProductOpNode;12;-1316.21,-79.84192;Float;False;2;0;FLOAT3;0,0,0;False;1;FLOAT3;0,0,0;False;1;FLOAT\nNode;AmplifyShaderEditor.SimpleSubtractOpNode;13;-950.0984,32.7135;Float;False;2;0;FLOAT;0.0;False;1;FLOAT;0.0;False;1;FLOAT\nNode;AmplifyShaderEditor.SmoothstepOpNode;14;-760.8093,-71.81192;Float;False;3;0;FLOAT;0.0;False;1;FLOAT;0.0;False;2;FLOAT;0.0;False;1;FLOAT\nNode;AmplifyShaderEditor.LightColorNode;20;-703.7084,-221.629;Float;False;0;1;COLOR\nNode;AmplifyShaderEditor.OneMinusNode;19;-438.9054,-48.5282;Float;False;1;0;FLOAT;0.0;False;1;FLOAT\nNode;AmplifyShaderEditor.RangedFloatNode;18;-634.5054,51.8725;Float;False;Constant;_Float;Float;6;0;0.05553238;0.001;1;0;1;FLOAT\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;16;-454.6984,-222.0871;Float;False;2;2;0;COLOR;0.0;False;1;FLOAT;0.0,0,0,0;False;1;COLOR\nNode;AmplifyShaderEditor.SimpleMultiplyOpNode;17;-280.2203,23.9805;Float;False;3;3;0;COLOR;0,0,0,0;False;1;FLOAT;0.0;False;2;FLOAT;0,0,0,0;False;1;COLOR\nNode;AmplifyShaderEditor.SimpleAddOpNode;21;-89.62244,-218.5721;Float;True;2;2;0;COLOR;0,0,0,0;False;1;COLOR;0,0,0,0;False;1;COLOR\nNode;AmplifyShaderEditor.WorldSpaceLightDirHlpNode;27;-1875.135,-153.8912;Float;False;1;0;FLOAT;0.0;False;1;FLOAT3\nNode;AmplifyShaderEditor.FunctionOutput;0;211,-217;Float;False;True;Output;0;1;0;COLOR;0.0;False;0\nWireConnection;8;0;29;0\nWireConnection;11;0;10;0\nWireConnection;11;1;9;0\nWireConnection;12;0;8;0\nWireConnection;12;1;7;0\nWireConnection;13;0;10;0\nWireConnection;13;1;9;0\nWireConnection;14;0;12;0\nWireConnection;14;1;11;0\nWireConnection;14;2;13;0\nWireConnection;19;0;14;0\nWireConnection;16;0;20;0\nWireConnection;16;1;14;0\nWireConnection;17;0;20;0\nWireConnection;17;1;19;0\nWireConnection;17;2;18;0\nWireConnection;21;0;16;0\nWireConnection;21;1;17;0\nWireConnection;0;0;21;0\nASEEND*/\n//CHKSM=2D3E6D14476137E1CE44930E9CAB8FC6096A1757"
+  m_functionName: 
+  m_description: ControlShadow and Light.
