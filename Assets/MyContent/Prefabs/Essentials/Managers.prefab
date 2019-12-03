@@ -1,0 +1,85 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1050517849215608145
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1050517849215608147}
+  - component: {fileID: 1050517849215608146}
+  - component: {fileID: 1050517849215608148}
+  m_Layer: 0
+  m_Name: Managers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1050517849215608147
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050517849215608145}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.18492812, y: 0.87498426, z: -0.33842325}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1050517849215608146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050517849215608145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 210941c2513644415af609a43bff77cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1050517849215608148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1050517849215608145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c833bad62f5ac4cb28008ecfd26dede3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  jumpButton: 0
+  initialJumpButton: 0
+  sprintButton: 0
+  crouchButton: 0
+  skillButton: 0
+  absorbButton: 0
+  blowUpButton: 0
+  aimButton: 0
+  shootButton: 0
+  aimToShootButton: 0
+  swapUp: 0
+  swapDown: 0
+  horizontalMove: 0
+  verticalMove: 0
+  chatButton: 0
+  onDirectionChange: 0
+  cameraRotation: 0
+  cameraAngle: 0
+  centrateCamera: 0
+  skillUp: 0
+  skillDown: 0
+  consoleButton: 0
+  config1: 0
+  config2: 0
+  _numSkill: 0
+  debugConsole: {fileID: 0}
+  console: {fileID: 0}
