@@ -58,8 +58,8 @@ LightmapSettings:
     m_Resolution: 2
     m_BakeResolution: 40
     m_AtlasSize: 1024
-    m_AO: 0
-    m_AOMaxDistance: 1
+    m_AO: 1
+    m_AOMaxDistance: 3
     m_CompAOExponent: 1
     m_CompAOExponentDirect: 0
     m_ExtractAmbientOcclusion: 0
@@ -69365,6 +69365,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Level-01
       objectReference: {fileID: 0}
+    - target: {fileID: 5228081082441099454, guid: f455dce6236f80d42968fefd05dc3f64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1947180743072162392, guid: f455dce6236f80d42968fefd05dc3f64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2745258587903010127, guid: f455dce6236f80d42968fefd05dc3f64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -2240476993784321293, guid: f455dce6236f80d42968fefd05dc3f64,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: f455dce6236f80d42968fefd05dc3f64,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -69419,26 +69439,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: -180
-      objectReference: {fileID: 0}
-    - target: {fileID: -2240476993784321293, guid: f455dce6236f80d42968fefd05dc3f64,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -1947180743072162392, guid: f455dce6236f80d42968fefd05dc3f64,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2745258587903010127, guid: f455dce6236f80d42968fefd05dc3f64,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5228081082441099454, guid: f455dce6236f80d42968fefd05dc3f64,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f455dce6236f80d42968fefd05dc3f64, type: 3}
