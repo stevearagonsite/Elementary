@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Collider))]
 public class DeathFallTrigger : MonoBehaviour {
 
     public string cutSceneTag;
@@ -35,5 +36,13 @@ public class DeathFallTrigger : MonoBehaviour {
     private void OnDestroy()
     {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+    }
+
+    private void OnDrawGizmos()
+    {
+        var collider = GetComponent<BoxCollider>();
+        Gizmos.color = new Color(200, 0, 0, 0.7f); ;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(collider.center, collider.size);
     }
 }
