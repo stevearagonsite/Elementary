@@ -84,6 +84,15 @@ namespace Skills
 
         //Dictionary<Skills, Mesh> _meshDic;
         //Dictionary<Skills, GameObject> _gODic;
+
+        //new tatoo design
+
+        public Renderer[] armTatoosRenderer;
+        Dictionary<Skills, Texture> _tatooTextureDictionary;
+
+        public Texture windTatooTexture;
+        public Texture fireTatooTexture;
+        public Texture electricTexture;
         #endregion
 
         #region  Visual Effect
@@ -158,6 +167,11 @@ namespace Skills
             //_gODic.Add(Skills.WATER, waterHand);
             //_gODic.Add(Skills.ELECTRICITY, electricHand);
 
+            _tatooTextureDictionary = new Dictionary<Skills, Texture>();
+            _tatooTextureDictionary.Add(Skills.VACCUM, windTatooTexture);
+            _tatooTextureDictionary.Add(Skills.FIRE, fireTatooTexture);
+            _tatooTextureDictionary.Add(Skills.ELECTRICITY, electricTexture);
+
             actualAction = _skills[skillAction];
             actualAction.Enter();
             SkillSet();
@@ -222,28 +236,32 @@ namespace Skills
             actualAction.Enter();
             
             EventManager.DispatchEvent(GameEvent.ON_SKILL_CHANGE, currentSkill);
-            //ChangeHandMesh();
+            ChangeHandMesh();
 
         }
 
-        //private void ChangeHandMesh()
-        //{
-        //    hand.sharedMesh = _meshDic[skillAction];
-        //    if(skillAction == Skills.VACCUM)
-        //    {
-        //        for (int i = 0; i < lefthandFingers.Length; i++)
-        //        {
-        //            lefthandFingers[i].SetActive(true);
-        //        }
-        //    }
-        //    else
-        //    {
-        //        for (int i = 0; i < lefthandFingers.Length; i++)
-        //        {
-        //            lefthandFingers[i].SetActive(false);
-        //        }
-        //    }
-        //}
+        private void ChangeHandMesh()
+        {
+            //hand.sharedMesh = _meshDic[skillAction];
+            foreach (var rend in armTatoosRenderer)
+            {
+                rend.material.mainTexture = _tatooTextureDictionary[skillAction];
+            }
+            /*if (skillAction == Skills.VACCUM)
+            {
+                for (int i = 0; i < lefthandFingers.Length; i++)
+                {
+                    lefthandFingers[i].SetActive(true);
+                }
+            }
+            else
+            {
+                for (int i = 0; i < lefthandFingers.Length; i++)
+                {
+                    lefthandFingers[i].SetActive(false);
+                }
+            }*/
+        }
 
         void RecuCheckAmount(Skills skill, bool sign)
         {
