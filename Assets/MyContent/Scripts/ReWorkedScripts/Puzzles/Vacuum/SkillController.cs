@@ -67,26 +67,7 @@ namespace Skills
         #endregion
 
         #region HandVFXRegion
-        //public Mesh attractorMesh;
-        //public Mesh electricMesh;
-        //public Mesh waterMesh;
-        //public Mesh iceMesh;
-        //public Mesh fireMesh;
-        //public SkinnedMeshRenderer hand;
-
-        //public GameObject attractorHand;
-        //public GameObject electricHand;
-        //public GameObject waterHand;
-        //public GameObject iceHand;
-        //public GameObject fireHand;
-
-        //public GameObject[] lefthandFingers;
-
-        //Dictionary<Skills, Mesh> _meshDic;
-        //Dictionary<Skills, GameObject> _gODic;
-
-        //new tatoo design
-
+         //new tatoo design
         public Renderer[] armTatoosRenderer;
         Dictionary<Skills, Texture> _tatooTextureDictionary;
 
@@ -111,15 +92,14 @@ namespace Skills
         PlayerController _pC;
         LandChecker _lC;
 
+        TatooTool _tatooTool;
+
         void Awake()
         {
-            //-0.032 , 0.998
-            //hudSkill = new Dictionary<Skills, typeSkill>();
-            //hudSkill.Add(Skills.VACCUM, typeSkill.BlowAndAspire);
-
-            //skillAction = new Skills();
+            //Component initializing
             _pC = GetComponent<PlayerController>();
             _lC = GetComponentInChildren<LandChecker>();
+            _tatooTool = GetComponent<TatooTool>();
 
             //Lists Initializing
             objectsToInteract = new List<IVacuumObject>();
@@ -152,20 +132,6 @@ namespace Skills
             _skills.Add(Skills.WATER, _waterLauncher);
             _skills.Add(Skills.ELECTRICITY, _electricity);
             _skills.Add(Skills.ICE, _freezer);
-
-            //_meshDic = new Dictionary<Skills, Mesh>();
-            //_meshDic.Add(Skills.VACCUM, attractorMesh);
-            //_meshDic.Add(Skills.ICE, iceMesh);
-            //_meshDic.Add(Skills.FIRE, fireMesh);
-            //_meshDic.Add(Skills.WATER, waterMesh);
-            //_meshDic.Add(Skills.ELECTRICITY, electricMesh);
-
-            //_gODic = new Dictionary<Skills, GameObject>();
-            //_gODic.Add(Skills.VACCUM, attractorHand);
-            //_gODic.Add(Skills.ICE, iceHand);
-            //_gODic.Add(Skills.FIRE, fireHand);
-            //_gODic.Add(Skills.WATER, waterHand);
-            //_gODic.Add(Skills.ELECTRICITY, electricHand);
 
             _tatooTextureDictionary = new Dictionary<Skills, Texture>();
             _tatooTextureDictionary.Add(Skills.VACCUM, windTatooTexture);
@@ -228,8 +194,6 @@ namespace Skills
 
         private void SkillSet()
         {
-            //_gODic[currentSkill].SetActive(false);
-            //_gODic[skillAction].SetActive(true);
             currentSkill = skillAction;
             actualAction.Exit();
             actualAction = _skills[skillAction];
@@ -242,25 +206,7 @@ namespace Skills
 
         private void ChangeHandMesh()
         {
-            //hand.sharedMesh = _meshDic[skillAction];
-            foreach (var rend in armTatoosRenderer)
-            {
-                rend.material.mainTexture = _tatooTextureDictionary[skillAction];
-            }
-            /*if (skillAction == Skills.VACCUM)
-            {
-                for (int i = 0; i < lefthandFingers.Length; i++)
-                {
-                    lefthandFingers[i].SetActive(true);
-                }
-            }
-            else
-            {
-                for (int i = 0; i < lefthandFingers.Length; i++)
-                {
-                    lefthandFingers[i].SetActive(false);
-                }
-            }*/
+            _tatooTool.SwapTatoos(skillAction);
         }
 
         void RecuCheckAmount(Skills skill, bool sign)
