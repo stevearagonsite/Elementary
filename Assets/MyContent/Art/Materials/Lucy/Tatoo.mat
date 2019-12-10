@@ -1,0 +1,49 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Tatoo
+  m_Shader: {fileID: 4800000, guid: a7f83efa4d0a91c47b85bd881d04a868, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 1
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap:
+    MotionVector: User
+  disabledShaderPasses:
+  - MOTIONVECTORS
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_1B28334A:
+        m_Texture: {fileID: 2800000, guid: 87986467d0a648541854d9ca1da60153, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _mainTexture:
+        m_Texture: {fileID: 2800000, guid: 87986467d0a648541854d9ca1da60153, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _texcoord:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_5D48A93C: 0.473
+    - Vector1_8CFF24DA: 1
+    - _Cutoff: 0.5
+    - __dirty: 0
+    - _alpha: 1
+    - _alphaMultiplier: 1
+    - _fill: 1
+    - _ringWidth: 0.184
+    m_Colors:
+    - _Vector0: {r: 0, g: -0.75, b: 0, a: 0}
+    - _f: {r: 0, g: -0.75, b: 0, a: 0}
+    - _fill: {r: 0, g: 1, b: 0, a: 0}
+    - _full: {r: 0, g: -0.75, b: 0, a: 0}

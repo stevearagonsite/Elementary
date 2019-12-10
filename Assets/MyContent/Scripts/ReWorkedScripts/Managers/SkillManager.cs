@@ -17,6 +17,9 @@ namespace Skills
         int electricityMaxAmount = 300;
         int waterMaxAmount = 300;
         int iceMaxAmount = 300;
+
+        TatooTool _tatooTool;
+
         [Header("Initial skill values")]
         public float initialFlameAmount;
         public float initialElectricityAmount;
@@ -36,6 +39,8 @@ namespace Skills
         {
             if (_instance == null)
                 _instance = this;
+
+            _tatooTool = GetComponent<TatooTool>();
 
             _skillAmount = new Dictionary<Skills, float>();
             _skillAmount[Skills.VACCUM] = initialVacuumAmount;
@@ -83,6 +88,7 @@ namespace Skills
             {
                 Debug.Log("Max Amount Reached: " + sk);
             }
+            _tatooTool.SetTatooFill(_skillAmount[sk] / _maxSkillAmount[sk]);
         }
 
         public void RemoveAmountToSkill(float amount, Skills sk)
@@ -100,11 +106,17 @@ namespace Skills
             {
                 _skillAmount[sk] -= amount;
             }
+            _tatooTool.SetTatooFill(_skillAmount[sk] / _maxSkillAmount[sk]);
         }
 
         public float SkillActualAmount(Skills sk)
         {
             return _skillAmount[sk]/_maxSkillAmount[sk];
+        }
+
+        private void Update()
+        {
+            fireAmount = _skillAmount[Skills.FIRE];
         }
     }
 
