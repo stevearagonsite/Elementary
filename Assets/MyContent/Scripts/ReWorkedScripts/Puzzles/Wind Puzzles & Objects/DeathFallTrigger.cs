@@ -15,8 +15,10 @@ public class DeathFallTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
+        Debug.Log(other);
         if(other.gameObject.layer == 9)
         {
+            Debug.Log("you are a winner!!!");
             _tick = 0;
             EventManager.DispatchEvent(GameEvent.CAMERA_STORY, cutSceneTag);
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
