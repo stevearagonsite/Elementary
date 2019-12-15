@@ -113,11 +113,6 @@ namespace Skills
         {
             return _skillAmount[sk]/_maxSkillAmount[sk];
         }
-
-        private void Update()
-        {
-            fireAmount = _skillAmount[Skills.FIRE];
-        }
     }
 
 

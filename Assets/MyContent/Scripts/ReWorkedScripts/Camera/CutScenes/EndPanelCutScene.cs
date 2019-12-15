@@ -8,13 +8,16 @@ public class EndPanelCutScene : MonoBehaviour, CutScene
     Camera _cam;
     [Header("Camera positions")]
     public Transform[] cameraPositions;
-    int cameraPositionCount = 1;
+    public float zoomOutDelay;
+
+    public int cameraPositionCount = 1;
 
     void Start()
     {
         _cam = GetComponent<Camera>();
         _cam.enabled = false;
         EventManager.AddEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
+        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, ZoomOutTimer);
     }
 
     private void SaveDiskEnter(object[] parameterContainer)
@@ -36,13 +39,25 @@ public class EndPanelCutScene : MonoBehaviour, CutScene
         transform.rotation = Quaternion.Lerp(transform.rotation, cameraPositions[cameraPositionCount].rotation, Time.deltaTime);
         if (Vector3.Distance(transform.position, cameraPositions[cameraPositionCount].position) < 0.5f)
         {
-            EventManager.DispatchEvent(GameEvent.SAVEDISK_END);
+            EventManager.DispatchEvent(GameEvent.TRANSITION_FADEOUT_WIN_FINISH);
         }
     }
 
     public void Exit()
     {
         _cam.enabled = false;
+    }
+
+    private void ZoomOutTimer()
+    {
+        Debug.Log("Zoom Out");
+        zoomOutDelay -= Time.deltaTime;
+        if(zoomOutDelay < 0)
+        {
+            Debug.Log(zoomOutDelay);
+            SaveDiskEnter(null);
+            UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, ZoomOutTimer);
+        }
     }
 
     void OnDestroy()
