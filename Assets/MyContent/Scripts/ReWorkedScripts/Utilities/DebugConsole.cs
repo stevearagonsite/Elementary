@@ -117,16 +117,16 @@ public class DebugConsole : MonoBehaviour
 
     private void LoadNextLevel()
     {
-        LevelManager.instance.NextLevel(null);
+        LevelManager.Instance.NextLevel(null);
     }
 
     private void LoadPreviousLevel()
     {
-        LevelManager.instance.PreviousLevel();
+        LevelManager.Instance.PreviousLevel();
     }
 
     private void RestartLevel()
     {
-        LevelManager.instance.RestartLevel(null);
+        LevelManager.Instance.RestartLevel(null);
     }
 }

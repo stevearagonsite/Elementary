@@ -21,7 +21,7 @@ public class LevelManager : MonoBehaviour {
     public List<Material> breathingScenarioMaterials;
 
     static LevelManager _instance;
-    public static LevelManager instance { get{ return _instance; } }
+    public static LevelManager Instance { get{ return _instance; } }
 
     public List<CheckPoint> checkPoints;
 

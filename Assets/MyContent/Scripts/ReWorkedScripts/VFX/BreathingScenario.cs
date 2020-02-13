@@ -9,7 +9,7 @@ public class BreathingScenario : MonoBehaviour {
         mesh = GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i < mesh.Length; i++)
         {
-            LevelManager.instance.AddBreathingMaterial(mesh[i].material);
+            LevelManager.Instance.AddBreathingMaterial(mesh[i].material);
         } 
 	}
 

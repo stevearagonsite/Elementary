@@ -10,14 +10,14 @@ public class CheckPoint : MonoBehaviour {
 
     private void Start()
     {
-        LevelManager.instance.AddCheckPointToList(this);
+        LevelManager.Instance.AddCheckPointToList(this);
     }
 
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.layer == 9)
         {
-            LevelManager.instance.SetActiveCheckPoint(checkPointName);
+            LevelManager.Instance.SetActiveCheckPoint(checkPointName);
         }
     }
 
@@ -25,7 +25,7 @@ public class CheckPoint : MonoBehaviour {
     {
         if (other.gameObject.layer == 9)
         {
-            LevelManager.instance.SetActiveCheckPoint(checkPointName);
+            LevelManager.Instance.SetActiveCheckPoint(checkPointName);
         }
     }
 
