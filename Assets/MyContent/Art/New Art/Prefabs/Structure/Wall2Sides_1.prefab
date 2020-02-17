@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2235970232786860499}
   - component: {fileID: 2235970232788187635}
   - component: {fileID: 2235970232789154611}
+  - component: {fileID: 5325436596932908786}
   m_Layer: 0
   m_Name: Wall2Sides_1
   m_TagString: Untagged
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2235970232786888179}
-  m_LocalRotation: {x: -0.00000055856816, y: 0.70710695, z: 0.70710665, w: 0.0000006183982}
+  m_LocalRotation: {x: 0.00000013240823, y: 0.7071068, z: 0.7071068, w: -0.00000013240823}
   m_LocalPosition: {x: -2.98, y: 1.43, z: 32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5325436596932908786
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2235970232786888179}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30000064, y: 4.000001, z: 6.0000005}
+  m_Center: {x: 0.15000035, y: 2.0000014, z: 2.9999998}
