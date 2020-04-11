@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 3996873098702652904}
   - component: {fileID: 3996873098699261384}
   - component: {fileID: 3996873098700359432}
+  - component: {fileID: 5210236592149163962}
   m_Layer: 0
-  m_Name: WallBigDoubleSide
+  m_Name: WallDoubleSide
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -57,7 +58,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 359f528b722034f4a809f2b664d1bde3, type: 3}
+  - {fileID: 2100000, guid: c6c4e24013fe7814fac2b0d452f3a3c9, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -78,3 +79,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5210236592149163962
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3996873098702559688}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.30000064, y: 4.000001, z: 6.0000014}
+  m_Center: {x: 0.15000035, y: 2.0000005, z: 3.0000007}
