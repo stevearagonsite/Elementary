@@ -55,6 +55,7 @@ namespace Player
         Rigidbody _rB;
         SkillController _skill;
         PlayerTemperature _temp;
+        CharacterController _cc;
 
         //Sensors
         LandChecker _lC;
@@ -82,11 +83,13 @@ namespace Player
             forwardCheck = GetComponentInChildren<ForwardChecker>();
             _skill = GetComponentInChildren<SkillController>();
             _temp = GetComponentInChildren<PlayerTemperature>();
+            _cc = GetComponent<CharacterController>();
+
             isSkillLocked = false;
 
             #region FSM
             idleState = new IdleState(this, _anim, cam2.transform, transform, cam2);
-            moveState = new MoveState(cam2, transform, angleTurnTolerance, idleTurnTolerance, runningTurnSpeed, speed, this, _aEB, _anim);
+            moveState = new MoveState(cam2, transform, angleTurnTolerance, idleTurnTolerance, runningTurnSpeed, speed, this, _aEB, _anim, _cc);
             jumpState = new JumpState(_rB, cam2, this, _lC, _aEB, transform, _anim, jumpForce, jumpSpeed);
             fallState = new FallState(_rB, this, cam2, _lC, _aEB, transform, _anim, jumpSpeed);
             landState = new LandState(_anim, this, _aEB, cam2);

@@ -110,8 +110,8 @@ public class GameInput : MonoBehaviour
         _featuresDic.Add(Features.STEALTH, false);*/
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
-        consoleToggle = false;
-        ToggleConsole();
+        //consoleToggle = false;
+        //ToggleConsole();
     }
 
     void Execute()

@@ -44,10 +44,11 @@ namespace Player
         PlayerController _pC;
         AnimatorEventsBehaviour _aEB;
         Animator _anim;
+        CharacterController _cc;
         #endregion
 
         public MoveState(CameraFSM cam, Transform t, float angleTurnTolerance, float idleTurnSpeed, float runingTurnSpeed,float speed, PlayerController pC,
-                        AnimatorEventsBehaviour aEB, Animator anim)
+                        AnimatorEventsBehaviour aEB, Animator anim, CharacterController cc)
         {
             _cam = cam;
             transform = t;
@@ -58,6 +59,7 @@ namespace Player
             _pC = pC;
             _aEB = aEB;
             _anim = anim;
+            _cc = cc;
 
             _oldDirection.x = transform.forward.x;
             _oldDirection.z = transform.forward.z;
@@ -152,8 +154,6 @@ namespace Player
                     transform.position += transform.forward * Time.deltaTime * _movementSpeed;
                 }
 
-                
-                
             }
         }
 
