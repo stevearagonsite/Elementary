@@ -8,18 +8,26 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Leaves 4
-  m_Shader: {fileID: 14000, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: -6465566751694194690, guid: 0376747fff081f3469e1ac5d5f804877,
+    type: 3}
   m_ShaderKeywords: EFFECT_BUMP EFFECT_HUE_VARIATION GEOM_TYPE_LEAF
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
-  stringTagMap:
-    RenderType: TreeTransparentCutout
+  stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_2B4E9F45:
+        m_Texture: {fileID: 2800000, guid: bfa500cf46ea22640850b51b8ef0080a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_BD65C193:
+        m_Texture: {fileID: 2800000, guid: 0db75af6164dd9a49a43ee5186c6b204, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BumpMap:
         m_Texture: {fileID: 2800000, guid: d1e762f9f652d424a90f583bfbc6ebcd, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -61,6 +69,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_28425F06: 1.5
     - _BumpScale: 1
     - _Cull: 0
     - _Cutoff: 0.28
@@ -80,6 +89,7 @@ Material:
     - _WindQuality: 0
     - _ZWrite: 1
     m_Colors:
+    - Color_28ACF99A: {r: 1, g: 0, b: 0, a: 0}
     - _Color: {r: 0.95686275, g: 0.29803923, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _HueVariation: {r: 1, g: 0.5, b: 0, a: 0.1}
