@@ -23,6 +23,8 @@ public class TPPController : MonoBehaviour
     public float gravity = -9.81f;
     public float jumpVelocity = 11; //To Calculate: Sqrt(jumpHeigh * -2 * gravity)
     public float jumpSpeed = 5;
+    public float jumpFlyTime = 2;
+    public float jumpFlyPower = 0.8f;
 
     /**
      *Move Private Variables 
@@ -31,6 +33,7 @@ public class TPPController : MonoBehaviour
     private float _horizontal;
     private float _vertical;
     private Vector3 _velocity;
+    private float _actualJumpFly = 0;
 
     public Vector3 velocity { get => _velocity;}
 
@@ -63,7 +66,7 @@ public class TPPController : MonoBehaviour
     private void RotateGFX()
     {
         var targetRotation = Quaternion.LookRotation(GetMoveDirection());
-        if ((Mathf.Abs(_horizontal) > rotationOffset || Mathf.Abs(_vertical) > rotationOffset) && _cc.isGrounded)
+        if ((Mathf.Abs(_horizontal) > rotationOffset || Mathf.Abs(_vertical) > rotationOffset))
             gfx.rotation = Quaternion.Slerp(gfx.rotation, targetRotation, turnSpeed*Time.deltaTime);
 
         obstacleChecker.transform.rotation = targetRotation;
@@ -79,6 +82,10 @@ public class TPPController : MonoBehaviour
         if(_cc.isGrounded && _velocity.y < 0)
         {
             _velocity.y = -speed/2;
+        }
+        if (_cc.isGrounded) 
+        {
+            _actualJumpFly = 0;
         }
     }
 
@@ -127,9 +134,14 @@ public class TPPController : MonoBehaviour
     {
         if (!_cc.isGrounded)
         {
-            if(_velocity.y > 0)
+            if (_velocity.y > 0)
             {
-                _velocity.y += -gravity/3 *Time.deltaTime;
+                _velocity.y += -gravity / 3 * Time.deltaTime;
+            }
+            else if (_actualJumpFly < jumpFlyTime)
+            {
+                _velocity.y += -gravity * jumpFlyPower * Time.deltaTime;
+                _actualJumpFly += Time.deltaTime;
             }
         }
     }
