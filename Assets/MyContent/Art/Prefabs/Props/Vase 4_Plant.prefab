@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3041117880947090404}
   - component: {fileID: 3041117880944223172}
   - component: {fileID: 3041117880945320196}
+  - component: {fileID: 5399462622953253945}
   m_Layer: 0
   m_Name: Vase 4_Plant
   m_TagString: Untagged
@@ -27,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 3041117880947523524}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 15.463394, y: 0.005379897, z: 41.324688}
-  m_LocalScale: {x: 0.7110411, y: 0.7110411, z: 0.7110411}
+  m_LocalScale: {x: 0.7110411, y: 0.71104103, z: 0.71104103}
   m_Children:
   - {fileID: 989152641637400271}
   m_Father: {fileID: 0}
@@ -80,6 +81,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5399462622953253945
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3041117880947523524}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.61702925, y: 0.6193223, z: 0.66207165}
+  m_Center: {x: 0.0020862815, y: -0.005505906, z: 0.32346943}
 --- !u!1001 &5242359122354378197
 PrefabInstance:
   m_ObjectHideFlags: 0
