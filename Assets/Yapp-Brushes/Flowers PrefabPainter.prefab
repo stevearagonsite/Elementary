@@ -1,0 +1,169 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &8819255597504648574
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8819255597504648575}
+  - component: {fileID: 8819255597504648572}
+  m_Layer: 0
+  m_Name: Flowers PrefabPainter
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8819255597504648575
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819255597504648574}
+  m_LocalRotation: {x: 0.70710725, y: 0.0000036507838, z: 0.0000037701163, w: -0.7071064}
+  m_LocalPosition: {x: -2.7500763, y: -13, z: 19.950111}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8819255597504648572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8819255597504648574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 817f7313c0941314295215e94151a3e7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  container: {fileID: 0}
+  mode: 0
+  brushSettings:
+    brushSize: 2
+    brushRotation: 61
+    alignToTerrain: 0
+    distribution: 0
+    poissonDiscSize: 1
+    fallOffCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    fallOff2dCurveX:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    fallOff2dCurveZ:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 1
+        value: 1
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    curveSamplePoints: 10
+    slopeMin: 0
+    slopeMinLimit: 0
+    slopeMax: 90
+    slopeMaxLimit: 90
+    allowOverlap: 0
+    spawnToVSPro: 0
+  prefabSettingsList:
+  - prefab: {fileID: 5777540816651590175, guid: 50d085607eccc83459de055c801704c2,
+      type: 3}
+    active: 1
+    probability: 0.099
+    positionOffset: {x: 0, y: 0.18, z: 0}
+    rotationOffset: {x: 0, y: 0, z: -90}
+    randomRotation: 1
+    rotationMinX: 0
+    rotationMaxX: 360
+    rotationMinY: 0
+    rotationMaxY: 360
+    rotationMinZ: 180
+    rotationMaxZ: 270
+    changeScale: 1
+    scaleMin: 1
+    scaleMax: 2
+    assetGUID: 
+    vspro_VegetationItemID: 
+  - prefab: {fileID: 1699701575771384190, guid: a900c4b218e6be44e85826a9281b0ba8,
+      type: 3}
+    active: 1
+    probability: 0.232
+    positionOffset: {x: 0, y: 0, z: 0}
+    rotationOffset: {x: 0, y: 0, z: -90}
+    randomRotation: 1
+    rotationMinX: 0
+    rotationMaxX: 360
+    rotationMinY: 0
+    rotationMaxY: 360
+    rotationMinZ: 180
+    rotationMaxZ: 270
+    changeScale: 1
+    scaleMin: 1
+    scaleMax: 2
+    assetGUID: 
+    vspro_VegetationItemID: 
+  physicsSettings:
+    forceApplyType: 0
+    maxIterations: 1000
+    forceMinMax: {x: 0, y: 0}
+    forceAngleInDegrees: 0
+    randomizeForceAngle: 0
+    simulationRunning: 0
+    simulationStepCount: 0
+  splineSettings:
+    curveResolution: 0
+    loop: 0
+    separation: 0
+    separationDistance: 1
+    separationDistanceMin: 0
+    separationDistanceMax: 1
+    instanceRotation: 1
+    attachMode: 0
+    controlPointRotation: 0
+    lanes: 1
+    laneDistance: 1
+    skipCenterLane: 0
+    snap: 0
+    reusePrefabs: 1
+    debug: 0
+    dirty: 0
+    prefabInstances: []
+    controlPoints: []
