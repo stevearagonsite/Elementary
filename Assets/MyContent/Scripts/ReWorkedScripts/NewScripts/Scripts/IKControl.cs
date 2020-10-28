@@ -8,35 +8,37 @@ public class IKControl : MonoBehaviour
     public Transform obj;
     public Transform lookObj;
     public bool ikActive;
-
+    public float blend;
     public AvatarIKGoal avatarIKGoal;
+
+    private float _force= 0;
+    public float test;
 
     private void OnAnimatorIK()
     {
-        Debug.Log("IK");
         if (anim) 
         {
             if (ikActive) 
             {
-                if(lookObj != null) 
-                {
-                    anim.SetLookAtWeight(1);
-                    anim.SetLookAtPosition(lookObj.position);
-                }
-
-                if(obj != null) 
-                {
-                    anim.SetIKPositionWeight(avatarIKGoal, 1);
-                    anim.SetIKRotationWeight(avatarIKGoal, 1);
-                    anim.SetIKPosition(avatarIKGoal, obj.position);
-                    anim.SetIKRotation(avatarIKGoal, obj.rotation);
-                }
+                _force += Time.deltaTime * blend;
             }
             else 
             {
-                anim.SetIKPositionWeight(avatarIKGoal, 0);
-                anim.SetIKRotationWeight(avatarIKGoal, 0);
-                anim.SetLookAtWeight(0);
+                _force -= Time.deltaTime * blend;
+            }
+            _force = Mathf.Clamp01(_force);
+            if (lookObj != null)
+            {
+                anim.SetLookAtWeight(_force);
+                anim.SetLookAtPosition(lookObj.position);
+            }
+
+            if (obj != null)
+            {
+                anim.SetIKPositionWeight(avatarIKGoal, _force);
+                anim.SetIKRotationWeight(avatarIKGoal, _force);
+                anim.SetIKPosition(avatarIKGoal, obj.position);
+                anim.SetIKRotation(avatarIKGoal, obj.rotation);
             }
         }
     }

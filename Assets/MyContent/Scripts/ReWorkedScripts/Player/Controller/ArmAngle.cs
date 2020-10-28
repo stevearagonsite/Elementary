@@ -7,48 +7,48 @@ using Player;
 
 public class ArmAngle : MonoBehaviour {
 
-    const float MAX_Y_ANGLE = -40f;
-    const float MIN_Y_ANGLE = -110f;
+    public float MAX_Y_ANGLE = 40f;
+    public float MIN_Y_ANGLE = -10f;
 
     float _currentY;
-    Animator _anim;
-    SkillController _skill;
 
-    bool isActive;
+    IKControl ikControl;
+    bool _isActive;
+
+    public Transform armPivot;
+    Transform cameraT;
 
     void Start ()
     {
+        ikControl = GetComponent<IKControl>();
+        InputManager.instance.AddAction(InputType.Absorb, Absorb);
+        cameraT = GetComponentInParent<TPPController>().cameraT.transform;
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
-        _anim = GetComponent<Animator>();
-        _skill = GetComponentInParent<SkillController>();
-        EventManager.AddEventListener(GameEvent.CAMERA_STORY, ToStoryCam);
-        EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ToNormalCam);
-        _currentY = GetComponentInParent<PlayerController>().cam2.normalState.currentY - 90;
-	}
-
-    private void ToNormalCam(object[] parameterContainer)
-    {
-        isActive = true;
     }
 
-    private void ToStoryCam(object[] parameterContainer)
+    private void Absorb() 
     {
-        isActive = false;
+        _isActive = true;
     }
 
-    void Execute ()
+    private void Execute() 
     {
-        _currentY += GameInput.instance.cameraAngle;
-        _currentY = Mathf.Clamp(_currentY, MIN_Y_ANGLE, MAX_Y_ANGLE);
-
-        _anim.SetFloat("armAngle", _currentY);
-        _anim.SetBool("isAbsorbing", (GameInput.instance.absorbButton && _skill.currentSkill == Skills.Skills.VACCUM) || GameInput.instance.blowUpButton);
+        if (_isActive) 
+        {
+            var f = (armPivot.position - cameraT.position).normalized;
+            armPivot.forward = f;
+            ikControl.ikActive = true;
+            _isActive = false;
+        }
+        else
+        {
+            ikControl.ikActive = false;
+        }
     }
 
     void OnDestroy()
     {
+        InputManager.instance.RemoveAction(InputType.Absorb, Absorb);
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
-        EventManager.RemoveEventListener(GameEvent.CAMERA_STORY, ToStoryCam);
-        EventManager.RemoveEventListener(GameEvent.CAMERA_NORMAL, ToNormalCam);
     }
 }

@@ -126,7 +126,6 @@ namespace TPCamera
         {
             _currentX += cursor.x * _speed;
             _currentY -= cursor.y * _speed;
-            Debug.Log("muevo el cursor");
         }
 
         public Dictionary<Inputs, IState<Inputs>> Transitions

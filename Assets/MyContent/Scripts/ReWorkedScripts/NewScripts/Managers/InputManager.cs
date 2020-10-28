@@ -17,6 +17,7 @@ public class InputManager : MonoBehaviour
     public float axisOffset = 0.1f;
 
     public KeyCode jump;
+    public KeyCode absorb;
     /// <summary>
     /// Initialize
     /// </summary>
@@ -63,6 +64,14 @@ public class InputManager : MonoBehaviour
         if (_moveActions.ContainsKey(InputType.Cursor) && (mouseX != 0 || mouseY != 0))
         {
             _moveActions[InputType.Cursor](new Vector2(mouseX, mouseY));
+        }
+
+        if (Input.GetKey(absorb)) 
+        {
+            if (_actions.ContainsKey(InputType.Absorb))
+            {
+                _actions[InputType.Absorb]();
+            }
         }
         
     }
@@ -142,7 +151,8 @@ public enum InputType
     Jump,
     Movement,
     Jump_Held,
-    Cursor
+    Cursor,
+    Absorb
 }
 
 

@@ -52,7 +52,6 @@ public class CharacterAnimationController : MonoBehaviour
     private void MoveAction(Vector2 dir)
     {
         _anim.SetFloat("speed",Math.Abs(dir.x) + Math.Abs(dir.y));
-        Debug.Log("move");
     }
 
     private void CheckLand()

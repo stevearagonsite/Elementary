@@ -2,12 +2,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TPCamera;
 
 [RequireComponent(typeof(CharacterController))]
 public class TPPController : MonoBehaviour
 {
     [Header("References")]
-    public Transform cameraT;
+    public CameraFSM cameraT;
 
     [Header("Move Variables")]
     public float speed;
@@ -109,7 +110,7 @@ public class TPPController : MonoBehaviour
     /// <returns></returns>
     private Vector3 GetMoveDirection()
     {
-        var camForwardWithOutY = new Vector3(cameraT.forward.x, 0, cameraT.forward.z);
+        var camForwardWithOutY = new Vector3(cameraT.transform.forward.x, 0, cameraT.transform.forward.z);
         var anglesign = Vector3.Cross(new Vector3(0, 0, 1), camForwardWithOutY).y > 0 ? 1 : -1;
         var angleCorrection = Vector3.Angle(new Vector3(0, 0, 1), camForwardWithOutY) * anglesign;
         
