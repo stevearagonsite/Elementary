@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 5039260150098428985}
   - component: {fileID: 5039260150099560185}
   - component: {fileID: 5039260150104632313}
+  - component: {fileID: 7527871313467781213}
   m_Layer: 0
   m_Name: Vase 3
   m_TagString: Untagged
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5039260150097369145}
   m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: 14.990833, y: 0.0033885238, z: 40.882885}
-  m_LocalScale: {x: 0.7110411, y: 0.71104103, z: 0.71104103}
+  m_LocalScale: {x: 0.7110411, y: 0.711041, z: 0.71104103}
   m_Children:
   - {fileID: 4970834350839119}
   m_Father: {fileID: 0}
@@ -100,6 +101,19 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!65 &7527871313467781213
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5039260150097369145}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.300777, y: 0.3078579, z: 0.6283424}
+  m_Center: {x: 0.000000037252903, y: 0.000007636845, z: 0.30940548}
 --- !u!1001 &227637119
 PrefabInstance:
   m_ObjectHideFlags: 0
