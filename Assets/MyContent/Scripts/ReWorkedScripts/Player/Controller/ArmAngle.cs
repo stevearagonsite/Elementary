@@ -35,8 +35,10 @@ public class ArmAngle : MonoBehaviour {
     {
         if (_isActive) 
         {
-            var f = (armPivot.position - cameraT.position).normalized;
-            armPivot.forward = f;
+            //var f = (armPivot.position - cameraT.position).normalized;
+            //armPivot.forward = f;
+            var x = cameraT.localEulerAngles.x;
+            armPivot.localEulerAngles = new Vector3(x, 0, 0);
             ikControl.ikActive = true;
             _isActive = false;
         }

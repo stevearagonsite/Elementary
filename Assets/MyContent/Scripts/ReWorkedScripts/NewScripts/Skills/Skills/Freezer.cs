@@ -18,26 +18,23 @@ namespace Skills
             _freezeVFX.TerminateEffect();
         }
 
+        public void Absorb()
+        {
+        }
+
+        public void Eject()
+        {
+            _freezeVFX.StartEffect();
+            foreach (var fo in _frozenObjectsToInteract)
+            {
+                fo.Freeze();
+            }
+            SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ICE);
+        }
+
         public void Enter()
         {
 
-        }
-
-        public void Execute()
-        {
-            if (GameInput.instance.blowUpButton)
-            {
-                _freezeVFX.StartEffect();
-                foreach (var fo in _frozenObjectsToInteract)
-                {
-                    fo.Freeze();
-                }
-                SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ICE);
-            }
-            else
-            {
-                _freezeVFX.StopEffect();
-            }
         }
 
         public void Exit()

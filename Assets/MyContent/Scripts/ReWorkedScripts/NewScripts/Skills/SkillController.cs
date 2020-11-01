@@ -66,16 +66,6 @@ namespace Skills
         //Dictionary<Skills, typeSkill> hudSkill;
         #endregion
 
-        #region HandVFXRegion
-         //new tatoo design
-        public Renderer[] armTatoosRenderer;
-        Dictionary<Skills, Texture> _tatooTextureDictionary;
-
-        public Texture windTatooTexture;
-        public Texture fireTatooTexture;
-        public Texture electricTexture;
-        #endregion
-
         #region  Visual Effect
         [Header("VFX References")]
         public ParticleSystem aspireParticle;
@@ -115,9 +105,9 @@ namespace Skills
             waterVFX = new VacuumVFX(waterParticle, particleParent, vacuumHoleTransform);
             iceVFX = new VacuumVFX(iceParticle, particleParent, vacuumHoleTransform);
 
-            electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
-            var aux = GetComponentInChildren<ElectricParticleEmitter>();
-            aux.Initialize(electricObjectsToInteract);
+//            electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
+//            var aux = GetComponentInChildren<ElectricParticleEmitter>();
+//            aux.Initialize(electricObjectsToInteract);
 
             //Strategy Initializing
             _attractor = new Attractor(atractForce, shootSpeed, vacuumHoleTransform, aspireVFX, blowVFX, objectsToInteract);
@@ -133,11 +123,6 @@ namespace Skills
             _skills.Add(Skills.ELECTRICITY, _electricity);
             _skills.Add(Skills.ICE, _freezer);
 
-            _tatooTextureDictionary = new Dictionary<Skills, Texture>();
-            _tatooTextureDictionary.Add(Skills.VACCUM, windTatooTexture);
-            _tatooTextureDictionary.Add(Skills.FIRE, fireTatooTexture);
-            _tatooTextureDictionary.Add(Skills.ELECTRICITY, electricTexture);
-
             actualAction = _skills[skillAction];
             actualAction.Enter();
             SkillSet();
@@ -145,51 +130,27 @@ namespace Skills
 
         void Start()
         {
-            UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
             EventManager.DispatchEvent(GameEvent.ON_SKILL_CHANGE, currentSkill);
+            InputManager.instance.AddAction(InputType.Skill_Down, OnSkillDown);
+            InputManager.instance.AddAction(InputType.Skill_Down, OnSkillUp);
+            InputManager.instance.AddAction(InputType.Absorb, OnAbsorb);
+            InputManager.instance.AddAction(InputType.Reject, OnReject);
+            InputManager.instance.AddAction(InputType.Stop, OnStop);
         }
 
-        void Execute()
+        void OnAbsorb()
         {
-            if (GameInput.instance.skillUp)
-            {
-                if (skillAction + 1 != Skills.LAST)
-                {
-                    skillAction++;
-                    RecuCheckAmount(skillAction, true);
-                    if (skillAction == Skills.LAST) skillAction = Skills.VACCUM;
-                }
-                else skillAction = Skills.VACCUM;
+            actualAction.Absorb();
+        }
 
-                SkillSet();
+        void OnReject()
+        {
+            actualAction.Eject();
+        }
 
-            }
-            else if (GameInput.instance.skillDown)
-            {
-                if (skillAction > 0)
-                {
-                    skillAction--;
-                    RecuCheckAmount(skillAction, false);
-                }
-                else
-                {
-                    skillAction = Skills.LAST;
-                    skillAction--;
-                    RecuCheckAmount(skillAction, false);
-                }
-
-                SkillSet();
-
-            }
-
-            if (!(GameInput.instance.crouchButton || GameInput.instance.sprintButton) && !_pC.isSkillLocked && _lC.land)
-            {
-                actualAction.Execute();
-            }
-            else
-            {
-                actualAction.Exit();
-            }
+        void OnStop()
+        {
+            actualAction.Exit();
         }
 
         private void SkillSet()
@@ -206,7 +167,37 @@ namespace Skills
 
         private void ChangeHandMesh()
         {
-            _tatooTool.SwapTatoos(skillAction);
+            //_tatooTool.SwapTatoos(skillAction);
+        }
+
+        private void OnSkillDown()
+        {
+            if (skillAction > 0)
+            {
+                skillAction--;
+                RecuCheckAmount(skillAction, false);
+            }
+            else
+            {
+                skillAction = Skills.LAST;
+                skillAction--;
+                RecuCheckAmount(skillAction, false);
+            }
+
+            SkillSet();
+        }
+
+        private void OnSkillUp()
+        {
+            if (skillAction + 1 != Skills.LAST)
+            {
+                skillAction++;
+                RecuCheckAmount(skillAction, true);
+                if (skillAction == Skills.LAST) skillAction = Skills.VACCUM;
+            }
+            else skillAction = Skills.VACCUM;
+
+            SkillSet();
         }
 
         void RecuCheckAmount(Skills skill, bool sign)
@@ -241,7 +232,11 @@ namespace Skills
 
         private void OnDestroy()
         {
-            UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+            InputManager.instance.RemoveAction(InputType.Skill_Down, OnSkillDown);
+            InputManager.instance.RemoveAction(InputType.Skill_Down, OnSkillUp);
+            InputManager.instance.RemoveAction(InputType.Absorb, OnAbsorb);
+            InputManager.instance.RemoveAction(InputType.Reject, OnReject);
+            InputManager.instance.RemoveAction(InputType.Stop, OnStop);
         }
     }
 

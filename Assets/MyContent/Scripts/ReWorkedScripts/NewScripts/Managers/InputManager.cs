@@ -18,6 +18,9 @@ public class InputManager : MonoBehaviour
 
     public KeyCode jump;
     public KeyCode absorb;
+    public KeyCode reject;
+    public KeyCode skillUp;
+    public KeyCode skillDown;
     /// <summary>
     /// Initialize
     /// </summary>
@@ -73,7 +76,35 @@ public class InputManager : MonoBehaviour
                 _actions[InputType.Absorb]();
             }
         }
-        
+        if (Input.GetKey(reject))
+        {
+            if (_actions.ContainsKey(InputType.Reject))
+            {
+                _actions[InputType.Reject]();
+            }
+        }
+        if (Input.GetKeyUp(absorb) || Input.GetKeyUp(reject))
+        {
+            if (_actions.ContainsKey(InputType.Stop))
+            {
+                _actions[InputType.Stop]();
+            }
+        }
+        if (Input.GetKeyDown(skillUp))
+        {
+            if (_actions.ContainsKey(InputType.Skill_Up))
+            {
+                _actions[InputType.Skill_Up]();
+            }
+        }
+
+        if (Input.GetKeyDown(skillDown))
+        {
+            if (_actions.ContainsKey(InputType.Skill_Down))
+            {
+                _actions[InputType.Skill_Down]();
+            }
+        }
     }
 
     /// <summary>
@@ -152,7 +183,11 @@ public enum InputType
     Movement,
     Jump_Held,
     Cursor,
-    Absorb
+    Absorb,
+    Reject,
+    Stop,
+    Skill_Down,
+    Skill_Up
 }
 
 

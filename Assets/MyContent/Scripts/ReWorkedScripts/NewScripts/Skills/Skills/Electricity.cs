@@ -20,20 +20,18 @@ namespace Skills
             
         }
 
-        public void Execute()
+        public void Absorb()
         {
-            if (GameInput.instance.blowUpButton)
+
+        }
+
+        public void Eject()
+        {
+            _electricityVFX.StartEffect();
+            foreach (var eo in _electricObjectsToInteract)
             {
-                _electricityVFX.StartEffect();
-                foreach (var eo in _electricObjectsToInteract)
-                {
-                    eo.GetComponent<IElectricObject>().Electrify();
-                    SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ELECTRICITY);
-                }
-            }
-            else
-            {
-                _electricityVFX.StopEffect();
+                eo.GetComponent<IElectricObject>().Electrify();
+                SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ELECTRICITY);
             }
         }
 

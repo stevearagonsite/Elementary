@@ -21,24 +21,20 @@ namespace Skills
 
         public void Enter()
         {
-            //_flameVFX.StartEffect();
         }
 
-        public void Execute()
+        public void Absorb()
         {
-            if (GameInput.instance.blowUpButton)
+        }
+
+        public void Eject()
+        {
+            _flameVFX.StartEffect();
+            foreach (var fo in _flamableObjectsToInteract)
             {
-                _flameVFX.StartEffect();
-                foreach (var fo in _flamableObjectsToInteract)
-                {
-                    fo.SetOnFire();
-                }
-                SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.FIRE);
+                fo.SetOnFire();
             }
-            else
-            {
-                _flameVFX.StopEffect();
-            }
+            SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.FIRE);
         }
 
         public void Exit()

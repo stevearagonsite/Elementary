@@ -4,7 +4,8 @@ using UnityEngine;
 
 public interface ISkill{
 
-    void Execute();
+    void Absorb();
+    void Eject();
     void Enter();
     void Exit();
 }

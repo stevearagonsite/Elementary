@@ -10,8 +10,6 @@ public class VacuumVFX : IHandEffect {
     Transform _vacuumHole;
     Vector3 _positionOffset;
 
-    //0.003949951, 0.002224207, 1.2931
-
     public VacuumVFX(ParticleSystem particle, Transform particleParent, Transform vacuumHole)
     {
         this.particle = particle;
@@ -34,33 +32,42 @@ public class VacuumVFX : IHandEffect {
 
     public void StartEffect()
     {
-        if (!isPlaying)
+        if (particle)
         {
-            particle.gameObject.SetActive(true);
-            particle.Play();
-            particle.gameObject.transform.SetParent(_vacuumHole);
-            particle.gameObject.transform.localPosition = Vector3.zero;
-            if(_positionOffset != null)
+            if (!isPlaying)
             {
-                particle.gameObject.transform.localPosition += _positionOffset;
+                particle.gameObject.SetActive(true);
+                particle.Play();
+                particle.gameObject.transform.SetParent(_vacuumHole);
+                particle.gameObject.transform.localPosition = Vector3.zero;
+                if(_positionOffset != null)
+                {
+                    particle.gameObject.transform.localPosition += _positionOffset;
+                }
+                particle.gameObject.transform.localRotation = Quaternion.identity;
+                isPlaying = true;
             }
-            particle.gameObject.transform.localRotation = Quaternion.identity;
-            isPlaying = true;
         }
     }
 
     public void StopEffect()
     {
-        particle.Stop();
-        particle.gameObject.transform.SetParent(_particleParent);
-        isPlaying = false;
+        if (particle)
+        {
+            particle.Stop();
+            particle.gameObject.transform.SetParent(_particleParent);
+            isPlaying = false;
+        }
     }
 
     public void TerminateEffect()
     {
-        particle.gameObject.SetActive(false);
-        particle.gameObject.transform.SetParent(_particleParent);
-        isPlaying = false;
+        if (particle)
+        {
+            particle.gameObject.SetActive(false);
+            particle.gameObject.transform.SetParent(_particleParent);
+            isPlaying = false;
+        }
     }
 
 }
