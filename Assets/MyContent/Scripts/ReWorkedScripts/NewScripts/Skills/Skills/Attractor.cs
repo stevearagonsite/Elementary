@@ -112,7 +112,6 @@ public class Attractor : ISkill {
                 _aspireParticle.StopEffect();
             }
         }
-        Debug.Log("Attract: " + _objectsToInteract.Count);
     }
 
     void Reject()
@@ -127,7 +126,5 @@ public class Attractor : ISkill {
             }
 
         }
-        
-        
     }
 }

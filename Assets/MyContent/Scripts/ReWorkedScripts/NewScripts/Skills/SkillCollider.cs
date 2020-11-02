@@ -17,6 +17,9 @@ public class SkillCollider : MonoBehaviour
     void Start()
     {
         InputManager.instance.AddAction(InputType.Absorb, GetObjects);
+        InputManager.instance.AddAction(InputType.Reject, GetObjects);
+        InputManager.instance.AddAction(InputType.Stop, Stop);
+
         skillController = GetComponentInParent<SkillController>();
     }
 
@@ -28,7 +31,7 @@ public class SkillCollider : MonoBehaviour
         switch (skill)
         {
             case Skills.Skills.VACCUM:
-                var aux= col.Union(col2)
+                var aux = col.Union(col2)
                             .Where(x => x.GetComponent<IVacuumObject>() != null)
                             .Select(x => x.GetComponent<IVacuumObject>())
                             .ToList();
@@ -37,27 +40,41 @@ public class SkillCollider : MonoBehaviour
                 {
                     skillController.objectsToInteract.Add(item);
                 }
-                Debug.Log("Collider amount: " + skillController.objectsToInteract.Count);
                 break;
             case Skills.Skills.FIRE:
-                skillController.flamableObjectsToInteract = col.Union(col2)
-                                                       .Where(x => x.GetComponent<IFlamableObjects>() != null)
-                                                       .Select(x => x.GetComponent<IFlamableObjects>())
-                                                       .ToList();
+                var auxF = col.Union(col2)
+                        .Where(x => x.GetComponent<IFlamableObjects>() != null)
+                        .Select(x => x.GetComponent<IFlamableObjects>())
+                        .ToList();
+                skillController.flamableObjectsToInteract.Clear();
+                foreach (var item in auxF)
+                {
+                    skillController.flamableObjectsToInteract.Add(item);
+                }
 
                 break;
             case Skills.Skills.ELECTRICITY:
-                skillController.electricObjectsToInteract = col.Union(col2)
-                                                       .Where(x => x.GetComponent<IElectricObject>() != null)
-                                                       .Select(x => x.GetComponent<IElectricObject>())
-                                                       .Select(x => x.transform)
-                                                       .ToList();
+                var auxE = col.Union(col2)
+                            .Where(x => x.GetComponent<IElectricObject>() != null)
+                            .Select(x => x.GetComponent<IElectricObject>())
+                            .Select(x => x.transform)
+                            .ToList();
+                skillController.electricObjectsToInteract.Clear();
+                foreach (var item in auxE)
+                {
+                    skillController.electricObjectsToInteract.Add(item);
+                }
                 break;
             case Skills.Skills.ICE:
-                skillController.frozenObjectsToInteract = col.Union(col2)
-                                                       .Where(x => x.GetComponent<IFrozenObject>() != null)
-                                                       .Select(x => x.GetComponent<IFrozenObject>())
-                                                       .ToList();
+                var auxI = col.Union(col2)
+                                .Where(x => x.GetComponent<IFrozenObject>() != null)
+                                .Select(x => x.GetComponent<IFrozenObject>())
+                                .ToList();
+                skillController.frozenObjectsToInteract.Clear();
+                foreach (var item in auxI)
+                {
+                    skillController.frozenObjectsToInteract.Add(item);
+                }
                 break;
             case Skills.Skills.WATER:
                 /*skillController.waterObjectToInteract = col.Union(col2)
@@ -70,15 +87,26 @@ public class SkillCollider : MonoBehaviour
         }
     }
 
+    void Stop()
+    {
+        skillController.frozenObjectsToInteract.Clear();
+        skillController.electricObjectsToInteract.Clear();
+        skillController.flamableObjectsToInteract.Clear();
+        skillController.objectsToInteract.Clear();
+    }
+
     private void OnDestroy()
     {
         InputManager.instance.RemoveAction(InputType.Absorb, GetObjects);
+        InputManager.instance.RemoveAction(InputType.Reject, GetObjects);
+        InputManager.instance.RemoveAction(InputType.Stop, Stop);
+
     }
 
     private void OnDrawGizmos()
     {
-        Gizmos.DrawWireSphere(transform.position, firstSphereRadius);
-        Gizmos.DrawWireSphere(transform.position + cam.forward * secondSherePosOffset, secondSphereRadius);
+        Gizmos.DrawSphere(transform.position, firstSphereRadius);
+        Gizmos.DrawSphere(transform.position + cam.forward * secondSherePosOffset, secondSphereRadius);
 
     }
 }

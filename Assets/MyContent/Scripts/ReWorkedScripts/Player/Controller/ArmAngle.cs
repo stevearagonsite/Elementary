@@ -7,11 +7,6 @@ using Player;
 
 public class ArmAngle : MonoBehaviour {
 
-    public float MAX_Y_ANGLE = 40f;
-    public float MIN_Y_ANGLE = -10f;
-
-    float _currentY;
-
     IKControl ikControl;
     bool _isActive;
 
@@ -22,6 +17,8 @@ public class ArmAngle : MonoBehaviour {
     {
         ikControl = GetComponent<IKControl>();
         InputManager.instance.AddAction(InputType.Absorb, Absorb);
+        InputManager.instance.AddAction(InputType.Reject, Absorb);
+        InputManager.instance.AddAction(InputType.Stop, Stop);
         cameraT = GetComponentInParent<TPPController>().cameraT.transform;
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
@@ -31,12 +28,15 @@ public class ArmAngle : MonoBehaviour {
         _isActive = true;
     }
 
+    private void Stop()
+    {
+        _isActive = false;
+    }
+
     private void Execute() 
     {
         if (_isActive) 
         {
-            //var f = (armPivot.position - cameraT.position).normalized;
-            //armPivot.forward = f;
             var x = cameraT.localEulerAngles.x;
             armPivot.localEulerAngles = new Vector3(x, 0, 0);
             ikControl.ikActive = true;
@@ -51,6 +51,9 @@ public class ArmAngle : MonoBehaviour {
     void OnDestroy()
     {
         InputManager.instance.RemoveAction(InputType.Absorb, Absorb);
+        InputManager.instance.RemoveAction(InputType.Reject, Absorb);
+        InputManager.instance.RemoveAction(InputType.Stop, Stop);
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+
     }
 }
