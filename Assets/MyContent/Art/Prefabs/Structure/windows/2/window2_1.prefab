@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 5903099219238042538}
   - component: {fileID: 3222048223759597980}
   - component: {fileID: 9190591895629561189}
+  - component: {fileID: 3291080262841386465}
   m_Layer: 0
   m_Name: window2_1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &5903099219238042538
 Transform:
@@ -25,7 +26,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7473544009760590265}
-  m_LocalRotation: {x: -0.49999976, y: 0.50000036, z: 0.50000024, w: 0.49999976}
+  m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: 9.047888, y: 2.891183, z: 59.936436}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -58,7 +59,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 2b8f1cb0bfc094f4f9af397fdd302fcf, type: 2}
+  - {fileID: 2100000, guid: b046696fd2b46a74db4ff8d21e9d1f6c, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -79,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &3291080262841386465
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7473544009760590265}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.000001, y: 0.05999364, z: 6.000001}
+  m_Center: {x: -1.9999933, y: -0.029992666, z: 2.9999998}
