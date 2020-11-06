@@ -10,9 +10,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 4b3796c3366c6564bbfaaa393234a4f4, type: 3}
 --- !u!1 &4042530232759879041
 GameObject:
@@ -75,6 +75,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -141,12 +142,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
-  scalePosition: 0
+  scalePosition: 1
   scaleRotation: 1
   positionSpeed: 0.4
   rotationSpeed: 1
-  shakePositionRange: 0.129
-  shakeRotationRange: 0.229
+  shakePositionRange: 0.02
+  shakeRotationRange: 0.02
 --- !u!64 &3779059803430472539
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -157,9 +158,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 4b3796c3366c6564bbfaaa393234a4f4, type: 3}
 --- !u!64 &4165622533359239915
 MeshCollider:
@@ -171,9 +172,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 4b3796c3366c6564bbfaaa393234a4f4, type: 3}
 --- !u!64 &5588377981060597331
 MeshCollider:
@@ -185,9 +186,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2432090755550338912, guid: 4b3796c3366c6564bbfaaa393234a4f4, type: 3}
 --- !u!1001 &464213614545747064
 PrefabInstance:
@@ -196,16 +197,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1027570637720844178}
     m_Modifications:
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Name
-      value: Eagle (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 459007542282550633, guid: 5c203889c5948a140b1f7784a0d14659,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -276,6 +267,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 21.991203
       objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Name
+      value: Eagle (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c203889c5948a140b1f7784a0d14659, type: 3}
 --- !u!1 &3923997466319991554 stripped
@@ -297,16 +298,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1027570637720844178}
     m_Modifications:
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Name
-      value: Eagle (3)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 459007542282550633, guid: 5c203889c5948a140b1f7784a0d14659,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -377,6 +368,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 21.991203
       objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Name
+      value: Eagle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c203889c5948a140b1f7784a0d14659, type: 3}
 --- !u!1 &8470799609681521930 stripped
@@ -398,16 +399,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1027570637720844178}
     m_Modifications:
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Name
-      value: Eagle (1)
-      objectReference: {fileID: 0}
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 459007542282550633, guid: 5c203889c5948a140b1f7784a0d14659,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -478,6 +469,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 21.991203
       objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Name
+      value: Eagle (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c203889c5948a140b1f7784a0d14659, type: 3}
 --- !u!1 &6158172783622524292 stripped
@@ -499,16 +500,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1027570637720844178}
     m_Modifications:
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Name
-      value: Eagle
-      objectReference: {fileID: 0}
-    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: 459007542282550633, guid: 5c203889c5948a140b1f7784a0d14659,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -578,6 +569,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 21.991203
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Name
+      value: Eagle
+      objectReference: {fileID: 0}
+    - target: {fileID: 3460419508289605498, guid: 5c203889c5948a140b1f7784a0d14659,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c203889c5948a140b1f7784a0d14659, type: 3}
