@@ -20,6 +20,7 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
     Vector3 _initialPosition;
     public float respawnDistance;
     public float respawnTime;
+    public float suckDistance = 2;
 
     float _respawnTick;
 
@@ -137,7 +138,7 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
             var direction = origin.position - transform.position;
             var distance = direction.magnitude;
 
-            if (distance <= 0.7f)
+            if (distance <= 0.3f * suckDistance)
             {
                 _bC.isTrigger = true;
                 rb.isKinematic = true;
@@ -146,12 +147,12 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
                 transform.SetParent(origin);
 
             }
-            else if (distance < 1f)
+            else if (distance < 1f * suckDistance)
             {
                 rb.isKinematic = true;
 
                 var dir = (origin.position - transform.position).normalized;
-                transform.position += dir * atractForce / 10 * Time.deltaTime;
+                transform.position += dir * atractForce * Time.deltaTime;
             }
             else
             {

@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 0
+  m_UseShadowmask: 1
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -2162,13 +2162,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 247226991}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2d1b8e02554409681969de4d2cdff0, type: 3}
+  m_Script: {fileID: 11500000, guid: f127977a335504df195c351aaa453766, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   wasShooted: 0
   material: {fileID: 0}
   respawnDistance: 0
   respawnTime: 0
+  suckDistance: 2
   respawnable: 0
 --- !u!54 &247226993
 Rigidbody:
@@ -2388,7 +2389,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 653279303}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0.586}
+  m_LocalPosition: {x: 0, y: 0, z: 0.727}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1377808429}
@@ -2576,8 +2577,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   skillAction: 0
-  atractForce: 10
-  shootSpeed: 1000
+  atractForce: 5
+  shootSpeed: 500
   aspireOffset: {x: 0, y: 0, z: 0}
   electricObjectsToInteract: []
   aspireParticle: {fileID: 0}
@@ -2585,7 +2586,7 @@ MonoBehaviour:
   fireParticle: {fileID: 0}
   waterParticle: {fileID: 0}
   iceParticle: {fileID: 0}
-  vacuumHoleTransform: {fileID: 2117201748}
+  vacuumHoleTransform: {fileID: 653279304}
   particleParent: {fileID: 0}
   currentSkill: 0
 --- !u!114 &971124156
@@ -2770,12 +2771,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1575956194163341219}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &1510156082 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3159535273620413041, guid: 5a5ca2897c36a4047912c4e62219b244,
-    type: 3}
-  m_PrefabInstance: {fileID: 1575956194163341219}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &1510156083
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2788,10 +2783,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a70c112d14abe4a6885cd412091e1dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firstSphereRadius: 0.3
-  secondSphereRadius: 0.5
-  secondSherePosOffset: 0.5
-  cam: {fileID: 1644502474}
+  firstSphereRadius: 0.8
+  secondSphereRadius: 1
+  secondSherePosOffset: 1.38
+  cam: {fileID: 1377808429}
   skill: 0
 --- !u!43 &1524821018
 Mesh:
@@ -2956,12 +2951,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!4 &1644502474 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 3444035553823948534, guid: 28c2029a1b5531241a7a03f9d25dc308,
-    type: 3}
-  m_PrefabInstance: {fileID: 3444035554409293656}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1856440035
 GameObject:
   m_ObjectHideFlags: 0
@@ -3155,36 +3144,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2117201747
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2117201748}
-  m_Layer: 0
-  m_Name: VacuumHole
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2117201748
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2117201747}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.15, y: -0.283, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 1510156082}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &706522632233783785
 PrefabInstance:
@@ -5157,6 +5116,21 @@ PrefabInstance:
         type: 3}
       propertyPath: absorb
       value: 323
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948999421580802250, guid: fafaeeeea141ab541b0abd139de87592,
+        type: 3}
+      propertyPath: reject
+      value: 324
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948999421580802250, guid: fafaeeeea141ab541b0abd139de87592,
+        type: 3}
+      propertyPath: skillUp
+      value: 113
+      objectReference: {fileID: 0}
+    - target: {fileID: 4948999421580802250, guid: fafaeeeea141ab541b0abd139de87592,
+        type: 3}
+      propertyPath: skillDown
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 4948999421580802254, guid: fafaeeeea141ab541b0abd139de87592,
         type: 3}
