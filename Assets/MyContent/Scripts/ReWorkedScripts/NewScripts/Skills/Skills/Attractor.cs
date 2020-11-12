@@ -10,8 +10,6 @@ public class Attractor : ISkill {
     float _atractForce;
     float _shootSpeed;
     Transform _vacuumHoleTransform;
-    IHandEffect _aspireParticle;
-    IHandEffect _blowParticle;
 
     SkinnedMeshRenderer _targetMesh;
     Mesh _atractorMesh;
@@ -21,18 +19,12 @@ public class Attractor : ISkill {
 
     PathCalculate _pc;
 
-    public Attractor(float atractForce, float shootSpeed, Transform vacuumHole, IHandEffect aspireParticle,
-                    IHandEffect blowParticle, List<IVacuumObject> objectsToInteract)
+    public Attractor(float atractForce, float shootSpeed, Transform vacuumHole, List<IVacuumObject> objectsToInteract)
     {
         _atractForce = atractForce;
         _shootSpeed = shootSpeed;
         _vacuumHoleTransform = vacuumHole;
-        _aspireParticle = aspireParticle;
-        _blowParticle = blowParticle;
         _objectsToInteract = objectsToInteract;
-
-        _aspireParticle.StopEffect();
-        _blowParticle.StopEffect();
 
     }
 
@@ -40,18 +32,11 @@ public class Attractor : ISkill {
 
     public void Absorb()
     {
-        _blowParticle.StopEffect();
+
         if (_isStuck)
         {
-            _aspireParticle.StopEffect();
-            _isStuck = false;
             if (_objectsToInteract.Count > 0)
                 _objectsToInteract[0].ViewFX(true);
-        }
-        else
-        {
-            if (!_aspireParticle.IsPlaying() && !_isStuck)
-                _aspireParticle.StartEffect();
         }
         Attract();
     }
@@ -66,22 +51,17 @@ public class Attractor : ISkill {
                 _objectsToInteract[0].Shoot(_shootSpeed, _vacuumHoleTransform.forward);
             }
             _isStuck = false;
+            EventManager.DispatchEvent(GameEvent.VACUUM_FREE);
         }
         else
         {
-            _aspireParticle.StopEffect();
-            _isStuck = false;
             Reject();
-            if (!_blowParticle.IsPlaying())
-                _blowParticle.StartEffect();
         }
     }
     
 
     public void Exit()
     {
-        _aspireParticle.StopEffect();
-        _blowParticle.StopEffect();
         _isStuck = false;
         foreach (var obj in _objectsToInteract)
         {
@@ -109,7 +89,7 @@ public class Attractor : ISkill {
                 _objectsToInteract.RemoveAll(x => x != null);
                 _objectsToInteract.Add(aux);
                 _isStuck = true;
-                _aspireParticle.StopEffect();
+                EventManager.DispatchEvent(GameEvent.VACUUM_STUCK);
             }
         }
     }

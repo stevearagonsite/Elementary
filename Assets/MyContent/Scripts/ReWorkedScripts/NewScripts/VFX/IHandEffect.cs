@@ -6,6 +6,7 @@ public interface IHandEffect
 {
     void StopEffect();
     void StartEffect();
+    void StartEjectEffect();
     void TerminateEffect();
     bool IsPlaying();
 

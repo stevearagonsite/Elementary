@@ -70,5 +70,7 @@ public enum GameEvent
     TIME_UP,
     ELEVATOR_ON,
     SAVEDISK_ENTER,
-    SAVEDISK_END
+    SAVEDISK_END,
+    VACUUM_STUCK,
+    VACUUM_FREE
 }

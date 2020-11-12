@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using Player;
+using UnityEngine.VFX;
 
 namespace Skills
 {
@@ -33,7 +34,7 @@ namespace Skills
         [Header("Attractor Variables")]
         public float atractForce;
         public float shootSpeed;
-        public Vector3 aspireOffset;
+        public Transform vacuumHoleTransform;
 
         bool _isStuck;
         IHandEffect aspireVFX;
@@ -66,29 +67,13 @@ namespace Skills
         //Dictionary<Skills, typeSkill> hudSkill;
         #endregion
 
-        #region  Visual Effect
-        [Header("VFX References")]
-        public ParticleSystem aspireParticle;
-        public ParticleSystem blowParticle;
-        public ParticleSystem fireParticle;
-        public ParticleSystem waterParticle;
-        public ParticleSystem iceParticle;
-
-        public Transform vacuumHoleTransform;
-        public Transform particleParent;
-        #endregion
-
         public Skills currentSkill;
-        PlayerController _pC;
-        LandChecker _lC;
 
         TatooTool _tatooTool;
 
         void Awake()
         {
             //Component initializing
-            _pC = GetComponent<PlayerController>();
-            _lC = GetComponentInChildren<LandChecker>();
             _tatooTool = GetComponent<TatooTool>();
 
             //Lists Initializing
@@ -98,23 +83,16 @@ namespace Skills
             electricObjectsToInteract = new List<Transform>();
             frozenObjectsToInteract = new List<IFrozenObject>();
 
-            //Hand VFX Initializing
-            aspireVFX = new VacuumVFX(aspireParticle, particleParent, vacuumHoleTransform, aspireOffset);
-            blowVFX = new VacuumVFX(blowParticle, particleParent, vacuumHoleTransform);
-            fireVFX = new VacuumVFX(fireParticle, particleParent, vacuumHoleTransform);
-            waterVFX = new VacuumVFX(waterParticle, particleParent, vacuumHoleTransform);
-            iceVFX = new VacuumVFX(iceParticle, particleParent, vacuumHoleTransform);
-
-//            electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
-//            var aux = GetComponentInChildren<ElectricParticleEmitter>();
-//            aux.Initialize(electricObjectsToInteract);
+            electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
+            var aux = GetComponentInChildren<ElectricParticleEmitter>();
+            aux.Initialize(electricObjectsToInteract);
 
             //Strategy Initializing
-            _attractor = new Attractor(atractForce, shootSpeed, vacuumHoleTransform, aspireVFX, blowVFX, objectsToInteract);
-            _flameThrower= new FlameThrower(fireVFX, flamableObjectsToInteract);
-            _waterLauncher = new WaterLauncher(waterVFX, wetObjectsToInteract);
+            _attractor = new Attractor(atractForce, shootSpeed, vacuumHoleTransform, objectsToInteract);
+            _flameThrower= new FlameThrower(flamableObjectsToInteract);
+            _waterLauncher = new WaterLauncher(wetObjectsToInteract);
             _electricity = new Electricity(electricityVFX, electricObjectsToInteract);
-            _freezer = new Freezer(iceVFX, frozenObjectsToInteract);
+            _freezer = new Freezer(frozenObjectsToInteract);
 
             _skills = new Dictionary<Skills, ISkill>();
             _skills.Add(Skills.VACCUM, _attractor);
@@ -132,7 +110,7 @@ namespace Skills
         {
             EventManager.DispatchEvent(GameEvent.ON_SKILL_CHANGE, currentSkill);
             InputManager.instance.AddAction(InputType.Skill_Down, OnSkillDown);
-            InputManager.instance.AddAction(InputType.Skill_Down, OnSkillUp);
+            InputManager.instance.AddAction(InputType.Skill_Up, OnSkillUp);
             InputManager.instance.AddAction(InputType.Absorb, OnAbsorb);
             InputManager.instance.AddAction(InputType.Reject, OnReject);
             InputManager.instance.AddAction(InputType.Stop, OnStop);
@@ -233,7 +211,7 @@ namespace Skills
         private void OnDestroy()
         {
             InputManager.instance.RemoveAction(InputType.Skill_Down, OnSkillDown);
-            InputManager.instance.RemoveAction(InputType.Skill_Down, OnSkillUp);
+            InputManager.instance.RemoveAction(InputType.Skill_Up, OnSkillUp);
             InputManager.instance.RemoveAction(InputType.Absorb, OnAbsorb);
             InputManager.instance.RemoveAction(InputType.Reject, OnReject);
             InputManager.instance.RemoveAction(InputType.Stop, OnStop);

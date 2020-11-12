@@ -106,7 +106,7 @@ namespace Skills
             {
                 _skillAmount[sk] -= amount;
             }
-            _tatooTool.SetTatooFill(_skillAmount[sk] / _maxSkillAmount[sk]);
+            //_tatooTool.SetTatooFill(_skillAmount[sk] / _maxSkillAmount[sk]);
         }
 
         public float SkillActualAmount(Skills sk)

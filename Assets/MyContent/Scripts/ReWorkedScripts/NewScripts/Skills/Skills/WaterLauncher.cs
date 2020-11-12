@@ -5,16 +5,12 @@ using Skills;
 
 public class WaterLauncher : ISkill {
 
-    IHandEffect _waterVFX;
+
     List<IWaterObject> _waterObjectsToInteract;
 
-    public WaterLauncher(IHandEffect water, List<IWaterObject> waterObjects)
+    public WaterLauncher(List<IWaterObject> waterObjects)
     {
-        _waterVFX = water;
         _waterObjectsToInteract = waterObjects;
-
-        _waterVFX.StopEffect();
-        _waterVFX.TerminateEffect();
     }
 
     public void Absorb()
@@ -23,7 +19,6 @@ public class WaterLauncher : ISkill {
 
     public void Eject()
     {
-        _waterVFX.StartEffect();
         foreach (var obj in _waterObjectsToInteract)
         {
             obj.WetThis();
@@ -38,6 +33,6 @@ public class WaterLauncher : ISkill {
 
     public void Exit()
     {
-        _waterVFX.StopEffect();
+        
     }
 }

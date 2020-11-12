@@ -92,9 +92,12 @@ public class ElectricParticle : MonoBehaviour {
     void Die()
     {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
-        _sparkles.gameObject.transform.position = transform.position;
-        _sparkles.Stop();
-        _sparkles.Play();
+        if (_sparkles) 
+        {
+            _sparkles.gameObject.transform.position = transform.position;
+            _sparkles.Stop();
+            _sparkles.Play();
+        }
         Destroy(gameObject);
     }
 }

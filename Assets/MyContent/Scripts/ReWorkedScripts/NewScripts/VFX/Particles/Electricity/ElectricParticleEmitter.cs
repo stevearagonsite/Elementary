@@ -37,7 +37,8 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
     public void Initialize(List<Transform> ends)
     {
         end = ends;
-        particleBall.gameObject.SetActive(false);
+        if(particleBall != null)
+            particleBall.gameObject.SetActive(false);
     }
 
     public void Initialize(Transform end)
@@ -109,7 +110,8 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
         _isPlaying = false;
         if(line != null)
             line.enabled = false;
-        particleBall.gameObject.SetActive(false);
+        if (particleBall != null)
+            particleBall.gameObject.SetActive(false);
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }
 
@@ -123,9 +125,13 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
             gameObject.SetActive(true);
             _randomParticleTimmer = particleTimmer + UnityEngine.Random.Range(-timmerDispersion, timmerDispersion);
             line = GetComponent<LineRenderer>();
-            particleBall.gameObject.SetActive(true);
-            particleBall.Play();
-            sparks.Stop();
+            if (particleBall != null) 
+            {
+                particleBall.gameObject.SetActive(true);
+                particleBall.Play();
+            }
+            if (sparks != null)
+                sparks.Stop();
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
         }
     }
@@ -147,4 +153,8 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }
 
+    public void StartEjectEffect()
+    {
+       
+    }
 }

@@ -6,16 +6,11 @@ namespace Skills
 {
     public class Freezer : ISkill
     {
-        IHandEffect _freezeVFX;
         List<IFrozenObject> _frozenObjectsToInteract;
 
-        public Freezer(IHandEffect freezeVFX, List<IFrozenObject> frozenObjectsToInteract)
+        public Freezer(List<IFrozenObject> frozenObjectsToInteract)
         {
-            _freezeVFX = freezeVFX;
             _frozenObjectsToInteract = frozenObjectsToInteract;
-
-            _freezeVFX.StopEffect();
-            _freezeVFX.TerminateEffect();
         }
 
         public void Absorb()
@@ -24,7 +19,6 @@ namespace Skills
 
         public void Eject()
         {
-            _freezeVFX.StartEffect();
             foreach (var fo in _frozenObjectsToInteract)
             {
                 fo.Freeze();
@@ -39,8 +33,7 @@ namespace Skills
 
         public void Exit()
         {
-            _freezeVFX.StopEffect();
-            _freezeVFX.TerminateEffect();
+
         }
 
 
