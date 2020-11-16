@@ -19,7 +19,7 @@ namespace TPCamera
         #region NormalState Variables
         [Header("Normal State Variables")]
         public Transform _lookAt;
-        [Range(0.1f,1f)]
+        [Range(0f,1f)]
         public float positionSmoothness;
         [Range(0f, 5f)]
         public float speed = 1.8f;

@@ -34,6 +34,7 @@ namespace TPCamera
         //Camera Smooth Positions Variables
         Vector3 _targetPosition;
         float _positionSmoothness;
+        float _actualPositionSmoothness;
 
         /// <summary>
         /// Value between 0 and 1
@@ -113,7 +114,18 @@ namespace TPCamera
             _targetPosition = _lookAt.position + rotation * dir;
 
             //camera move
-            transform.position = Vector3.Lerp(transform.position, _targetPosition, _positionSmoothness);
+            if (_isColliding) 
+            {
+                _actualPositionSmoothness = _positionSmoothness;
+            }
+            else
+            {
+                if(_actualPositionSmoothness < 1)
+                    _actualPositionSmoothness += Time.deltaTime;
+                //We need this when we exit terrain collision
+            }
+            transform.position = Vector3.Lerp(transform.position, _targetPosition, _actualPositionSmoothness);
+
             transform.rotation = Quaternion.LookRotation(_lookAt.position - transform.position);
         }
 
