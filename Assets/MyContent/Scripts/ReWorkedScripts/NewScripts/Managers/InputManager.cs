@@ -21,6 +21,7 @@ public class InputManager : MonoBehaviour
     public KeyCode reject;
     public KeyCode skillUp;
     public KeyCode skillDown;
+    public KeyCode sprint;
     /// <summary>
     /// Initialize
     /// </summary>
@@ -105,6 +106,14 @@ public class InputManager : MonoBehaviour
                 _actions[InputType.Skill_Down]();
             }
         }
+
+        if (Input.GetKey(sprint))
+        {
+            if (_actions.ContainsKey(InputType.Sprint))
+            {
+                _actions[InputType.Sprint]();
+            }
+        }
     }
 
     /// <summary>
@@ -187,7 +196,8 @@ public enum InputType
     Reject,
     Stop,
     Skill_Down,
-    Skill_Up
+    Skill_Up,
+    Sprint
 }
 
 

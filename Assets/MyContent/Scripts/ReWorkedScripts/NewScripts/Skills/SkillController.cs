@@ -67,6 +67,8 @@ namespace Skills
         //Dictionary<Skills, typeSkill> hudSkill;
         #endregion
 
+        private CharacterController _cc;
+
         public Skills currentSkill;
 
         TatooTool _tatooTool;
@@ -75,6 +77,7 @@ namespace Skills
         {
             //Component initializing
             _tatooTool = GetComponent<TatooTool>();
+            _cc = GetComponent<CharacterController>();
 
             //Lists Initializing
             objectsToInteract = new List<IVacuumObject>();
@@ -85,7 +88,7 @@ namespace Skills
 
             electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
             var aux = GetComponentInChildren<ElectricParticleEmitter>();
-            aux.Initialize(electricObjectsToInteract);
+            //aux.Initialize(electricObjectsToInteract);
 
             //Strategy Initializing
             _attractor = new Attractor(atractForce, shootSpeed, vacuumHoleTransform, objectsToInteract);
@@ -118,12 +121,14 @@ namespace Skills
 
         void OnAbsorb()
         {
-            actualAction.Absorb();
+            if(_cc.isGrounded)
+                actualAction.Absorb();
         }
 
         void OnReject()
         {
-            actualAction.Eject();
+            if(_cc.isGrounded)
+                actualAction.Eject();
         }
 
         void OnStop()

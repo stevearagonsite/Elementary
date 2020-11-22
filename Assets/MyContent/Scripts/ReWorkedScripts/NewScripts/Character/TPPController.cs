@@ -12,7 +12,12 @@ public class TPPController : MonoBehaviour
 
     [Header("Move Variables")]
     public float speed;
-   
+    public float sprintSpeed;
+    public float sprintStaminaInSeconds;
+    public float staminaRecoverRatio;
+    public float staminaLoseRatio;
+
+
     public Transform gfx;
     public float turnSpeed;
 
@@ -36,6 +41,12 @@ public class TPPController : MonoBehaviour
     private Vector3 _velocity;
     private float _actualJumpFly = 0;
 
+    /**
+     * Sprint variables
+     */
+    private float _actualStamina;
+    private float _minStamina = -0.5f;
+
     public Vector3 velocity { get => _velocity;}
 
     /// <summary>
@@ -44,13 +55,36 @@ public class TPPController : MonoBehaviour
     void Start()
     {
         _cc = GetComponent<CharacterController>();
+        _actualStamina =
+        _actualStamina = sprintStaminaInSeconds;
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
+        InputManager.instance.AddAction(InputType.Sprint, Sprint);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
+    /// <summary>
+    /// Add movement so the sprints
+    /// </summary>
+    private void Sprint()
+    {
+        if(_actualStamina >= 0) 
+        {
+            if (_cc.isGrounded) 
+            {
+                var dir = GetMoveDirection();
+                var actualSpeed = sprintSpeed - speed;
+                var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
+                _cc.Move(dir * movementSpeed);
+            }
+        }
+        if(_actualStamina >= _minStamina) 
+        {
+            _actualStamina -= Time.deltaTime * (staminaLoseRatio + staminaRecoverRatio);
+        }
+    }
 
-   
+
     /// <summary>
     /// Execute every frame
     /// </summary>
@@ -59,6 +93,17 @@ public class TPPController : MonoBehaviour
         Move();
         ApplyGravity();
         RotateGFX();
+        AddSprintStamina();
+    }
+    /// <summary>
+    /// Constantly add stamina, so it can recover
+    /// </summary>
+    private void AddSprintStamina()
+    {
+        if(_actualStamina <= sprintStaminaInSeconds) 
+        {
+            _actualStamina += Time.deltaTime * staminaRecoverRatio;
+        }
     }
 
     /// <summary>
@@ -95,13 +140,16 @@ public class TPPController : MonoBehaviour
     /// </summary>
     private void Move()
     {
-        var dir = GetMoveDirection();
-        if (!obstacleChecker.CheckObstacle())
+        if(obstacleChecker.CheckObstacle() && !_cc.isGrounded) 
         {
-            var actualSpeed = _cc.isGrounded ? speed : jumpSpeed;
-            var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
-            _cc.Move(dir * movementSpeed);
+            return;
         }
+        
+        var dir = GetMoveDirection();
+        var actualSpeed = _cc.isGrounded ? speed : jumpSpeed;
+        var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
+        _cc.Move(dir * movementSpeed);
+        
     }
 
     /// <summary>
