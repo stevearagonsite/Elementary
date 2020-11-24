@@ -11,6 +11,7 @@ public class ScenePartLoader : MonoBehaviour
     {
         if (!_isLoaded) 
         {
+            Application.backgroundLoadingPriority = ThreadPriority.High;
             SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
             _isLoaded = true;
         }
@@ -28,12 +29,11 @@ public class ScenePartLoader : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         LoadScene();
-        Debug.Log("Entro al trigger");
+        Debug.Log(other.name + "Entered");
     }
 
     private void OnTriggerExit(Collider other)
     {
         UnLoadScene();
-        Debug.Log("Salgo del trigger");
     }
 }

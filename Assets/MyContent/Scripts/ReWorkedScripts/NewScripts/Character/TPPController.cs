@@ -48,6 +48,7 @@ public class TPPController : MonoBehaviour
     private float _minStamina = -0.5f;
 
     public Vector3 velocity { get => _velocity;}
+    public float actualStamina { get => _actualStamina;}
 
     /// <summary>
     /// Initialize 
@@ -55,7 +56,6 @@ public class TPPController : MonoBehaviour
     void Start()
     {
         _cc = GetComponent<CharacterController>();
-        _actualStamina =
         _actualStamina = sprintStaminaInSeconds;
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
