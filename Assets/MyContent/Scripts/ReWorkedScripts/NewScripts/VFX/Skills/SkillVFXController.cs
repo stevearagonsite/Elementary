@@ -20,12 +20,13 @@ public class SkillVFXController : MonoBehaviour
 
         var absorbFX = new VacuumVFX(absorbParticle, blowParticle);
         var fireFX = new FireVFX(fireParticle);
-
+        var electricFX = GetComponentInChildren<ElectricParticleEmitter>();
 
         _skillDictionary = new Dictionary<Skills.Skills, IHandEffect>();
 
         _skillDictionary.Add(Skills.Skills.VACCUM, absorbFX);
         _skillDictionary.Add(Skills.Skills.FIRE, fireFX);
+        _skillDictionary.Add(Skills.Skills.ELECTRICITY, electricFX);
 
         InputManager.instance.AddAction(InputType.Absorb, Absorb);
         InputManager.instance.AddAction(InputType.Reject, Reject);

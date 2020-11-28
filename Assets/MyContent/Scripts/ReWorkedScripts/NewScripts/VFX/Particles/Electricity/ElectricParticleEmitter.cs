@@ -101,7 +101,8 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
             var lerpPos = Vector3.Lerp(pos, linePositions[i], 0.5f);
             line.SetPosition(i,lerpPos);
         }
-        line.SetPosition(count - 1, end[0].position);
+        if(end.Count >0)
+            line.SetPosition(count - 1, end[0].position);
     }
 
     #region IHandEffect
@@ -113,6 +114,11 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
         if (particleBall != null)
             particleBall.gameObject.SetActive(false);
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+    }
+
+    public void StartEjectEffect()
+    {
+
     }
 
     public void StartEffect()
@@ -151,10 +157,5 @@ public class ElectricParticleEmitter : MonoBehaviour, IHandEffect {
     private void OnDestroy()
     {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
-    }
-
-    public void StartEjectEffect()
-    {
-       
     }
 }

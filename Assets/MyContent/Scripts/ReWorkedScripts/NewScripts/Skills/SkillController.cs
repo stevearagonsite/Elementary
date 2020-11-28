@@ -88,7 +88,7 @@ namespace Skills
 
             electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
             var aux = GetComponentInChildren<ElectricParticleEmitter>();
-            //aux.Initialize(electricObjectsToInteract);
+            aux.Initialize(electricObjectsToInteract);
 
             //Strategy Initializing
             _attractor = new Attractor(atractForce, shootSpeed, vacuumHoleTransform, objectsToInteract);
