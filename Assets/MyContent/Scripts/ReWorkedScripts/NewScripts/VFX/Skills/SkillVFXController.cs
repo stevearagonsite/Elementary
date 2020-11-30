@@ -11,21 +11,29 @@ public class SkillVFXController : MonoBehaviour
     public VisualEffect blowParticle;
     public VisualEffect fireParticle;
 
+    [HideInInspector]
+    public ElectricityManager electricFX;
+
     private Dictionary<Skills.Skills, IHandEffect> _skillDictionary;
     private SkillController _skillController;
     private bool _isStuck;
+
+    private CharacterController _cc;
     void Start()
     {
         _skillController = GetComponent<SkillController>();
+        _cc = GetComponent<CharacterController>();
 
         var absorbFX = new VacuumVFX(absorbParticle, blowParticle);
         var fireFX = new FireVFX(fireParticle);
+        electricFX = GetComponentInChildren<ElectricityManager>();
 
 
         _skillDictionary = new Dictionary<Skills.Skills, IHandEffect>();
 
         _skillDictionary.Add(Skills.Skills.VACCUM, absorbFX);
         _skillDictionary.Add(Skills.Skills.FIRE, fireFX);
+        _skillDictionary.Add(Skills.Skills.ELECTRICITY, electricFX);
 
         InputManager.instance.AddAction(InputType.Absorb, Absorb);
         InputManager.instance.AddAction(InputType.Reject, Reject);
@@ -35,7 +43,16 @@ public class SkillVFXController : MonoBehaviour
 
         EventManager.AddEventListener(GameEvent.VACUUM_STUCK, StuckVacuum);
         EventManager.AddEventListener(GameEvent.VACUUM_FREE, FreeVacuum);
+        EventManager.AddEventListener(GameEvent.ON_SKILL_CHANGE, onSkillChange);
 
+    }
+
+    private void onSkillChange(object[] parameterContainer)
+    {
+        foreach(var sk in _skillDictionary)
+        {
+            sk.Value.StopEffect();
+        }
     }
 
     private void FreeVacuum(object[] parameterContainer)
@@ -50,13 +67,18 @@ public class SkillVFXController : MonoBehaviour
 
     void Absorb() 
     {
-        if(!_isStuck)
+        if(!_isStuck && _cc.isGrounded)
             _skillDictionary[_skillController.skillAction].StartEffect();
+        else
+            _skillDictionary[_skillController.skillAction].StopEffect();
     }
 
-    void Reject() 
+    void Reject()
     {
-        _skillDictionary[_skillController.skillAction].StartEjectEffect();
+        if (_cc.isGrounded)
+            _skillDictionary[_skillController.skillAction].StartEjectEffect();
+        else
+            _skillDictionary[_skillController.skillAction].StopEffect();
     }
 
     void Stop() 
@@ -74,5 +96,7 @@ public class SkillVFXController : MonoBehaviour
 
         EventManager.RemoveEventListener(GameEvent.VACUUM_STUCK, StuckVacuum);
         EventManager.RemoveEventListener(GameEvent.VACUUM_FREE, FreeVacuum);
+        EventManager.RemoveEventListener(GameEvent.ON_SKILL_CHANGE, onSkillChange);
+
     }
 }

@@ -6,13 +6,12 @@ namespace Skills
 {
     public class Electricity : ISkill
     {
-        IHandEffect _electricityVFX;
         List<Transform> _electricObjectsToInteract;
-
-        public Electricity(IHandEffect electricityVFX, List<Transform> electricObjectsToInteract)
+        ElectricityManager _electricFX;
+        public Electricity(List<Transform> electricObjectsToInteract, ElectricityManager electricFX)
         {
-            _electricityVFX = electricityVFX;
             _electricObjectsToInteract = electricObjectsToInteract;
+            _electricFX = electricFX;
         }
 
         public void Enter()
@@ -27,18 +26,21 @@ namespace Skills
 
         public void Eject()
         {
-            _electricityVFX.StartEffect();
-            foreach (var eo in _electricObjectsToInteract)
+            if(_electricObjectsToInteract.Count > 0)
             {
-                eo.GetComponent<IElectricObject>().Electrify();
-                SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ELECTRICITY);
+                foreach (var eo in _electricObjectsToInteract)
+                {
+                    eo.GetComponent<IElectricObject>().Electrify();
+                    SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ELECTRICITY);
+                }
+                
+
             }
+            _electricFX.SetTargets(_electricObjectsToInteract);
         }
 
         public void Exit()
         {
-            _electricityVFX.StopEffect();
-            _electricityVFX.TerminateEffect();
         }
 
 

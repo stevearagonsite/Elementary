@@ -40,6 +40,7 @@ public class TPPController : MonoBehaviour
     private float _vertical;
     private Vector3 _velocity;
     private float _actualJumpFly = 0;
+    private bool _isUsingPower = false;
 
     /**
      * Sprint variables
@@ -61,8 +62,28 @@ public class TPPController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
         InputManager.instance.AddAction(InputType.Sprint, Sprint);
+        InputManager.instance.AddAction(InputType.Absorb, ExecutePower);
+        InputManager.instance.AddAction(InputType.Reject, ExecutePower);
+        InputManager.instance.AddAction(InputType.Stop, StopPower);
+
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
+    /// <summary>
+    /// 
+    /// </summary>
+    private void StopPower()
+    {
+        _isUsingPower = false;
+    }
+
+    /// <summary>
+    /// 
+    /// </summary>
+    private void ExecutePower()
+    {
+        _isUsingPower = true;
+    }
+
     /// <summary>
     /// Add movement so the sprints
     /// </summary>
@@ -72,7 +93,7 @@ public class TPPController : MonoBehaviour
         {
             if (_cc.isGrounded) 
             {
-                var dir = GetMoveDirection();
+                var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
                 var actualSpeed = sprintSpeed - speed;
                 var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
                 _cc.Move(dir * movementSpeed);
@@ -111,10 +132,13 @@ public class TPPController : MonoBehaviour
     /// </summary>
     private void RotateGFX()
     {
-        var targetRotation = Quaternion.LookRotation(GetMoveDirection());
+        var targetRotation = Quaternion.LookRotation((GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized);
         if ((Mathf.Abs(_horizontal) > rotationOffset || Mathf.Abs(_vertical) > rotationOffset))
             gfx.rotation = Quaternion.Slerp(gfx.rotation, targetRotation, turnSpeed*Time.deltaTime);
-
+        else if (_isUsingPower)
+        {
+            gfx.rotation = Quaternion.Slerp(gfx.rotation, GetMoveDirection(), turnSpeed * Time.deltaTime);
+        }
         obstacleChecker.transform.rotation = targetRotation;
     }
 
@@ -145,7 +169,7 @@ public class TPPController : MonoBehaviour
             return;
         }
         
-        var dir = GetMoveDirection();
+        var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
         var actualSpeed = _cc.isGrounded ? speed : jumpSpeed;
         var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
         _cc.Move(dir * movementSpeed);
@@ -156,14 +180,14 @@ public class TPPController : MonoBehaviour
     /// Get Direction without Y
     /// </summary>
     /// <returns></returns>
-    private Vector3 GetMoveDirection()
+    private Quaternion GetMoveDirection()
     {
         var camForwardWithOutY = new Vector3(cameraT.transform.forward.x, 0, cameraT.transform.forward.z);
         var anglesign = Vector3.Cross(new Vector3(0, 0, 1), camForwardWithOutY).y > 0 ? 1 : -1;
         var angleCorrection = Vector3.Angle(new Vector3(0, 0, 1), camForwardWithOutY) * anglesign;
         
         //Get forward multiplying the input vector3 with the quaternion containing the camera angle
-        return  (Quaternion.Euler(0f, angleCorrection, 0f) * new Vector3(_horizontal, 0, _vertical)).normalized;
+        return  (Quaternion.Euler(0f, angleCorrection, 0f));
       
     }
 
@@ -213,6 +237,12 @@ public class TPPController : MonoBehaviour
     {
         InputManager.instance.RemoveAction(InputType.Jump, Jump);
         InputManager.instance.RemoveAction(InputType.Movement, MoveAction);
+        InputManager.instance.RemoveAction(InputType.Jump_Held, JumpHeld);
+        InputManager.instance.RemoveAction(InputType.Sprint, Sprint);
+        InputManager.instance.RemoveAction(InputType.Absorb, ExecutePower);
+        InputManager.instance.RemoveAction(InputType.Reject, ExecutePower);
+        InputManager.instance.RemoveAction(InputType.Stop, StopPower);
+
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }
 }

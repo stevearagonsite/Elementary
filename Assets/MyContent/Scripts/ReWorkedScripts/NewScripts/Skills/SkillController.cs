@@ -58,7 +58,7 @@ namespace Skills
         #endregion
 
         #region ElectricityVariables
-        IHandEffect electricityVFX;
+        ElectricityManager electricityVFX;
         [HideInInspector]
         public List<Transform> electricObjectsToInteract;
         #endregion
@@ -86,7 +86,7 @@ namespace Skills
             electricObjectsToInteract = new List<Transform>();
             frozenObjectsToInteract = new List<IFrozenObject>();
 
-            electricityVFX = GetComponentInChildren<ElectricParticleEmitter>();
+            electricityVFX = GetComponentInChildren<ElectricityManager>();
             var aux = GetComponentInChildren<ElectricParticleEmitter>();
             //aux.Initialize(electricObjectsToInteract);
 
@@ -94,7 +94,7 @@ namespace Skills
             _attractor = new Attractor(atractForce, shootSpeed, vacuumHoleTransform, objectsToInteract);
             _flameThrower= new FlameThrower(flamableObjectsToInteract);
             _waterLauncher = new WaterLauncher(wetObjectsToInteract);
-            _electricity = new Electricity(electricityVFX, electricObjectsToInteract);
+            _electricity = new Electricity(electricObjectsToInteract, electricityVFX);
             _freezer = new Freezer(frozenObjectsToInteract);
 
             _skills = new Dictionary<Skills, ISkill>();

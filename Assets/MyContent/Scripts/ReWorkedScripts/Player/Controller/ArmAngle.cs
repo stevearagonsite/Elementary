@@ -6,11 +6,10 @@ using System;
 using Player;
 
 public class ArmAngle : MonoBehaviour {
-
+    public Transform armPivot;
     IKControl ikControl;
     bool _isActive;
-
-    public Transform armPivot;
+    CharacterController _cc;
     Transform cameraT;
 
     void Start ()
@@ -20,6 +19,7 @@ public class ArmAngle : MonoBehaviour {
         InputManager.instance.AddAction(InputType.Reject, Absorb);
         InputManager.instance.AddAction(InputType.Stop, Stop);
         cameraT = GetComponentInParent<TPPController>().cameraT.transform;
+        _cc = GetComponentInParent<CharacterController>();
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
 
@@ -35,7 +35,7 @@ public class ArmAngle : MonoBehaviour {
 
     private void Execute() 
     {
-        if (_isActive) 
+        if (_isActive && _cc.isGrounded) 
         {
             var x = cameraT.localEulerAngles.x;
             armPivot.localEulerAngles = new Vector3(x, 0, 0);
