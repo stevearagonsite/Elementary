@@ -12,7 +12,7 @@ public class ScenePartLoader : MonoBehaviour
         if (!_isLoaded) 
         {
             Application.backgroundLoadingPriority = ThreadPriority.High;
-            SceneManager.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
+            SceneLoadManager.instance.LoadSceneAsync(gameObject.name, LoadSceneMode.Additive);
             _isLoaded = true;
         }
     }
@@ -21,7 +21,7 @@ public class ScenePartLoader : MonoBehaviour
     {
         if (_isLoaded) 
         {
-            SceneManager.UnloadSceneAsync(gameObject.name);
+            SceneLoadManager.instance.UnloadSceneAsync(gameObject.name);
             _isLoaded = false;
         }
     }
