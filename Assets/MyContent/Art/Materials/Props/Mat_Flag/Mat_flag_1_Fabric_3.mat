@@ -9,7 +9,7 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_flag_1_Fabric_3
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _NORMALMAP
+  m_ShaderKeywords: _NORMALMAP _OCCLUSIONMAP
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 1
@@ -20,6 +20,14 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_90030984:
+        m_Texture: {fileID: 2800000, guid: 1db18d4411a997f4db314f13c54b6deb, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_9185DFAD:
+        m_Texture: {fileID: 2800000, guid: a44df539c1628574a925c5ff4b8b0341, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BackFacesAlbedo:
         m_Texture: {fileID: 2800000, guid: b02cd75725e62f94094dcd98b8a224be, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -33,11 +41,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: e5dcff47825d80c438d7947711de4682, type: 3}
+        m_Texture: {fileID: 2800000, guid: a44df539c1628574a925c5ff4b8b0341, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 4e9da1f6308868242b14cab131ba4091, type: 3}
+        m_Texture: {fileID: 2800000, guid: 1db18d4411a997f4db314f13c54b6deb, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -69,7 +77,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: e5dcff47825d80c438d7947711de4682, type: 3}
+        m_Texture: {fileID: 2800000, guid: a44df539c1628574a925c5ff4b8b0341, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -77,7 +85,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OcclusionMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: 8b3e79acffcf2ac40b2ae3933670f654, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _OpacityMask:
@@ -97,6 +105,10 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_524A75C8: 0.55
+    - Vector1_6245AC8E: 0
+    - Vector1_799C65B7: 0.55
+    - Vector1_C3D7B062: 1.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
