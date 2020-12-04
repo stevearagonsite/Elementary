@@ -10,7 +10,7 @@ public class InitialScene : MonoBehaviour
     {
         for (int i = 0; i <scenesToLoadAtStart.Length; i++)
         {
-            SceneManager.LoadScene(scenesToLoadAtStart[i], LoadSceneMode.Additive);
+            SceneLoadManager.instance.LoadSceneAsync(scenesToLoadAtStart[i], LoadSceneMode.Additive);
         }
     }
 }

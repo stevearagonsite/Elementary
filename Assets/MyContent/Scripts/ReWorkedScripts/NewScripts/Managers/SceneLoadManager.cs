@@ -37,8 +37,9 @@ public class SceneLoadManager : MonoBehaviour
     /// <returns></returns>
     IEnumerator SceneLoadCoroutine(AsyncOperation sceneLoadData)
     {
-        while (!sceneLoadData.isDone)
+        while (sceneLoadData.progress < 0.9)
         {
+            Debug.Log(sceneLoadData.progress);
             yield return null;
         }
         EventManager.DispatchEvent(GameEvent.LOAD_SCENE_COMPLETE);
