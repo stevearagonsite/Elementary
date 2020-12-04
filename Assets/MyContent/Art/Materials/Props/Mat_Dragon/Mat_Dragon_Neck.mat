@@ -9,8 +9,8 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Mat_Dragon_Neck
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
-  m_LightmapFlags: 4
+  m_ShaderKeywords: _EMISSION _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
@@ -20,6 +20,26 @@ Material:
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
+    - Texture2D_1B179C14:
+        m_Texture: {fileID: 2800000, guid: e70d3c464b8539641bec1f7643df5b58, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_3360F2B5:
+        m_Texture: {fileID: 2800000, guid: 4f07fd57541c0ed41aa2cdbd132a9de5, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_4AE10F01:
+        m_Texture: {fileID: 2800000, guid: b8b756d4830b1024bbdf5fe63748b62c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_7F74059D:
+        m_Texture: {fileID: 2800000, guid: 56114b248003451418ded06c32da0719, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_8360041:
+        m_Texture: {fileID: 2800000, guid: 911c6bb0333a75a4085b6585abc712bd, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
     - _BaseMap:
         m_Texture: {fileID: 2800000, guid: b8b756d4830b1024bbdf5fe63748b62c, type: 3}
         m_Scale: {x: 1, y: 1}
@@ -49,6 +69,8 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+    - Vector1_1FDEF4E5: 5
+    - Vector1_231D10FD: 0.5
     - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
