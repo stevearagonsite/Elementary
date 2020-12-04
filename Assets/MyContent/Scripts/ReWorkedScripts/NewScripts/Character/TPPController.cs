@@ -35,6 +35,9 @@ public class TPPController : MonoBehaviour
     /**
      *Move Private Variables 
      **/
+
+    private bool _isActive;
+
     private CharacterController _cc;
     private float _horizontal;
     private float _vertical;
@@ -67,7 +70,21 @@ public class TPPController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Stop, StopPower);
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
+
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, ActivateCharacter);
+        EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
     }
+
+    private void DeactivateCharacter(object[] parameterContainer)
+    {
+        _isActive = false;
+    }
+
+    private void ActivateCharacter(object[] parameterContainer)
+    {
+        _isActive = true;
+    }
+
     /// <summary>
     /// 
     /// </summary>
@@ -111,10 +128,13 @@ public class TPPController : MonoBehaviour
     /// </summary>
     void Execute()
     {
-        Move();
-        ApplyGravity();
-        RotateGFX();
-        AddSprintStamina();
+        if (_isActive)
+        {
+            Move();
+            ApplyGravity();
+            RotateGFX();
+            AddSprintStamina();
+        }
     }
     /// <summary>
     /// Constantly add stamina, so it can recover

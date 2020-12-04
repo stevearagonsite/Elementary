@@ -25,10 +25,16 @@ public class LoadingScreenManager : MonoBehaviour
 
     private void onCompleteLoadScene(object[] parameterContainer)
     {
-        amountOfLoadingScreens--;
+        if(amountOfLoadingScreens > 0)
+        {
+            amountOfLoadingScreens--;
+        }
+        Debug.Log("Complete load, amountOfScenesInQueue: " + amountOfLoadingScreens); 
         if(amountOfLoadingScreens == 0)
         {
             loadingCanvas.gameObject.SetActive(false);
+            EventManager.DispatchEvent(GameEvent.TRANSITION_FADEIN_DEMO);
+            Debug.Log("End Scenes Queue");
             //TODO: Que sea transicion y no de golpe
         }
     }

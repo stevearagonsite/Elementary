@@ -9,21 +9,24 @@ public class PlayerInitialPosition : MonoBehaviour
     void Start()
     {
         _hero = GameObject.Find("Character");
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, RepositionPlayer);
     }
 
-    // Update is called once per frame
-    void Update()
+    void RepositionPlayer(object[] p)
     {
-        if(_hero == null) 
+        if (_hero == null)
         {
             _hero = GameObject.Find("Character");
         }
-        else 
+
+        if(_hero != null)
         {
             _hero.transform.position = transform.position;
             _hero.transform.rotation = transform.rotation;
+            EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_DEMO, RepositionPlayer);
             Destroy(this);
         }
+      
     }
 
     private void OnDrawGizmos()
