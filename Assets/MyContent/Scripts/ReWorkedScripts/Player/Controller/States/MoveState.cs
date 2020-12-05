@@ -130,7 +130,7 @@ namespace Player
 
                         cameraSmoothness = 0.1f;
                         //_cam.ChangeSmoothness(cameraSmoothness);
-                        _cam.normalState.positionSmoothness = cameraSmoothness;
+                        //_cam.normalState.positionSmoothness = cameraSmoothness;
                     }
                     else
                     {
@@ -141,7 +141,7 @@ namespace Player
                         _pC.fallDistance = 0.5f;
 
                         
-                        _cam.normalState.unadjustedDistance = 2f;
+                        //_cam.normalState.unadjustedDistance = 2f;
 
                         if (cameraSmoothness < 0.3f)
                         {

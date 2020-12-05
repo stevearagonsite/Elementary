@@ -26,7 +26,7 @@ namespace Player
         {
             
             _anim.SetBool("toLand", true);
-            _cam.normalState.unadjustedDistance = 2f;
+            //_cam.normalState.unadjustedDistance = 2f;
 
         }
 

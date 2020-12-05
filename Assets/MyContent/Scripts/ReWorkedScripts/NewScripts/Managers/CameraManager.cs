@@ -35,7 +35,7 @@ public class CameraManager : MonoBehaviour
         {
             _mainCamera.enabled = true;
             _mainCamera.GetComponent<Camera>().enabled = true;
-            //_mainCamera.GoToStartPosition();
+            _mainCamera.GoToStartPosition();
         }
     }
 

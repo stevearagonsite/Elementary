@@ -32,6 +32,8 @@ public class TPPController : MonoBehaviour
     public float jumpFlyTime = 2;
     public float jumpFlyPower = 0.8f;
 
+    public bool isActive { get { return _isActive; } }
+
     /**
      *Move Private Variables 
      **/
@@ -71,8 +73,11 @@ public class TPPController : MonoBehaviour
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
 
-        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, ActivateCharacter);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, ActivateCharacter);
         EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
+        EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ActivateCharacter);
+
+        _isActive = false;
     }
 
     private void DeactivateCharacter(object[] parameterContainer)
@@ -262,6 +267,10 @@ public class TPPController : MonoBehaviour
         InputManager.instance.RemoveAction(InputType.Absorb, ExecutePower);
         InputManager.instance.RemoveAction(InputType.Reject, ExecutePower);
         InputManager.instance.RemoveAction(InputType.Stop, StopPower);
+
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_DEMO, ActivateCharacter);
+        EventManager.RemoveEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
+        EventManager.RemoveEventListener(GameEvent.CAMERA_NORMAL, ActivateCharacter);
 
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }

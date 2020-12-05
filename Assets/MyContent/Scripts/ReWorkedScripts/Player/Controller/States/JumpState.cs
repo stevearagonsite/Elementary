@@ -85,8 +85,8 @@ namespace Player
             
             //_aES.landEnd = false;
 
-            _cam.normalState.unadjustedDistance = 3f;
-            _cam.normalState.positionSmoothness = 0.1f;
+            //_cam.normalState.unadjustedDistance = 3f;
+            //_cam.normalState.positionSmoothness = 0.1f;
             _pC.isSkillLocked = true;
 
             initialForward = GetCorrectedForward(true);

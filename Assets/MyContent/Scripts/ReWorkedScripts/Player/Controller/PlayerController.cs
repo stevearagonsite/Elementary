@@ -157,7 +157,7 @@ namespace Player
         void ToFixedCamera(object[] parameterContainer)
         {
             fixedCamera = true;
-            isActive = cam2.Fsm.Last.ToString() == "TPCamera.FixedState";
+            //isActive = cam2.Fsm.Last.ToString() == "TPCamera.FixedState";
 
         }
 

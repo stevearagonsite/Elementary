@@ -80,7 +80,7 @@ public class LevelManager : MonoBehaviour {
                 _PC.RespawnOnCheckPoint(checkPoints[i].transform);
                 EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
                 CutScenesManager.instance.DeActivateCutSceneCamera("DeathFall");
-                _PC.cam2.normalState.SetInitialPosition(checkPoints[i].transform);
+                //_PC.cam2.normalState.SetInitialPosition(checkPoints[i].transform);
             }
         }
          

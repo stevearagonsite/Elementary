@@ -30,9 +30,11 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void CheckFall()
     {
-        
-        var val = _controller.velocity.y < -5 && !Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance*2);
-        _anim.SetBool("fall", val);
+        if (_controller.isActive) 
+        {
+            var val = _controller.velocity.y < -5 && !Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance*2);
+            _anim.SetBool("fall", val);
+        }
 
         
     }
@@ -42,8 +44,11 @@ public class CharacterAnimationController : MonoBehaviour
     /// </summary>
     void Jump() 
     {
-        if (_cc.isGrounded)
-            _anim.SetTrigger("jump");
+        if (_controller.isActive)
+        {
+            if (_cc.isGrounded)
+                _anim.SetTrigger("jump");
+        }
     }
 
     /// <summary>
@@ -52,23 +57,30 @@ public class CharacterAnimationController : MonoBehaviour
     /// <param name="dir"></param>
     private void MoveAction(Vector2 dir)
     {
-        _anim.SetFloat("speed",Mathf.Clamp01(Math.Abs(dir.x) + Math.Abs(dir.y)));
+        if(_controller.isActive)
+            _anim.SetFloat("speed",Mathf.Clamp01(Math.Abs(dir.x) + Math.Abs(dir.y)));
     }
 
     private void CheckLand()
     {
-        
-         var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance) || _cc.isGrounded;
-         _anim.SetBool("land", val);
+        if (_controller.isActive)
+        {
+            var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance) || _cc.isGrounded;
+            _anim.SetBool("land", val);
+
+        }
         
     }
 
     private void Sprint() 
     {
-        var speed = _anim.GetFloat("speed");
-        if(speed > 0 && _controller.actualStamina > 0) 
+        if (_controller.isActive)
         {
-            _anim.SetFloat("speed", 2);
+            var speed = _anim.GetFloat("speed");
+            if(speed > 0 && _controller.actualStamina > 0) 
+            {
+                _anim.SetFloat("speed", 2);
+            }
         }
     }
 }
