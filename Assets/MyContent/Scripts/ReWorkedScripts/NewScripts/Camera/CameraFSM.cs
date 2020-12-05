@@ -61,15 +61,16 @@ namespace TPCamera
             
             #endregion
 
-            EventManager.AddEventListener(GameEvent.CAMERA_FIXPOS, ToFixed);
-            EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ToNormal);
-            EventManager.AddEventListener(GameEvent.CAMERA_STORY, ToStory);
+            //EventManager.AddEventListener(GameEvent.CAMERA_FIXPOS, ToFixed);
+            //EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ToNormal);
+            //EventManager.AddEventListener(GameEvent.CAMERA_STORY, ToStory);
         }
         // Use this for initialization
         void Start ()
         {
             _fsm = new FSM<Inputs>(_normalState);
             UpdatesManager.instance.AddUpdate(UpdateType.LATE, Execute);
+            CameraManager.instance.RegisterMainCamera(this);
 	    }
 
 
@@ -84,34 +85,36 @@ namespace TPCamera
             
         }
 
-        private void ToStory(object[] parameterContainer)
-        {
-            //_storyState.update = (Action<Transform>)parameterContainer[0];
-            var camTag = (string)parameterContainer[0];
-            //CutScenesManager.instance.ActivateCutSceneCamera(camTag);
-            _storyState.cutSceneCamera = CutScenesManager.instance.GetCamera(camTag);
-            _fsm.ProcessInput(Inputs.TO_DEMO);
-        }
+        /*        private void ToStory(object[] parameterContainer)
+                {
+                    //_storyState.update = (Action<Transform>)parameterContainer[0];
+                    var camTag = (string)parameterContainer[0];
+                    //CutScenesManager.instance.ActivateCutSceneCamera(camTag);
+                    _storyState.cutSceneCamera = CutScenesManager.instance.GetCamera(camTag);
+                    _fsm.ProcessInput(Inputs.TO_DEMO);
+                }
 
-        void ToFixed(object[] parameterContainer)
-        {
-            _fixedState.targetX = (float)parameterContainer[0];
-            _fixedState.targetY = (float)parameterContainer[1];
-            _fixedState.targetDistance = (float)parameterContainer[2];
-            _fsm.ProcessInput(Inputs.TO_FIXED);
-        }
+                void ToFixed(object[] parameterContainer)
+                {
+                    _fixedState.targetX = (float)parameterContainer[0];
+                    _fixedState.targetY = (float)parameterContainer[1];
+                    _fixedState.targetDistance = (float)parameterContainer[2];
+                    _fsm.ProcessInput(Inputs.TO_FIXED);
+                }
 
-        void ToNormal(object[] parameterContainer)
-        {
-            _fsm.ProcessInput(Inputs.TO_NORMAL);
-        }
-              
+                void ToNormal(object[] parameterContainer)
+                {
+                    _fsm.ProcessInput(Inputs.TO_NORMAL);
+                }*/
+
         private void OnDestroy()
         {
             UpdatesManager.instance.RemoveUpdate(UpdateType.LATE, Execute);
-            EventManager.RemoveEventListener(GameEvent.CAMERA_FIXPOS, ToFixed);
-            EventManager.RemoveEventListener(GameEvent.CAMERA_NORMAL, ToNormal);
-            EventManager.RemoveEventListener(GameEvent.CAMERA_STORY, ToStory);
+            //EventManager.RemoveEventListener(GameEvent.CAMERA_FIXPOS, ToFixed);
+            //EventManager.RemoveEventListener(GameEvent.CAMERA_NORMAL, ToNormal);
+            //EventManager.RemoveEventListener(GameEvent.CAMERA_STORY, ToStory);
+
+            CameraManager.instance.UnregisterMainCamera();
         }
     }
 

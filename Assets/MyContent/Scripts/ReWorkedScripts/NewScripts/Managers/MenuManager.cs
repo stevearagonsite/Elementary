@@ -17,5 +17,6 @@ public class MenuManager : MonoBehaviour
         SceneLoadManager.instance.LoadSceneAsync("Player", LoadSceneMode.Additive);
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
+        EventManager.DispatchEvent(GameEvent.START_GAME);
     }
 }
