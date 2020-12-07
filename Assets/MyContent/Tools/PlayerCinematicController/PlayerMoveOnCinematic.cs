@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class PlayerMoveOnCinematic : MonoBehaviour
 {
@@ -26,7 +27,7 @@ public class PlayerMoveOnCinematic : MonoBehaviour
         }
     }
 }
-
+[Serializable]
 public class CinematicNode
 {
     public Vector3 position;

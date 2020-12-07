@@ -69,6 +69,8 @@ namespace Skills
 
         private CharacterController _cc;
 
+        private TPPController _tppC;
+
         public Skills currentSkill;
 
         TatooTool _tatooTool;
@@ -78,7 +80,7 @@ namespace Skills
             //Component initializing
             _tatooTool = GetComponent<TatooTool>();
             _cc = GetComponent<CharacterController>();
-
+            _tppC = GetComponent<TPPController>();
             //Lists Initializing
             objectsToInteract = new List<IVacuumObject>();
             flamableObjectsToInteract = new List<IFlamableObjects>();
@@ -121,13 +123,13 @@ namespace Skills
 
         void OnAbsorb()
         {
-            if(_cc.isGrounded)
+            if(_cc.isGrounded && _tppC.isActive)
                 actualAction.Absorb();
         }
 
         void OnReject()
         {
-            if(_cc.isGrounded)
+            if(_cc.isGrounded && _tppC.isActive)
                 actualAction.Eject();
         }
 

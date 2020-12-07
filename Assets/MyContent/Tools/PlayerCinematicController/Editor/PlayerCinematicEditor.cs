@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
+using UnityEditor.SceneManagement;
 using System;
 
 [CustomEditor(typeof(PlayerMoveOnCinematic))]
@@ -10,6 +11,7 @@ public class PlayerCinematicEditor : Editor
     private PlayerMoveOnCinematic _target;
     private Option _currentOption;
     private CinematicNode _selectedNode;
+    private int _selectedNodeIndex;
 
     private void OnEnable()
     {
@@ -70,8 +72,27 @@ public class PlayerCinematicEditor : Editor
         GUILayout.FlexibleSpace();
         GUILayout.EndHorizontal();
 
-        if(_selectedNode != null)
+       
+
+        if (_selectedNode != null)
         {
+            GUILayout.BeginHorizontal();
+
+            EditorGUI.DrawRect(GUILayoutUtility.GetRect(300, 2), GUI.color);
+
+            GUILayout.EndHorizontal();
+            GUILayout.BeginHorizontal();
+               
+            EditorGUI.DrawRect(GUILayoutUtility.GetRect(300, 2), Color.black);
+            
+            GUILayout.EndHorizontal();
+
+            GUILayout.BeginHorizontal();
+            GUILayout.FlexibleSpace();
+            GUILayout.Label("Node: " + _selectedNodeIndex);
+            GUILayout.FlexibleSpace();
+            GUILayout.EndHorizontal();
+
             GUILayout.BeginHorizontal();
             GUILayout.FlexibleSpace();
             GUILayout.Label("Radius");
@@ -108,6 +129,8 @@ public class PlayerCinematicEditor : Editor
                     if (aux != pos)
                     {
                         _selectedNode = n;
+                        _selectedNodeIndex = i;
+                        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
                     }
                 }else if(_currentOption == Option.SCALE)
                 {
@@ -119,6 +142,8 @@ public class PlayerCinematicEditor : Editor
                     if(aux != n.radius)
                     {
                         _selectedNode = n;
+                        _selectedNodeIndex = i;
+                        EditorSceneManager.MarkSceneDirty(EditorSceneManager.GetActiveScene());
                     }
                 }
                 
@@ -138,7 +163,7 @@ public class PlayerCinematicEditor : Editor
 
     private void DrawPathHandles()
     {
-        if(_target.nodes != null)
+        if(_target.nodes != null && _target.nodes.Count > 0)
         {
             for (int i = 0; i < _target.nodes.Count - 1; i++)
             {

@@ -19,10 +19,12 @@ public class SkillVFXController : MonoBehaviour
     private bool _isStuck;
 
     private CharacterController _cc;
+    private TPPController _tppC;
     void Start()
     {
         _skillController = GetComponent<SkillController>();
         _cc = GetComponent<CharacterController>();
+        _tppC = GetComponent<TPPController>();
 
         var absorbFX = new VacuumVFX(absorbParticle, blowParticle);
         var fireFX = new FireVFX(fireParticle);
@@ -49,9 +51,12 @@ public class SkillVFXController : MonoBehaviour
 
     private void onSkillChange(object[] parameterContainer)
     {
-        foreach(var sk in _skillDictionary)
+        if (_tppC.isActive)
         {
-            sk.Value.StopEffect();
+            foreach(var sk in _skillDictionary)
+            {
+                sk.Value.StopEffect();
+            }
         }
     }
 
@@ -67,7 +72,8 @@ public class SkillVFXController : MonoBehaviour
 
     void Absorb() 
     {
-        if(!_isStuck && _cc.isGrounded)
+        
+        if(!_isStuck && _cc.isGrounded && _tppC.isActive)
             _skillDictionary[_skillController.skillAction].StartEffect();
         else
             _skillDictionary[_skillController.skillAction].StopEffect();
@@ -75,7 +81,7 @@ public class SkillVFXController : MonoBehaviour
 
     void Reject()
     {
-        if (_cc.isGrounded)
+        if (_cc.isGrounded && _tppC.isActive)
             _skillDictionary[_skillController.skillAction].StartEjectEffect();
         else
             _skillDictionary[_skillController.skillAction].StopEffect();

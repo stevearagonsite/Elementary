@@ -65,6 +65,7 @@ public enum GameEvent
     TRANSITION_FADEOUT_DEMO,
     PLAYER_DIE,
     ON_SKILL_CHANGE,
+    STORY_START,
     STORY_NEXT,
     STORY_END,
     TIME_UP,

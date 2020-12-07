@@ -32,7 +32,7 @@ public class TPPController : MonoBehaviour
     public float jumpFlyTime = 2;
     public float jumpFlyPower = 0.8f;
 
-    public bool isActive { get { return _isActive; } set { _isActive = value; } }
+    public bool isActive { get { return _isActive; } set { _isActive = value;} }
 
     /**
      *Move Private Variables 
@@ -75,6 +75,8 @@ public class TPPController : MonoBehaviour
 
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, ActivateCharacter);
         EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
+        EventManager.AddEventListener(GameEvent.STORY_START, DeactivateCharacter);
+        EventManager.AddEventListener(GameEvent.STORY_END, ActivateCharacter);
         EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ActivateCharacter);
 
         _isActive = false;
@@ -82,11 +84,13 @@ public class TPPController : MonoBehaviour
 
     private void DeactivateCharacter(object[] parameterContainer)
     {
+        Debug.Log("Me desactivo");
         _isActive = false;
     }
 
     private void ActivateCharacter(object[] parameterContainer)
     {
+        Debug.Log("Me activo");
         _isActive = true;
     }
 

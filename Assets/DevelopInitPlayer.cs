@@ -10,6 +10,7 @@ public class DevelopInitPlayer : MonoBehaviour
         if(go != null)
         {
             go.GetComponent<TPPController>().isActive = true;
+            Destroy(this);
         }
     }
 }

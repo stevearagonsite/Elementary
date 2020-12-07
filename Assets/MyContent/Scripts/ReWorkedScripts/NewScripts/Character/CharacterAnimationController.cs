@@ -8,6 +8,7 @@ public class CharacterAnimationController : MonoBehaviour
     private CharacterController _cc;
     private Animator _anim;
     private TPPController _controller;
+    private CinematicPlayerController _cinematicController;
 
     public float landDistance = 0.2f;
 
@@ -19,6 +20,7 @@ public class CharacterAnimationController : MonoBehaviour
         _cc = GetComponentInParent<CharacterController>();
         _anim = GetComponent<Animator>();
         _controller = GetComponentInParent<TPPController>();
+        _cinematicController = GetComponentInParent<CinematicPlayerController>();
 
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
@@ -55,9 +57,9 @@ public class CharacterAnimationController : MonoBehaviour
     /// Get Axis inputs
     /// </summary>
     /// <param name="dir"></param>
-    private void MoveAction(Vector2 dir)
+    public void MoveAction(Vector2 dir)
     {
-        if(_controller.isActive)
+        if(_controller.isActive || _cinematicController.isActive)
             _anim.SetFloat("speed",Mathf.Clamp01(Math.Abs(dir.x) + Math.Abs(dir.y)));
     }
 
