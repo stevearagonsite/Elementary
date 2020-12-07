@@ -32,7 +32,7 @@ public class TPPController : MonoBehaviour
     public float jumpFlyTime = 2;
     public float jumpFlyPower = 0.8f;
 
-    public bool isActive { get { return _isActive; } }
+    public bool isActive { get { return _isActive; } set { _isActive = value; } }
 
     /**
      *Move Private Variables 

@@ -13,7 +13,7 @@ public class ElectricityManager : MonoBehaviour, IHandEffect
     public Transform[] electricBeams;
     public Transform[] electricBeamTargets;
 
-    private void Start()
+    private void Awake()
     {
         _objectsToInteract = new List<Transform>();
     }
