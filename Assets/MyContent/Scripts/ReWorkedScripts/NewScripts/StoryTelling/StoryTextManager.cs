@@ -99,6 +99,7 @@ public class StoryTextManager : MonoBehaviour
             textAnimator.Play("Exit");
             canvasAnimator.Play("Exit");
             EventManager.DispatchEvent(GameEvent.STORY_END);
+            EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
             _isPlaying = false;
         }
     }

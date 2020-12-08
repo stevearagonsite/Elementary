@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(PlayerMoveOnCinematic))]
 public class TriggerCinematicMove : MonoBehaviour
 {
     private PlayerMoveOnCinematic _move;

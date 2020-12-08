@@ -2,7 +2,7 @@
 
 public class StoryCamera : MonoBehaviour
 {
-    void Awake()
+    void Start()
     {
         CameraManager.instance.RegisterCamera(GetComponent<Camera>());
     }

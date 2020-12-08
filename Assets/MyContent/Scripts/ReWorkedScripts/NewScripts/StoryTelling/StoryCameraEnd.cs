@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class StoryCameraEnd : MonoBehaviour
 {
+    public GameEvent dispatchedEventOnCameraAnimationEnd;
     public void EndStory()
     {
-        EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
+        EventManager.DispatchEvent(dispatchedEventOnCameraAnimationEnd);
     }
 }
