@@ -31,8 +31,8 @@ public class InputManager : MonoBehaviour
         _actions = new Dictionary<InputType, Actions>();
         _moveActions = new Dictionary<InputType, Move>();
 
-        Cursor.visible = false;
-        Cursor.lockState = CursorLockMode.Locked;
+        //Cursor.visible = false;
+        //Cursor.lockState = CursorLockMode.Locked;
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
