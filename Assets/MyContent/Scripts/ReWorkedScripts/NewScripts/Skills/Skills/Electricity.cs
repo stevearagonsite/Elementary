@@ -31,7 +31,7 @@ namespace Skills
                 foreach (var eo in _electricObjectsToInteract)
                 {
                     eo.GetComponent<IElectricObject>().Electrify();
-                    SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ELECTRICITY);
+                   // SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ELECTRICITY);
                 }
                 
 

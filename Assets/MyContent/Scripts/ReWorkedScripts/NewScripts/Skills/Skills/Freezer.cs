@@ -23,7 +23,7 @@ namespace Skills
             {
                 fo.Freeze();
             }
-            SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ICE);
+            //SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.ICE);
         }
 
         public void Enter()

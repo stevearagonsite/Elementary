@@ -89,10 +89,10 @@ public class SkillCollider : MonoBehaviour
 
     void Stop()
     {
-        skillController.frozenObjectsToInteract.Clear();
-        skillController.electricObjectsToInteract.Clear();
-        skillController.flamableObjectsToInteract.Clear();
-        skillController.objectsToInteract.Clear();
+        //skillController.frozenObjectsToInteract.Clear();
+        //skillController.electricObjectsToInteract.Clear();
+        //skillController.flamableObjectsToInteract.Clear();
+        //skillController.objectsToInteract.Clear();
     }
 
     private void OnDestroy()

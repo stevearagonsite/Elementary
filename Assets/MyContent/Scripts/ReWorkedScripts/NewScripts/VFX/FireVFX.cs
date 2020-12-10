@@ -25,6 +25,11 @@ public class FireVFX : IHandEffect
 
     public void StartEffect()
     {
+        
+    }
+
+    public void StartEjectEffect()
+    {
         if (_particle)
         {
             if (!isPlaying)
@@ -34,11 +39,6 @@ public class FireVFX : IHandEffect
                 isPlaying = true;
             }
         }
-    }
-
-    public void StartEjectEffect()
-    {
-       
     }
 
     public void StopEffect()

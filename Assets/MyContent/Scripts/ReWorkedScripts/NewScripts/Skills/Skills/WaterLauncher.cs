@@ -23,7 +23,7 @@ public class WaterLauncher : ISkill {
         {
             obj.WetThis();
         }
-        SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.Skills.WATER);
+        //SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.Skills.WATER);
     }
 
     public void Enter()

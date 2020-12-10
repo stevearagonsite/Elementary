@@ -28,7 +28,7 @@ namespace Skills
             {
                 fo.SetOnFire();
             }
-            SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.FIRE);
+            //SkillManager.instance.RemoveAmountToSkill(0.2f, Skills.FIRE);
         }
 
         public void Exit()

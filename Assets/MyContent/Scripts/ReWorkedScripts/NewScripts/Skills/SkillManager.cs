@@ -91,7 +91,8 @@ namespace Skills
             _tatooTool.SetTatooFill(_skillAmount[sk] / _maxSkillAmount[sk]);
         }
 
-        public void RemoveAmountToSkill(float amount, Skills sk)
+        //We don't run out of skill anymore
+        /*public void RemoveAmountToSkill(float amount, Skills sk)
         {
             if (_skillAmount == null)
             {
@@ -107,7 +108,7 @@ namespace Skills
                 _skillAmount[sk] -= amount;
             }
             //_tatooTool.SetTatooFill(_skillAmount[sk] / _maxSkillAmount[sk]);
-        }
+        }*/
 
         public float SkillActualAmount(Skills sk)
         {

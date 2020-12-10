@@ -6,10 +6,10 @@ public class ObjectToWeight : MonoBehaviour {
 
     Rigidbody _rb;
     public float mass;
+    [HideInInspector]
     public Weight control;
 
     float _timmer = 2;
-    [SerializeField]
     float _tick;
 
 	void Start ()

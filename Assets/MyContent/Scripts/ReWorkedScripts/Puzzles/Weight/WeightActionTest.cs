@@ -3,17 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class WeightActionTest : MonoBehaviour {
-
-    public Weight weight;
 	
-	void Start ()
+	public void TestEnter()
     {
-        //weight.AddOnWeightEnterEvent(OnWeight);
-	}
-
-    void OnWeight()
-    {
-        Debug.Log("Abrete Sesamo");
+        Debug.Log("Weight Enter");
     }
 
+    public void TestStay()
+    {
+        Debug.Log("Weight Stay");
+    }
+
+    public void TestExit()
+    {
+        Debug.Log("Weight Exit");
+    }
 }

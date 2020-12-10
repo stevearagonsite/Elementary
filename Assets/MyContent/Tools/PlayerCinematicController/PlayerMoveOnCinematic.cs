@@ -5,6 +5,7 @@ using System;
 
 public class PlayerMoveOnCinematic : MonoBehaviour
 {
+    [SerializeField]
     public List<CinematicNode> nodes;
 
     public CinematicNode AddNewNode(Vector3 pos , float radius = 0)

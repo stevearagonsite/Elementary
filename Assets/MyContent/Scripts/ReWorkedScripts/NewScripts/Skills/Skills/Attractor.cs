@@ -67,6 +67,7 @@ public class Attractor : ISkill {
         {
             obj.Exit();
         }
+        _objectsToInteract.Clear();
     }
 
     void Attract ()

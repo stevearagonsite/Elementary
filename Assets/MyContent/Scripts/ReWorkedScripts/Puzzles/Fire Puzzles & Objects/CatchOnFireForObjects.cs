@@ -9,10 +9,8 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
     public float maxLife;
     public float fireSensitivity;
     float currentLife;
-    ObjectToWeight otw;
 
     public ParticleSystem fireParticle;
-    MediumSizeObject m;
     Renderer rend;
 
     public bool consumable;
@@ -35,10 +33,10 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
         currentLife = maxLife;
         fireParticle.Stop();
         rend = GetComponent<Renderer>();
-        rend.material.SetColor("_BorderColor", Color.red);
-        rend.material.SetFloat("_DisolveAmount", 0);
-        otw = GetComponent<ObjectToWeight>();
-        m = GetComponent<MediumSizeObject>();
+        foreach (var item in rend.materials)
+        {
+            item.SetFloat("_DisolveAmount", 0);
+        }
         if(consumable)
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
@@ -55,17 +53,7 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
             else
             {
                 fireParticle.Stop();
-                if (m.respawnable)
-                {
-                    m.RepositionOnSpawn();
-                    currentLife = maxLife;
-                    isOnFire = false;
-                    rend.material.SetColor("_AlbedoColor", Color.white);
-                }
-                else
-                {
-                    Die();
-                }
+                Die();
             }
         }
 	}
@@ -74,24 +62,24 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
     {
         //Just for burn effect
         var scale = currentLife / maxLife;
-        var c = Vector4.Lerp(Color.black, Color.white, scale);
-        rend.material.SetColor("_AlbedoColor", c);
-        rend.material.SetFloat("_DisolveAmount", 1 - scale);
-        
+        foreach (var item in rend.materials)
+        {
+            item.SetFloat("_DisolveAmount", 1 - scale);
+        } 
     }
     
     void Die()
     {
-        if(fireParticle.transform.parent != null)
+        /*if(fireParticle.transform.parent != null)
         {
             fireParticle.transform.SetParent(null);
             transform.position += Vector3.up * 500000;
 
-        }else
-        {
+        }else*/
+        
             Destroy(gameObject);
             Destroy(fireParticle);
-        }
+        
     }
     private void OnDestroy()
     {
