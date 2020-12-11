@@ -96,11 +96,7 @@ public class PlatformFire : Platform
                         break;
                 }
                 isMoving = true;
-                if (propulsors[i].absorvedFire)
-                {
-                    propulsors[i].isOnFire = false;
-                    propulsors[i].absorvedFire = false;
-                }
+                propulsors[i].isOnFire = false;
             }
         }
         if (!isMoving)

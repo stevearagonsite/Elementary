@@ -34,7 +34,6 @@ public class ElectricityManager : MonoBehaviour, IHandEffect
         }
         if (_objectsToInteract.Count != objectsToInteract.Count) 
         {
-            Debug.Log("renuevo");
             _objectsToInteract.Clear();
             for (int i = 0; i < objectsToInteract.Count; i++)
             {
@@ -48,11 +47,9 @@ public class ElectricityManager : MonoBehaviour, IHandEffect
             {
                 electricBeams[i].up = (transform.position - _objectsToInteract[i].transform.position).normalized;
                 electricBeamTargets[i].position = _objectsToInteract[i].transform.position;
-                Debug.Log("pos" + i);
                 if (startEffect)
                 {
                     StartEffect(i);
-                    Debug.Log("start Effect " + i);
                 }
             }
         }
