@@ -45,7 +45,7 @@ public class PlayerCinematicEditor : Editor
         GUILayout.FlexibleSpace();
         if (GUILayout.Button("Create"))
         {
-            Vector3 position = Vector3.zero;
+            Vector3 position = _target.transform.position;
             float radius = 0.5f;
             if(_selectedNode != null)
             {
