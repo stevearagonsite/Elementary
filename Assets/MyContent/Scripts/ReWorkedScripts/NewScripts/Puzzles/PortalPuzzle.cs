@@ -7,9 +7,16 @@ public class PortalPuzzle : MonoBehaviour
 {
     public PortalPuzzle tweenPortal;
     public Transform spawnDirection;
+    public ParticleSystem touchParticle;
 
     [HideInInspector]
     public float spawnForce;
+
+    private void Start()
+    {
+        if (touchParticle != null)
+            touchParticle.Stop();
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -19,6 +26,8 @@ public class PortalPuzzle : MonoBehaviour
      
 
         otherRB.velocity = tweenPortal.spawnDirection.forward * otherRB.velocity.magnitude;
+        if (touchParticle != null)
+            touchParticle.Play();
     }
 
     private void OnTriggerExit(Collider other)

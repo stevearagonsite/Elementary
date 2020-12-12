@@ -19,20 +19,24 @@ public class LaserTower : MonoBehaviour
     LineRenderer line;
 
     public Transform turretLaser;
-    ElectricParticleEmitter emitter;
+    public float laserEndOffset;
     bool hasTargeted;
     Quaternion initialRotation;
 
     public Transform charger;
+    public ParticleSystem[] particles;
     float chargerRotationSpeed;
     float maxChargerRotationSpeed = 360;
 
 	void Start ()
     {
         _targets = new List<IHeat>();
-        line = GetComponent<LineRenderer>();
+        line = GetComponentInChildren<LineRenderer>();
         line.enabled = false;
-        emitter = GetComponent<ElectricParticleEmitter>();
+        for (int i = 0; i < particles.Length; i++)
+        {
+            particles[i].Stop();
+        }
         initialRotation = transform.rotation;
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
 	}
@@ -71,8 +75,11 @@ public class LaserTower : MonoBehaviour
                 _delayTick = 0;
                 _lastTarget = _laserTarget;
                 hasTargeted = false;
-                emitter.StopEffect();
                 line.enabled = false;
+                for (int i = 0; i < particles.Length; i++)
+                {
+                    particles[i].Stop();
+                }
             }
             else
             {
@@ -86,7 +93,6 @@ public class LaserTower : MonoBehaviour
             turretLaser.rotation = Quaternion.Slerp(turretLaser.rotation, initialRotation, 0.2f);
             chargerRotationSpeed = Mathf.Lerp(chargerRotationSpeed, 0, 0.2f);
             hasTargeted = false;
-            emitter.StopEffect();
         }
         charger.Rotate(new Vector3(0, 0, chargerRotationSpeed) * Time.deltaTime);
 	}
@@ -94,17 +100,40 @@ public class LaserTower : MonoBehaviour
     private void DrawLaser()
     {
         _delayTick += Time.deltaTime;
+        bool somethingIsInTheWay = false;
         if(_delayTick > delay)
         {
-            _laserTarget.Hit(damage);
-            emitter.Initialize(_laserTarget.Transform);
+            RaycastHit hit;
+            if(Physics.Raycast(turretLaser.transform.position, (_laserTarget.Transform.position - turretLaser.position).normalized,out hit, 10))
+            {
+                var iHeatObj = hit.collider.GetComponent<IHeat>();
+                if(iHeatObj == null)
+                {
+                    iHeatObj = hit.collider.GetComponentInChildren<IHeat>();
+                }
+                if(iHeatObj != null)
+                {
+                    iHeatObj.Hit(damage);
+                    somethingIsInTheWay = true;
+                    Debug.Log(hit.collider.name);
+                }
+            }
+            if(!somethingIsInTheWay)
+                _laserTarget.Hit(damage);
+
             if (!hasTargeted)
             {
-                emitter.StartEffect();
                 line.enabled = true;
                 hasTargeted = true;
             }
+            var dist = Vector3.Distance(hit.collider.transform.position, turretLaser.position) + laserEndOffset;
+            line.SetPosition(line.positionCount - 1, new Vector3(0, 0, dist));
         }
+        for (int i = 0; i < particles.Length; i++)
+        {
+            particles[i].Play();
+        }
+        
     }
 
     private void OnTriggerStay(Collider other)

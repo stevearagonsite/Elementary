@@ -17,17 +17,10 @@ public class PlayerTemperature : MonoBehaviour,IHeat
     float _life;
 
     bool _setToDieByLaser;
-    PlayerController player;
-    SkillController skills;
-
-    Animator blackOut;
 
     void Start()
     {
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
-        player = GetComponentInParent<PlayerController>();
-        skills = GetComponentInParent<SkillController>();
-        blackOut = GameObject.Find("BlackIn").GetComponent<Animator>();
         _life = life;
     }
 
@@ -49,10 +42,7 @@ public class PlayerTemperature : MonoBehaviour,IHeat
 
     private void Die()
     {
-        player.enabled = false;
-        skills.enabled = false;
-        blackOut.SetTrigger("FadeOutLose");
-
+        Debug.Log("Deberias morir wey " +  this.name);
     }
 
     public void Hit(float damage)
