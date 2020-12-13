@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 public class DebugConsole : MonoBehaviour
 {
-    public delegate void ConsoleCommand();
+    /*public delegate void ConsoleCommand();
 
     public InputField inpField;
     public Text backText;
@@ -128,5 +128,5 @@ public class DebugConsole : MonoBehaviour
     private void RestartLevel()
     {
         LevelManager.Instance.RestartLevel(null);
-    }
+    }*/
 }

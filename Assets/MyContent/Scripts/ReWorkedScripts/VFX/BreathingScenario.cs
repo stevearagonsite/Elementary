@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class BreathingScenario : MonoBehaviour {
 
-    MeshRenderer[] mesh;
+    /*MeshRenderer[] mesh;
 	void Start () {
         mesh = GetComponentsInChildren<MeshRenderer>();
         for (int i = 0; i < mesh.Length; i++)
         {
             LevelManager.Instance.AddBreathingMaterial(mesh[i].material);
         } 
-	}
+	}*/
 
 }

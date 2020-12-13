@@ -8,7 +8,7 @@ using Player;
 
 public class LevelManager : MonoBehaviour {
 
-    public float levelTime;
+    /*public float levelTime;
     public bool isWithPowers;
 
     public Animator blackOutAnimator;
@@ -126,5 +126,5 @@ public class LevelManager : MonoBehaviour {
     private void OnDestroy()
     {
         EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEOUT_LOSE_FINISH, RestartLevel);
-    }
+    }*/
 }

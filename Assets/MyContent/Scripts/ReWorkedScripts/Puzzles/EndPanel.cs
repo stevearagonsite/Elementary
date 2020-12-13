@@ -6,7 +6,7 @@ using System;
 [RequireComponent(typeof(BoxCollider))]
 public class EndPanel : MonoBehaviour {
 
-    float curedLerpValue = 0;
+    /*float curedLerpValue = 0;
     public float activeDistance;
 
     public Vector3 offset;
@@ -59,5 +59,5 @@ public class EndPanel : MonoBehaviour {
     {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
         EventManager.RemoveEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
-    }
+    }*/
 }

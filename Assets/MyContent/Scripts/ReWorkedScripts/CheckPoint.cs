@@ -5,28 +5,14 @@ using UnityEngine;
 [RequireComponent(typeof(Collider))]
 public class CheckPoint : MonoBehaviour {
 
-    public string checkPointName;
-    public Transform cameraPosition;
-
-    private void Start()
-    {
-        LevelManager.Instance.AddCheckPointToList(this);
-    }
-
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.layer == 9)
-        {
-            LevelManager.Instance.SetActiveCheckPoint(checkPointName);
-        }
+        CheckPointManager.instance.RegisterActiveCheckPoint(this);
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.layer == 9)
-        {
-            LevelManager.Instance.SetActiveCheckPoint(checkPointName);
-        }
+        CheckPointManager.instance.RegisterActiveCheckPoint(this);
     }
 
     private void OnDrawGizmos()

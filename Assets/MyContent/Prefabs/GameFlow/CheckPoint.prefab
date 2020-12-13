@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4948999421580802254
+--- !u!1 &2736973908061449384
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,57 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4948999421580802248}
-  - component: {fileID: 4948999421580802249}
-  - component: {fileID: 4948999421580802250}
-  m_Layer: 0
-  m_Name: Managers
+  - component: {fileID: 2736973908061449383}
+  - component: {fileID: 2736973908061449382}
+  - component: {fileID: 2736973908061449385}
+  m_Layer: 10
+  m_Name: CheckPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4948999421580802248
+--- !u!4 &2736973908061449383
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948999421580802254}
+  m_GameObject: {fileID: 2736973908061449384}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.609175, y: 0.9991306, z: 0.33432722}
+  m_LocalPosition: {x: 11.05, y: 0.92, z: -41.96}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4948999421580802249
+--- !u!65 &2736973908061449382
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2736973908061449384}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5, y: 5, z: 5}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2736973908061449385
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948999421580802254}
+  m_GameObject: {fileID: 2736973908061449384}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 210941c2513644415af609a43bff77cf, type: 3}
+  m_Script: {fileID: 11500000, guid: e437f5f606a7b469585cb045818ffe52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4948999421580802250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4948999421580802254}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 52ae63eb3bf793e40a6571581964539c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  axisOffset: 0.1
-  jump: 32
-  absorb: 323
-  reject: 324
-  skillUp: 113
-  skillDown: 101

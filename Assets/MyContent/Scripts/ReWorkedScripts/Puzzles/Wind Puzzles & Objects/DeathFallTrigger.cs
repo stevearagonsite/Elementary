@@ -1,38 +1,62 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Collider))]
+[RequireComponent(typeof(Volume))]
 public class DeathFallTrigger : MonoBehaviour {
 
-    public string cutSceneTag;
-
-    float _timmer = 3;
+    public float timmer = 3;
     float _tick;
+    Volume _deathPostProcess;
+    bool _isActive;
 
-
-    public Animator blackOut;
+    private void Start()
+    {
+        _deathPostProcess = GetComponent<Volume>();
+        _deathPostProcess.weight = 0;
+    }
 
     void OnTriggerEnter(Collider other)
     {
         Debug.Log(other);
-        if(other.gameObject.layer == 9)
+        if(other.gameObject.layer == 9 && !_isActive)
         {
-            Debug.Log("you are a winner!!!");
             _tick = 0;
-            EventManager.DispatchEvent(GameEvent.CAMERA_STORY, cutSceneTag);
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
-        }    
+            _isActive = true;
+        }
+         
     }
 
     void Execute()
     {
         _tick += Time.deltaTime;
-        if (_tick > _timmer)
+         _deathPostProcess.weight = _tick/ timmer;
+        if (_tick > timmer)
         {
-            blackOut.SetTrigger("FadeOutLose");
             UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+            TransitionToRespawn();
         }
+    }
+
+    private void TransitionToRespawn()
+    {
+        EventManager.DispatchEvent(GameEvent.START_LEVEL_TRANSITION);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, OnFadeOutEnd);
+
+    }
+
+    private void OnFadeOutEnd(object[] parameterContainer)
+    {
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, OnFadeOutEnd);
+        _tick = 0;
+        _deathPostProcess.weight = 0;
+        CheckPointManager.instance.RespawnPlayerInLastActiveCheckpoint();
+        EventManager.DispatchEvent(GameEvent.TRANSITION_FADEIN_DEMO);
+        _isActive = false;
     }
 
     private void OnDestroy()

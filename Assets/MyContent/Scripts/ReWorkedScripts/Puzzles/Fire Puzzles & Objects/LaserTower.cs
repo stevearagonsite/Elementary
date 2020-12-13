@@ -115,7 +115,6 @@ public class LaserTower : MonoBehaviour
                 {
                     iHeatObj.Hit(damage);
                     somethingIsInTheWay = true;
-                    Debug.Log(hit.collider.name);
                 }
             }
             if(!somethingIsInTheWay)

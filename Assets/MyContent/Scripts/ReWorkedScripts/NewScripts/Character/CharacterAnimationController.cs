@@ -11,6 +11,7 @@ public class CharacterAnimationController : MonoBehaviour
     private CinematicPlayerController _cinematicController;
 
     public float landDistance = 0.2f;
+    public LayerMask landLayer;
 
     /// <summary>
     /// Initialize 
@@ -67,9 +68,8 @@ public class CharacterAnimationController : MonoBehaviour
     {
         if (_controller.isActive)
         {
-            var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance) || _cc.isGrounded;
+            var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance, landLayer) || _cc.isGrounded;
             _anim.SetBool("land", val);
-
         }
         
     }
