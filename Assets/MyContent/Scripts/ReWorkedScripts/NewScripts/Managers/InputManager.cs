@@ -13,6 +13,8 @@ public class InputManager : MonoBehaviour
     private Dictionary<InputType, Actions> _actions;
     private Dictionary<InputType, Move> _moveActions;
 
+    private bool _isGamePaused;
+
     [Range(0,0.3f)]
     public float axisOffset = 0.1f;
 
@@ -22,6 +24,7 @@ public class InputManager : MonoBehaviour
     public KeyCode skillUp;
     public KeyCode skillDown;
     public KeyCode sprint;
+    public KeyCode pause;
     /// <summary>
     /// Initialize
     /// </summary>
@@ -42,9 +45,10 @@ public class InputManager : MonoBehaviour
     /// </summary>
     void Execute()
     {
+        
         if (Input.GetKeyDown(jump))
         {
-            if (_actions.ContainsKey(InputType.Jump))
+            if (_actions.ContainsKey(InputType.Jump) && !_isGamePaused)
             {
                 _actions[InputType.Jump]();
             }
@@ -52,7 +56,7 @@ public class InputManager : MonoBehaviour
 
         if (Input.GetKey(jump))
         {
-            if (_actions.ContainsKey(InputType.Jump_Held))
+            if (_actions.ContainsKey(InputType.Jump_Held) && !_isGamePaused)
             {
                 _actions[InputType.Jump_Held]();
             }
@@ -61,37 +65,44 @@ public class InputManager : MonoBehaviour
         
         if (_moveActions.ContainsKey(InputType.Movement))
         {
-            _moveActions[InputType.Movement](new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            if(!_isGamePaused)
+                _moveActions[InputType.Movement](new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")));
+            else
+                _moveActions[InputType.Movement](new Vector2(0, 0));
         }
         var mouseX = Input.GetAxis("Mouse X");
         var mouseY = Input.GetAxis("Mouse Y");
         if (_moveActions.ContainsKey(InputType.Cursor) && (mouseX != 0 || mouseY != 0))
         {
-            _moveActions[InputType.Cursor](new Vector2(mouseX, mouseY));
+            if (!_isGamePaused)
+                _moveActions[InputType.Cursor](new Vector2(mouseX, mouseY));
+            else
+                _moveActions[InputType.Cursor](new Vector2(0, 0));
+
         }
 
         if (Input.GetKey(absorb)) 
         {
-            if (_actions.ContainsKey(InputType.Absorb))
+            if (_actions.ContainsKey(InputType.Absorb) && !_isGamePaused)
             {
                 _actions[InputType.Absorb]();
             }
         }
         if (Input.GetKey(reject))
         {
-            if (_actions.ContainsKey(InputType.Reject))
+            if (_actions.ContainsKey(InputType.Reject) && !_isGamePaused)
             {
                 _actions[InputType.Reject]();
             }
         }
-        if (Input.GetKeyUp(absorb) || Input.GetKeyUp(reject))
+        if ((Input.GetKeyUp(absorb) || Input.GetKeyUp(reject)) && !_isGamePaused)
         {
             if (_actions.ContainsKey(InputType.Stop))
             {
                 _actions[InputType.Stop]();
             }
         }
-        if (Input.GetKeyDown(skillUp))
+        if (Input.GetKeyDown(skillUp) && !_isGamePaused)
         {
             if (_actions.ContainsKey(InputType.Skill_Up))
             {
@@ -99,7 +110,7 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(skillDown))
+        if (Input.GetKeyDown(skillDown) && !_isGamePaused)
         {
             if (_actions.ContainsKey(InputType.Skill_Down))
             {
@@ -107,11 +118,25 @@ public class InputManager : MonoBehaviour
             }
         }
 
-        if (Input.GetKey(sprint))
+        if (Input.GetKey(sprint) && !_isGamePaused)
         {
             if (_actions.ContainsKey(InputType.Sprint))
             {
                 _actions[InputType.Sprint]();
+            }
+        }
+    }
+
+    //Things we must check even if the game is paused
+    private void Update()
+    {
+        if (Input.GetKeyDown(pause))
+        {
+
+            _isGamePaused = !_isGamePaused;
+            if (_actions.ContainsKey(InputType.Pause))
+            {
+                _actions[InputType.Pause]();
             }
         }
     }
@@ -184,6 +209,15 @@ public class InputManager : MonoBehaviour
         }
     }
 
+    public void UnPauseGame()
+    {
+        _isGamePaused = !_isGamePaused;
+        if (_actions.ContainsKey(InputType.Pause))
+        {
+            _actions[InputType.Pause]();
+        }
+    }
+
 }
     
 public enum InputType
@@ -197,7 +231,8 @@ public enum InputType
     Stop,
     Skill_Down,
     Skill_Up,
-    Sprint
+    Sprint,
+    Pause
 }
 
 

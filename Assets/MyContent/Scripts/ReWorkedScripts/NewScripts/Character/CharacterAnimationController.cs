@@ -9,9 +9,12 @@ public class CharacterAnimationController : MonoBehaviour
     private Animator _anim;
     private TPPController _controller;
     private CinematicPlayerController _cinematicController;
+    private bool _isGamePaused;
 
     public float landDistance = 0.2f;
     public LayerMask landLayer;
+
+
 
     /// <summary>
     /// Initialize 
@@ -26,6 +29,7 @@ public class CharacterAnimationController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
         InputManager.instance.AddAction(InputType.Sprint, Sprint);
+        InputManager.instance.AddAction(InputType.Pause, Pause);
 
         UpdatesManager.instance.AddUpdate(UpdateType.FIXED, CheckLand);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, CheckFall);
@@ -52,6 +56,13 @@ public class CharacterAnimationController : MonoBehaviour
             if (_cc.isGrounded)
                 _anim.SetTrigger("jump");
         }
+    }
+
+    private void Pause()
+    {
+        _isGamePaused = !_isGamePaused;
+        float speed = _isGamePaused ? 0:1;
+        _anim.SetFloat("animationSpeed", speed);
     }
 
     /// <summary>

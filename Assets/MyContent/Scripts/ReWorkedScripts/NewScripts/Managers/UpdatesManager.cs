@@ -23,9 +23,14 @@ public class UpdatesManager : MonoBehaviour {
         Application.targetFrameRate = 60;
         _updates = new Dictionary<UpdateType, _Updates>();
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Start()
+    {
+        InputManager.instance.AddAction(InputType.Pause, PauseUpdates);
+    }
+
+    // Update is called once per frame
+    void Update () {
         if (isActive)
         {
             if(_updates == null)
@@ -100,9 +105,9 @@ public class UpdatesManager : MonoBehaviour {
         }
     }
 
-    public void StopUpdates()
+    public void PauseUpdates()
     {
-        isActive = false;
+        isActive = !isActive;
     }
     
 }
