@@ -25,4 +25,14 @@ public class ChangeLevel : MonoBehaviour
         }
         SceneLoadManager.instance.LoadSceneAsync(nextLevel, LoadSceneMode.Additive);
     }
+    
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        var collider = GetComponent<BoxCollider>();
+        Gizmos.color = new Color(100, 0, 100, 0.7f); ;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(collider.center, collider.size);
+    }
+#endif
 }

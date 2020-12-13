@@ -9,4 +9,14 @@ public class StoryDialogueStart : MonoBehaviour
     {
         StoryTextManager.instance.PlayDialogue(dialogueObject);
     }
+    
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        var collider = GetComponent<BoxCollider>();
+        Gizmos.color = new Color(100, 100, 100, 0.7f); ;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(collider.center, collider.size);
+    }
+#endif
 }
