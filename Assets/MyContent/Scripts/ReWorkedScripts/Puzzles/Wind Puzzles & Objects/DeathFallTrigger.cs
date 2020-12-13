@@ -21,7 +21,6 @@ public class DeathFallTrigger : MonoBehaviour {
 
     void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other);
         if(other.gameObject.layer == 9 && !_isActive)
         {
             _tick = 0;

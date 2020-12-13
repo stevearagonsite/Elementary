@@ -30,7 +30,7 @@ public class CheckPointManager : MonoBehaviour
         var player = GameObject.Find("Character");
         player.transform.position = _activeCheckPoint.transform.position;
         player.transform.rotation = _activeCheckPoint.transform.rotation;
-        
+        player.GetComponent<TPPController>().RotateToStartPosition(transform.forward);
 
 
         var camera = GameObject.Find("TTPCamera");

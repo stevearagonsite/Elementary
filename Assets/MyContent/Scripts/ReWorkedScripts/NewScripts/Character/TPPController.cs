@@ -172,6 +172,15 @@ public class TPPController : MonoBehaviour
     }
 
     /// <summary>
+    /// RotateGFX to gameObject initialPosition
+    /// </summary>
+    /// <param name="forward"></param>
+    public void RotateToStartPosition(Vector3 forward)
+    {
+        gfx.rotation = Quaternion.LookRotation(forward);
+    }
+
+    /// <summary>
     /// Apply Gravity Force
     /// </summary>
     private void ApplyGravity()

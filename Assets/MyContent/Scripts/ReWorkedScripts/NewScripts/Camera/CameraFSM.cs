@@ -52,7 +52,9 @@ namespace TPCamera
             UpdatesManager.instance.AddUpdate(UpdateType.LATE, Execute);
             CameraManager.instance.RegisterMainCamera(this);
             InputManager.instance.AddAction(InputType.Cursor, UpdateMouse);
-	    }
+            GoToStartPosition();
+
+        }
 
 
        
@@ -110,6 +112,17 @@ namespace TPCamera
         {
             _currentX = 0;
             _currentY = 0;
+            var rotationWithoutY = new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+            var lookAtWithoutY = new Vector3(_lookAt.forward.x, 0, _lookAt.forward.z).normalized;
+            int watchDog = 0;
+            while (Vector3.Distance(rotationWithoutY, lookAtWithoutY) > 0.1 && watchDog < 10000 )
+            {
+                _currentX ++;
+                Execute();
+                rotationWithoutY = new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
+                lookAtWithoutY = new Vector3(_lookAt.forward.x, 0, _lookAt.forward.z).normalized;
+                watchDog++;
+            }
         }
 
         #region Camera Collision Manager
