@@ -55,6 +55,7 @@ public class TPPController : MonoBehaviour
 
     public Vector3 velocity { get => _velocity;}
     public float actualStamina { get => _actualStamina;}
+    public float staminaPercent { get => Mathf.Clamp01(actualStamina / sprintStaminaInSeconds); }
 
     /// <summary>
     /// Initialize 
