@@ -70,17 +70,19 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
     
     void Die()
     {
-        /*if(fireParticle.transform.parent != null)
-        {
-            fireParticle.transform.SetParent(null);
-            transform.position += Vector3.up * 500000;
 
-        }else*/
-        
-            Destroy(gameObject);
-            Destroy(fireParticle);
+        fireParticle.transform.SetParent(null);
+        fireParticle.Stop();
+        Invoke("KillParticle", 2);
+        Destroy(gameObject);
         
     }
+
+    void KillParticle()
+    {
+        Destroy(fireParticle);
+    }
+
     private void OnDestroy()
     {
         if(consumable)

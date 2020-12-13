@@ -19,7 +19,6 @@ public class BoxTemperature : MonoBehaviour, IHeat, IFlamableObjects
     public float life;
     public float maxTemperature;
     public float heatTransferMultiplier;
-    public Gradient burnGradient;
 
     public bool indestructible;
 
@@ -48,8 +47,7 @@ public class BoxTemperature : MonoBehaviour, IHeat, IFlamableObjects
     {
         //_temperature -= Time.deltaTime * heatTransferMultiplier / 10;
         _temperature = Mathf.Clamp(_temperature, 0, maxTemperature);
-        mat.SetFloat("_BurnAmount", _temperature/maxTemperature * 0.9f);
-        mat.SetColor("_Gradient", burnGradient.Evaluate(_temperature / maxTemperature));
+        mat.SetFloat("_Temperature", _temperature/maxTemperature);
         if (_setToDestroy)
         {
             DestroyBox();

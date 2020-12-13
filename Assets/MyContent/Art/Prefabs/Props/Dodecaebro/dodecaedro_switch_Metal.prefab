@@ -11,7 +11,10 @@ GameObject:
   - component: {fileID: 5717649424308819553}
   - component: {fileID: 3603492562338049111}
   - component: {fileID: 7007218458796495022}
-  - component: {fileID: 6223896246337048476}
+  - component: {fileID: 1655778330}
+  - component: {fileID: 1655778331}
+  - component: {fileID: 1655778325}
+  - component: {fileID: 1655778329}
   m_Layer: 0
   m_Name: dodecaedro_switch_Metal
   m_TagString: Untagged
@@ -26,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8719657186989581426}
-  m_LocalRotation: {x: -0.5000011, y: 0.49999893, z: 0.49999893, w: 0.5000011}
+  m_LocalRotation: {x: -0.5, y: 0.50000006, z: 0.50000006, w: 0.5}
   m_LocalPosition: {x: -38.834, y: 2.959, z: 12.716041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -59,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e5f994e32a15aea40964c387971df741, type: 2}
+  - {fileID: 2100000, guid: 98b1cb4dc9276374089777d0fac7a08a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -80,8 +83,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &6223896246337048476
-BoxCollider:
+--- !u!54 &1655778330
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719657186989581426}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &1655778331
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -90,6 +109,42 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5229885, y: 0.5229887, z: 0.5229886}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2837682660325928517, guid: f010b08015840194cbaad31e2fae44ae, type: 3}
+--- !u!114 &1655778325
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719657186989581426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5e877648d26b740e1ad46749e12fd85c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _temperature: 0
+  life: 1
+  maxTemperature: 100
+  heatTransferMultiplier: 20
+  indestructible: 1
+--- !u!114 &1655778329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8719657186989581426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f127977a335504df195c351aaa453766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasShooted: 0
+  material: {fileID: 0}
+  respawnDistance: 0
+  respawnTime: 0
+  suckDistance: 2
+  respawnable: 0

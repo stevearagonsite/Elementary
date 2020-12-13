@@ -13,7 +13,7 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
 
     [HideInInspector]
     public Material material;//Edit for shoot vfx.
-    private BoxCollider _bC;
+    private Collider _bC;
 
     float _alphaCut;
 
@@ -46,7 +46,7 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
         _isAbsorvable = false;
         _rb = GetComponent<Rigidbody>();
         material = GetComponent<Renderer>().material;
-        _bC = GetComponent<BoxCollider>();
+        _bC = GetComponent<Collider>();
         SpawnVFXActivate(true);
 
     }

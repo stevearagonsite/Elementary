@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 300206254488879672}
   - component: {fileID: 8750930858600708110}
   - component: {fileID: 3048097106270995703}
-  - component: {fileID: 2102082123195440069}
+  - component: {fileID: 718211909}
+  - component: {fileID: 718211910}
+  - component: {fileID: 718211905}
   m_Layer: 0
   m_Name: dodecaedro_switch_Crystal
   m_TagString: Untagged
@@ -26,14 +28,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3634917441789751339}
-  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: 0, w: 0.7071068}
   m_LocalPosition: {x: -37.834, y: 2.869, z: 12.716041}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2014133829109893704}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 0}
 --- !u!33 &8750930858600708110
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -81,8 +83,24 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &2102082123195440069
-BoxCollider:
+--- !u!54 &718211909
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634917441789751339}
+  serializedVersion: 2
+  m_Mass: 10
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!64 &718211910
+MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -91,9 +109,28 @@ BoxCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.5229885, y: 0.5229887, z: 0.5229886}
-  m_Center: {x: 0, y: 0, z: 0}
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2837682660325928517, guid: f010b08015840194cbaad31e2fae44ae, type: 3}
+--- !u!114 &718211905
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3634917441789751339}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f127977a335504df195c351aaa453766, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  wasShooted: 0
+  material: {fileID: 0}
+  respawnDistance: 0
+  respawnTime: 0
+  suckDistance: 2
+  respawnable: 0
 --- !u!1001 &4049547855977386844
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -220,12 +257,12 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: e0c80057ffe963d44aa2dcf16ff11d95, type: 2}
+      objectReference: {fileID: 2100000, guid: 281388c3fde529d4499d2100bbb3611f, type: 2}
     - target: {fileID: 6771064580520592911, guid: 579b5e540aa2f924eb77ad1a39a72b4e,
         type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: 2100000, guid: e0c80057ffe963d44aa2dcf16ff11d95, type: 2}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 579b5e540aa2f924eb77ad1a39a72b4e, type: 3}
 --- !u!4 &2014133829109893704 stripped
