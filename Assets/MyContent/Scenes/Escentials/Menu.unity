@@ -98,7 +98,7 @@ LightmapSettings:
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -731,7 +731,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Exit
+  m_text: Salir del juego
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09c561663a347a34a98fc169467146c0, type: 2}
   m_sharedMaterial: {fileID: 3234834335867525762, guid: 09c561663a347a34a98fc169467146c0,
@@ -801,13 +801,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.7909546, w: -0.4145813}
   m_textInfo:
     textComponent: {fileID: 62374765}
-    characterCount: 0
+    characterCount: 15
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 2
+    wordCount: 3
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -1348,9 +1348,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exit to desktop
-
-'
+  m_text: Salir del juego
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09c561663a347a34a98fc169467146c0, type: 2}
   m_sharedMaterial: {fileID: 3234834335867525762, guid: 09c561663a347a34a98fc169467146c0,
@@ -1420,9 +1418,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.7909546, w: -0.4145813}
   m_textInfo:
     textComponent: {fileID: 111488279}
-    characterCount: 16
+    characterCount: 15
     spriteCount: 0
-    spaceCount: 3
+    spaceCount: 2
     wordCount: 3
     linkCount: 0
     lineCount: 1
@@ -3999,9 +3997,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Go to Main Menu
-
-'
+  m_text: Menu
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09c561663a347a34a98fc169467146c0, type: 2}
   m_sharedMaterial: {fileID: 3234834335867525762, guid: 09c561663a347a34a98fc169467146c0,
@@ -4071,10 +4067,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.43615723, w: 0.8317566}
   m_textInfo:
     textComponent: {fileID: 958966288}
-    characterCount: 16
+    characterCount: 4
     spriteCount: 0
-    spaceCount: 4
-    wordCount: 4
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -7306,7 +7302,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Settings
+  m_text: Ajustes
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09c561663a347a34a98fc169467146c0, type: 2}
   m_sharedMaterial: {fileID: 3234834335867525762, guid: 09c561663a347a34a98fc169467146c0,
@@ -7376,13 +7372,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -0.9925537}
   m_textInfo:
     textComponent: {fileID: 1622527987}
-    characterCount: 0
+    characterCount: 7
     spriteCount: 0
     spaceCount: 0
-    wordCount: 0
+    wordCount: 1
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -7499,7 +7495,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: New Game
+  m_text: Juego nuevo
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09c561663a347a34a98fc169467146c0, type: 2}
   m_sharedMaterial: {fileID: 3234834335867525762, guid: 09c561663a347a34a98fc169467146c0,
@@ -7569,13 +7565,13 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.43615723, w: 0.8317566}
   m_textInfo:
     textComponent: {fileID: 1662378978}
-    characterCount: 0
+    characterCount: 11
     spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
+    spaceCount: 1
+    wordCount: 2
     linkCount: 0
-    lineCount: 0
-    pageCount: 0
+    lineCount: 1
+    pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
@@ -8832,9 +8828,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Resume
-
-'
+  m_text: Renaudar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 09c561663a347a34a98fc169467146c0, type: 2}
   m_sharedMaterial: {fileID: 3234834335867525762, guid: 09c561663a347a34a98fc169467146c0,
@@ -8904,9 +8898,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0.43615723, w: 0.8317566}
   m_textInfo:
     textComponent: {fileID: 2052070787}
-    characterCount: 7
+    characterCount: 8
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
     lineCount: 1
