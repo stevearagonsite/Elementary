@@ -105,7 +105,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 0
   randomSeed: 0
@@ -150,7 +150,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 6
+      scalar: 5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -4572,7 +4572,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4599691912581507931}
-  m_LocalRotation: {x: -0.12947759, y: -0.009567253, z: 0.013640922, w: 0.9914424}
+  m_LocalRotation: {x: -0.12947601, y: -0.0095660975, z: 0.013645128, w: 0.9914425}
   m_LocalPosition: {x: -31.00315, y: 2.048634, z: -13.1988125}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -4655,7 +4655,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -9409,7 +9409,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 1
+  moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -9419,7 +9419,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -9471,8 +9471,8 @@ ParticleSystem:
         m_RotationOrder: 4
     startSpeed:
       serializedVersion: 2
-      minMaxState: 3
-      scalar: 2
+      minMaxState: 0
+      scalar: 4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -14113,7 +14113,7 @@ PrefabInstance:
     - target: {fileID: 2905502713107839085, guid: 11f8da2eaf72bfe4198142fe3385d7aa,
         type: 3}
       propertyPath: moveWithTransform
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3091754803096233853, guid: 11f8da2eaf72bfe4198142fe3385d7aa,
         type: 3}
