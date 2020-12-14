@@ -16,6 +16,7 @@ public class PlayerTemperature : MonoBehaviour,IHeat
     public SkinnedMeshRenderer[] renderers;
 
     public float timeToFreeze;
+    public float reHeatConstant;
     private float _tick;
 
     public float lifeLeft { get { return Mathf.Clamp01( _life / life); } }
@@ -24,7 +25,7 @@ public class PlayerTemperature : MonoBehaviour,IHeat
     float _life;
 
     bool _setToDieByLaser;
-
+    bool _isBeeingFrozen;
 
 
     private TPPController _playerController;
@@ -38,6 +39,17 @@ public class PlayerTemperature : MonoBehaviour,IHeat
         {
             renderers[i].material.SetFloat("_FrozenAmount", 0);
         }
+        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, ReHeat);
+    }
+
+    private void ReHeat()
+    {
+        if (!_isBeeingFrozen)
+        {
+            if(_life <= life ) 
+                _life += reHeatConstant * Time.deltaTime;
+        }
+        _isBeeingFrozen = false;
     }
 
     public void Restart()
@@ -81,9 +93,7 @@ public class PlayerTemperature : MonoBehaviour,IHeat
         else
         {
             UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Freeze);
-            Debug.Log("Murio congela3");
             TransitionToRespawn();
-
         }
         
     }
@@ -114,10 +124,12 @@ public class PlayerTemperature : MonoBehaviour,IHeat
                 _setToDieByLaser = true;
             }
         }
+        _isBeeingFrozen = true;
     }
 
     private void OnDestroy()
     {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, ReHeat);
     }
 }
