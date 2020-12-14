@@ -47,6 +47,8 @@ public class TPPController : MonoBehaviour
     private float _actualJumpFly = 0;
     private bool _isUsingPower = false;
 
+    private PlayerTemperature _pT;
+
     /**
      * Sprint variables
      */
@@ -55,6 +57,8 @@ public class TPPController : MonoBehaviour
 
     public Vector3 velocity { get => _velocity;}
     public float actualStamina { get => _actualStamina;}
+
+    //For UI
     public float staminaPercent { get => Mathf.Clamp01(actualStamina / sprintStaminaInSeconds); }
 
     /// <summary>
@@ -63,6 +67,7 @@ public class TPPController : MonoBehaviour
     void Start()
     {
         _cc = GetComponent<CharacterController>();
+        _pT = GetComponentInChildren<PlayerTemperature>();
         _actualStamina = sprintStaminaInSeconds;
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
@@ -123,7 +128,7 @@ public class TPPController : MonoBehaviour
                 var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
                 var actualSpeed = sprintSpeed - speed;
                 var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
-                _cc.Move(dir * movementSpeed);
+                _cc.Move(dir * movementSpeed * _pT.lifeLeft);
             }
         }
         if(_actualStamina >= _minStamina) 
@@ -211,7 +216,7 @@ public class TPPController : MonoBehaviour
         var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
         var actualSpeed = _cc.isGrounded ? speed : jumpSpeed;
         var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
-        _cc.Move(dir * movementSpeed);
+        _cc.Move(dir * movementSpeed * _pT.lifeLeft);
         
     }
 

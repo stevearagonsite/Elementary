@@ -13,6 +13,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     public float landDistance = 0.2f;
     public LayerMask landLayer;
+    public PlayerTemperature playerTemperature;
 
 
 
@@ -43,7 +44,7 @@ public class CharacterAnimationController : MonoBehaviour
             _anim.SetBool("fall", val);
         }
 
-        
+        _anim.SetFloat("animationSpeed", playerTemperature.lifeLeft);
     }
 
     /// <summary>
