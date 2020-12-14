@@ -7,9 +7,9 @@ using System;
 
 public class SkillVFXController : MonoBehaviour
 {
-    public VisualEffect absorbParticle;
-    public VisualEffect blowParticle;
-    public VisualEffect fireParticle;
+    public GameObject absorbParticle;
+    public GameObject blowParticle;
+    public ParticleSystem[] fireParticles;
 
     [HideInInspector]
     public ElectricityManager electricFX;
@@ -27,7 +27,7 @@ public class SkillVFXController : MonoBehaviour
         _tppC = GetComponent<TPPController>();
 
         var absorbFX = new VacuumVFX(absorbParticle, blowParticle);
-        var fireFX = new FireVFX(fireParticle);
+        var fireFX = new FireVFX(fireParticles);
         electricFX = GetComponentInChildren<ElectricityManager>();
 
 

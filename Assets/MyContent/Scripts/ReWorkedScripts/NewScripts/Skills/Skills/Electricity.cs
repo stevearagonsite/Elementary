@@ -21,7 +21,7 @@ namespace Skills
 
         public void Absorb()
         {
-
+            Eject();
         }
 
         public void Eject()

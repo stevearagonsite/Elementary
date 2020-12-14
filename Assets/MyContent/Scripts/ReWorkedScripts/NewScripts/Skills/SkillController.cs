@@ -123,14 +123,18 @@ namespace Skills
 
         void OnAbsorb()
         {
-            if(_cc.isGrounded && _tppC.isActive)
+            if (_cc.isGrounded && _tppC.isActive)
                 actualAction.Absorb();
+            else
+                OnStop();
         }
 
         void OnReject()
         {
             if(_cc.isGrounded && _tppC.isActive)
                 actualAction.Eject();
+            else
+                OnStop();
         }
 
         void OnStop()

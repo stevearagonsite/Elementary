@@ -6,16 +6,17 @@ using UnityEngine.VFX;
 
 public class FireVFX : IHandEffect
 {
-
-    VisualEffect _particle;
-
+    ParticleSystem[] _particles;
 
     bool isPlaying;
 
-    public FireVFX(VisualEffect particle)
+    public FireVFX(ParticleSystem[] particles)
     {
-        _particle = particle;
-        particle.Stop();
+        _particles = particles;
+        foreach (var particle in _particles)
+        {
+            particle.Stop();
+        }
     }
 
     public bool IsPlaying()
@@ -25,38 +26,43 @@ public class FireVFX : IHandEffect
 
     public void StartEffect()
     {
-        
+        StartEjectEffect();
     }
 
     public void StartEjectEffect()
     {
-        if (_particle)
+        
+        if (!isPlaying)
         {
-            if (!isPlaying)
+            foreach (var particle in _particles)
             {
-                _particle.gameObject.SetActive(true);
-                _particle.Play();
-                isPlaying = true;
+                particle.Play();
+                particle.gameObject.SetActive(true);
             }
+            isPlaying = true;
         }
+        
     }
 
     public void StopEffect()
     {
-        if (_particle)
+        foreach (var particle in _particles)
         {
-            _particle.Stop();
-            isPlaying = false;
+            particle.Stop();
         }
+        isPlaying = false;
+        
     }
 
     public void TerminateEffect()
     {
-        if (_particle)
+        foreach (var particle in _particles)
         {
-            _particle.gameObject.SetActive(false);
-            isPlaying = false;
+            particle.Stop();
+            particle.gameObject.SetActive(false);
         }
+        isPlaying = false;
+        
     }
 
 }

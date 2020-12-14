@@ -62,7 +62,7 @@ public class ElectricityManager : MonoBehaviour, IHandEffect
 
     public void StartEffect()
     {
-        
+        _isActive = true;
     }
 
     public void StartEjectEffect()
