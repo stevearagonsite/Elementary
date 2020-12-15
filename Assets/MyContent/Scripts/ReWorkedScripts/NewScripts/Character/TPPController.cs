@@ -90,13 +90,13 @@ public class TPPController : MonoBehaviour
 
     private void DeactivateCharacter(object[] parameterContainer)
     {
-        Debug.Log("Me desactivo");
+        
         _isActive = false;
     }
 
     private void ActivateCharacter(object[] parameterContainer)
     {
-        Debug.Log("Me activo");
+        
         _isActive = true;
     }
 

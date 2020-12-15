@@ -22,40 +22,30 @@ public class ArmAngle : MonoBehaviour {
         cameraT = GetComponentInParent<TPPController>().cameraT.transform;
         _cc = GetComponentInParent<CharacterController>();
         _tppC = GetComponentInParent<TPPController>();
-        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
 
     private void Absorb() 
     {
-        _isActive = true;
-    }
-
-    private void Stop()
-    {
-        _isActive = false;
-    }
-
-    private void Execute() 
-    {
-        if (_isActive && _cc.isGrounded && _tppC.isActive) 
+        if (_cc.isGrounded && _tppC.isActive)
         {
             var x = cameraT.localEulerAngles.x;
             armPivot.localEulerAngles = new Vector3(x, 0, 0);
             ikControl.ikActive = true;
-            _isActive = false;
-        }
-        else
-        {
-            ikControl.ikActive = false;
         }
     }
+
+    private void Stop()
+    {
+        ikControl.ikActive = false;
+    }
+
+
 
     void OnDestroy()
     {
         InputManager.instance.RemoveAction(InputType.Absorb, Absorb);
         InputManager.instance.RemoveAction(InputType.Reject, Absorb);
         InputManager.instance.RemoveAction(InputType.Stop, Stop);
-        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
 
     }
 }

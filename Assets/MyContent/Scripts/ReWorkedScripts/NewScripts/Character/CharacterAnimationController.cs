@@ -38,13 +38,17 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void CheckFall()
     {
-        if (_controller.isActive) 
-        {
-            var val = _controller.velocity.y < -5 && !Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance*2);
-            _anim.SetBool("fall", val);
-        }
+        
+        var val = _controller.velocity.y < -5 && !Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance*2);
+        _anim.SetBool("fall", val);
+        
 
         _anim.SetFloat("animationSpeed", playerTemperature.lifeLeft);
+
+        if (!_controller.isActive)
+        {
+            _anim.SetFloat("speed", 0);
+        }
     }
 
     /// <summary>
@@ -78,12 +82,8 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void CheckLand()
     {
-        if (_controller.isActive)
-        {
-            var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance, landLayer) || _cc.isGrounded;
-            _anim.SetBool("land", val);
-        }
-        
+        var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance, landLayer) || _cc.isGrounded;
+        _anim.SetBool("land", val);
     }
 
     private void Sprint() 

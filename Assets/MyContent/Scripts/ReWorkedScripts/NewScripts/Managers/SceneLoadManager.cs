@@ -39,7 +39,6 @@ public class SceneLoadManager : MonoBehaviour
     {
         while (sceneLoadData.progress < 0.9)
         {
-            Debug.Log(sceneLoadData.progress);
             yield return null;
         }
         EventManager.DispatchEvent(GameEvent.LOAD_SCENE_COMPLETE);

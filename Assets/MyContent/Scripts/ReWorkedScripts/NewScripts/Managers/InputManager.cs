@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 public class InputManager : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class InputManager : MonoBehaviour
     private Dictionary<InputType, Move> _moveActions;
 
     private bool _isGamePaused;
+    private bool _canGameBePaused;
 
     [Range(0,0.3f)]
     public float axisOffset = 0.1f;
@@ -38,6 +40,25 @@ public class InputManager : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
+
+        EventManager.AddEventListener(GameEvent.STORY_START, CantBePaused);
+        EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, CantBePaused);
+        EventManager.AddEventListener(GameEvent.START_LEVEL_TRANSITION, CantBePaused);
+
+
+        EventManager.AddEventListener(GameEvent.STORY_END, CanBePaused);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_FINISH, CanBePaused);
+        EventManager.AddEventListener(GameEvent.START_GAME, CanBePaused);
+    }
+
+    private void CantBePaused(object[] parameterContainer)
+    {
+        _canGameBePaused = false;
+    }
+
+    private void CanBePaused(object[] parameterContainer)
+    {
+        _canGameBePaused = true;
     }
 
     /// <summary>
@@ -130,9 +151,8 @@ public class InputManager : MonoBehaviour
     //Things we must check even if the game is paused
     private void Update()
     {
-        if (Input.GetKeyDown(pause))
+        if (_canGameBePaused && Input.GetKeyDown(pause))
         {
-
             _isGamePaused = !_isGamePaused;
             if (_actions.ContainsKey(InputType.Pause))
             {

@@ -5,9 +5,12 @@ using UnityEngine;
 public class StoryDialogueStart : MonoBehaviour
 {
     public Dialogue dialogueObject;
+    public bool oneTimeStory;
     private void OnTriggerEnter(Collider other)
     {
         StoryTextManager.instance.PlayDialogue(dialogueObject);
+        if (oneTimeStory)
+            Destroy(this);
     }
     
 #if UNITY_EDITOR

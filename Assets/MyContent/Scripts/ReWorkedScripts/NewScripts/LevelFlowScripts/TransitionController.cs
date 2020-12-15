@@ -28,7 +28,7 @@ public class TransitionController : MonoBehaviour
     public void OnFadeToSceneEnd()
     {
         _anim.SetBool("in",false);
-
+        EventManager.DispatchEvent(GameEvent.TRANSITION_FADEIN_FINISH);
     }
 
     private void FadeToSceneTransition(object[] p)
