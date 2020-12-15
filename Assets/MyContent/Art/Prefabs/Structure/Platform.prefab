@@ -27,7 +27,8 @@ GameObject:
   - component: {fileID: 2316299195696034141}
   - component: {fileID: 5420115970716778600}
   - component: {fileID: 5420115970716778601}
-  - component: {fileID: 5420115970716778603}
+  - component: {fileID: 1351377355434488675}
+  - component: {fileID: 6865304701611634946}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -129,7 +130,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 101.69597, y: 7.874016, z: 82.010925}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &5420115970716778603
+--- !u!114 &1351377355434488675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -138,16 +139,51 @@ MonoBehaviour:
   m_GameObject: {fileID: 4042530232759879041}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ecaa77910f2a476d9c6f0c8515e7a13, type: 3}
+  m_Script: {fileID: 11500000, guid: 934eda1db82b54ab1b00e7d657e33ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
-  scalePosition: 1
-  scaleRotation: 1
-  positionSpeed: 0.4
-  rotationSpeed: 1
-  shakePositionRange: 0.02
-  shakeRotationRange: 0.02
+  isActive: 0
+  relateParent: 1
+  wp: {fileID: 0}
+  period: 10
+  stillTime: 1
+  startTime: 0
+  motionCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 2
+      outSlope: 2
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 0.99999386
+      value: 0.002359569
+      inSlope: -2.008245
+      outSlope: -2.008245
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.06224325
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &6865304701611634946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042530232759879041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267071df22efd4c659a37c23306e90bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!64 &3779059803430472539
 MeshCollider:
   m_ObjectHideFlags: 0
