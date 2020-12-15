@@ -16,9 +16,9 @@ public class SwitchFan : MonoBehaviour {
 		_time = 0;
 		_powerValue = 0;
 		UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
-        windSwitch.AddOnSwitchEvent(ReachMaxPower);
-        windSwitch.AddOnSwitchIncreaseEvent(IncreasingPower);
-        windSwitch.AddOnSwitchDecreaseEvent(DecreasingPower);
+       // windSwitch.AddOnSwitchEvent(ReachMaxPower);
+        //windSwitch.AddOnSwitchIncreaseEvent(IncreasingPower);
+        //windSwitch.AddOnSwitchDecreaseEvent(DecreasingPower);
 	}
 
 	void Execute()

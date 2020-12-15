@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
+
 
 public class VacuumSwitch : MonoBehaviour, IVacuumObject
 {
@@ -34,20 +36,21 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
     {
         if (isActive)
         {
+
             if (currentAmountOfAir < maxAmountOfAir)
                 currentAmountOfAir += 60*Time.deltaTime;
             else
             {
                 currentAmountOfAir = maxAmountOfAir;
-                if(callbacks != null)
+                if(activeCallbacks != null)
                 {
-                    callbacks();
+                    activeCallbacks.Invoke();
                     isActive = false;
                     UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
                 }
             }
             if(increaseCallbacks != null)
-                increaseCallbacks();
+                increaseCallbacks.Invoke();
         }
     }
 
@@ -57,8 +60,8 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
         {
             if(currentAmountOfAir > 0)
                 currentAmountOfAir -= 1;
-            if(decreaseCallbacks != null)
-                decreaseCallbacks();
+            if (decreaseCallbacks != null)
+                decreaseCallbacks.Invoke();
         }
     }
 
@@ -71,44 +74,11 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
     #endregion
 
     #region Delegate Implementation
-    public delegate void OnSwitch();
-    public delegate void OnSwitchIncrease();
-    public delegate void OnSwitchDecrease();
 
-    OnSwitch callbacks;
-    OnSwitchIncrease increaseCallbacks;
-    OnSwitchDecrease decreaseCallbacks;
+    public UnityEvent activeCallbacks;
+    public UnityEvent increaseCallbacks;
+    public UnityEvent decreaseCallbacks; 
 
-
-    public void AddOnSwitchEvent(OnSwitch callback)
-    {
-        callbacks += callback;
-    }
-
-    public void RemoveOnSwitchEvent(OnSwitch callback)
-    {
-        callbacks -= callback;
-    }
-
-    public void AddOnSwitchIncreaseEvent(OnSwitchIncrease callback)
-    {
-        increaseCallbacks += callback;
-    }
-
-    public void RemoveOnSwitchIncreaseEvent(OnSwitchIncrease callback)
-    {
-        increaseCallbacks -= callback;
-    }
-
-    public void AddOnSwitchDecreaseEvent(OnSwitchDecrease callback)
-    {
-        decreaseCallbacks += callback;
-    }
-
-    public void RemoveOnSwitchDecreaseEvent(OnSwitchDecrease callback)
-    {
-        decreaseCallbacks -= callback;
-    }
 
 
     #endregion
@@ -120,7 +90,7 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
 
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
+       _rb = GetComponent<Rigidbody>();
         currentAmountOfAir = 0;
         isActive = true;
         _isAbsorvable = false;
@@ -130,12 +100,16 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
 
     void Execute()
     {
-        if(decreaseCallbacks != null)
+        if (!_isBeeingAbsorved)
         {
-            decreaseCallbacks();
+            if(decreaseCallbacks != null)
+            {
+                decreaseCallbacks.Invoke();
+            }
+            if(currentAmountOfAir > 0)
+                currentAmountOfAir -= 30* Time.deltaTime;
+            Debug.Log("Caigo solo");
         }
-        if(currentAmountOfAir > 0)
-            currentAmountOfAir -= 30* Time.deltaTime;
         
     }
 

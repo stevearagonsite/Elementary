@@ -5,26 +5,34 @@ using UnityEngine.UI;
 
 public class VacuumSwitchVisuals : MonoBehaviour {
 
-    VacuumSwitch sw;
-    public Image progressBar;
-    public Text text;
+    public ParticleSystem onIncrease;
+    public ParticleSystem[] onActive;
 
-	void Start () {
-        sw = GetComponent<VacuumSwitch>();
-        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
-	}
-	
-	
-	void Execute ()
+    private void Start()
     {
-        var prog = sw.GetCurrentProgressPercent();
-        progressBar.fillAmount = prog;
-        text.text = (int)(prog *100) + "%";
-
+        onIncrease.Stop();
+        for (int i = 0; i < onActive.Length; i++)
+        {
+            onActive[i].Stop();
+        }
     }
 
-    private void OnDestroy()
+    public void IncreasingVisuals()
     {
-        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+        onIncrease.Play();
+    }
+
+    public void Decrease()
+    {
+        onIncrease.Stop();
+    }
+
+    public void ActivateVisuals()
+    {
+        for (int i = 0; i < onActive.Length; i++)
+        {
+            onActive[i].Play();
+        }
+        onIncrease.Stop();
     }
 }

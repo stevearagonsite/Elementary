@@ -13,7 +13,7 @@ public class Elevator : MonoBehaviour {
 
 	void Start ()
     {
-        elevatorSwitch.AddOnSwitchEvent(SwitchOn);
+        //elevatorSwitch.AddOnSwitchEvent(SwitchOn);
         isActive = false;
         activeParticles.Stop();
     }
@@ -21,7 +21,7 @@ public class Elevator : MonoBehaviour {
     void SwitchOn()
     {
         isActive = true;
-        elevatorSwitch.RemoveOnSwitchEvent(SwitchOn);
+        //elevatorSwitch.RemoveOnSwitchEvent(SwitchOn);
         activeParticles.Play();
     }
 
