@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2899133796624752637}
   - component: {fileID: 6152141859493438923}
   - component: {fileID: 458317161440549170}
+  - component: {fileID: 8692403893817382004}
   m_Layer: 0
   m_Name: Altar_Wall_5
   m_TagString: Untagged
@@ -54,6 +55,7 @@ MeshRenderer:
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -78,3 +80,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &8692403893817382004
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188911094485167598}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4, y: 0.38004714, z: 6.0000005}
+  m_Center: {x: -2, y: 0.14305717, z: 3.0000007}
