@@ -11,12 +11,13 @@ GameObject:
   - component: {fileID: 7210742782017923299}
   - component: {fileID: 1822465692590199509}
   - component: {fileID: 5365541493352640044}
-  m_Layer: 0
+  - component: {fileID: 807332119570935326}
+  m_Layer: 8
   m_Name: cornerback
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 4294967295
   m_IsActive: 1
 --- !u!4 &7210742782017923299
 Transform:
@@ -79,3 +80,17 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &807332119570935326
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5929813009629518576}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -7061585933124598971, guid: 3574bbadca6f29549aa14ce2f3c0cad6, type: 3}
