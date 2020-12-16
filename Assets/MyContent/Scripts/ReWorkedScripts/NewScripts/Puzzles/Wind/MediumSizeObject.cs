@@ -33,6 +33,8 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
     protected bool _isBeeingAbsorved;
     protected Rigidbody _rb;
 
+    private Transform _initialParent;
+
     public bool isAbsorved { get { return _isAbsorved; } set { _isAbsorved = value; } }
     public bool isAbsorvable { get { return _isAbsorvable; } }
     public bool isBeeingAbsorved { get { return _isBeeingAbsorved; } set { _isBeeingAbsorved = value; } }
@@ -48,7 +50,7 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
         material = GetComponent<Renderer>().material;
         _bC = GetComponent<Collider>();
         SpawnVFXActivate(true);
-
+        _initialParent = transform.parent;
     }
 
     void Execute()
@@ -129,6 +131,8 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
         {
             bt.ResetBox();
         }
+
+        transform.SetParent(_initialParent);
     }
 
     public void SuckIn(Transform origin, float atractForce)

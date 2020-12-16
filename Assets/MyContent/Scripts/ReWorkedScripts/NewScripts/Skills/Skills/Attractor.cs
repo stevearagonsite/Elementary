@@ -37,6 +37,11 @@ public class Attractor : ISkill {
         {
             if (_objectsToInteract.Count > 0)
                 _objectsToInteract[0].ViewFX(true);
+            else
+            {
+                EventManager.DispatchEvent(GameEvent.VACUUM_FREE);
+                _isStuck = false;
+            }
         }
         Attract();
     }
