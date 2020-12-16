@@ -26,7 +26,7 @@ public class ArmAngle : MonoBehaviour {
 
     private void Absorb() 
     {
-        if (_cc.isGrounded && _tppC.isActive)
+        if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
         {
             var x = cameraT.localEulerAngles.x;
             armPivot.localEulerAngles = new Vector3(x, 0, 0);

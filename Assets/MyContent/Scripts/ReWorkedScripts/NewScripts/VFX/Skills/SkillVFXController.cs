@@ -30,7 +30,6 @@ public class SkillVFXController : MonoBehaviour
         var fireFX = new FireVFX(fireParticles);
         electricFX = GetComponentInChildren<ElectricityManager>();
 
-
         _skillDictionary = new Dictionary<Skills.Skills, IHandEffect>();
 
         _skillDictionary.Add(Skills.Skills.VACCUM, absorbFX);
@@ -51,7 +50,7 @@ public class SkillVFXController : MonoBehaviour
 
     private void onSkillChange(object[] parameterContainer)
     {
-        if (_tppC.isActive)
+        if (_tppC.isActive && SkillManager.instance.isActive)
         {
             foreach(var sk in _skillDictionary)
             {
@@ -73,7 +72,7 @@ public class SkillVFXController : MonoBehaviour
     void Absorb() 
     {
         
-        if(!_isStuck && _cc.isGrounded && _tppC.isActive)
+        if(!_isStuck && _cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
             _skillDictionary[_skillController.skillAction].StartEffect();
         else
             _skillDictionary[_skillController.skillAction].StopEffect();
@@ -81,7 +80,7 @@ public class SkillVFXController : MonoBehaviour
 
     void Reject()
     {
-        if (_cc.isGrounded && _tppC.isActive)
+        if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
             _skillDictionary[_skillController.skillAction].StartEjectEffect();
         else
             _skillDictionary[_skillController.skillAction].StopEffect();

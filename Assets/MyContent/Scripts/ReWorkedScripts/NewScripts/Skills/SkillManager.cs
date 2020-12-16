@@ -13,14 +13,10 @@ namespace Skills
 
         Dictionary<Skills, float> _skillAmount;
         Dictionary<Skills, float> _maxSkillAmount;
-        int fireMaxAmount = 300;
-        int electricityMaxAmount = 300;
-        int waterMaxAmount = 300;
-        int iceMaxAmount = 300;
 
         TatooTool _tatooTool;
 
-        [Header("Initial skill values")]
+        /*[Header("Initial skill values")]
         public float initialFlameAmount;
         public float initialElectricityAmount;
         public float initialWaterAmount;
@@ -31,9 +27,11 @@ namespace Skills
         public float fireAmount;
         public float electricityAmount;
         public float waterAmount;
-        public float iceAmount;
+        public float iceAmount;*/
 
         SkillController _skillController;
+
+        public bool isActive;
 
         void Awake()
         {
@@ -43,22 +41,63 @@ namespace Skills
             _tatooTool = GetComponent<TatooTool>();
 
             _skillAmount = new Dictionary<Skills, float>();
-            _skillAmount[Skills.VACCUM] = initialVacuumAmount;
-            _skillAmount[Skills.FIRE] = initialFlameAmount;
-            _skillAmount[Skills.ELECTRICITY] = initialElectricityAmount;
-            _skillAmount[Skills.WATER] = initialWaterAmount;
-            _skillAmount[Skills.ICE] = initialIceAmount;
+            _skillAmount[Skills.VACCUM] = 1;
+            _skillAmount[Skills.FIRE] = 0;
+            _skillAmount[Skills.ELECTRICITY] = 0;
+            _skillAmount[Skills.WATER] = 0;
+            _skillAmount[Skills.ICE] = 0;
 
             //For HUD
             _maxSkillAmount = new Dictionary<Skills, float>();
             _maxSkillAmount[Skills.VACCUM] = 1;
-            _maxSkillAmount[Skills.FIRE] = fireMaxAmount;
-            _maxSkillAmount[Skills.ELECTRICITY] = electricityMaxAmount;
-            _maxSkillAmount[Skills.WATER] = waterMaxAmount;
-            _maxSkillAmount[Skills.ICE] = iceMaxAmount;
+            _maxSkillAmount[Skills.FIRE] = 1;
+            _maxSkillAmount[Skills.ELECTRICITY] = 1;
+            _maxSkillAmount[Skills.WATER] = 1;
+            _maxSkillAmount[Skills.ICE] = 1;
 
 
             _skillController = GetComponent<SkillController>();
+        }
+
+        private void Start()
+        {
+            EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_FIRE, ActivateFire);
+            EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_ELECTRIC, ActivateElectric);
+
+            EventManager.AddEventListener(GameEvent.SKILL_DEACTIVATE_FIRE, DeactivateFire);
+            EventManager.AddEventListener(GameEvent.SKILL_DEACTIVATE_ELECTRIC, DeactivateElectric);
+
+            EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_VACUUM, Activate);
+            EventManager.AddEventListener(GameEvent.SKILL_DEACTIVATE, Deactivate);
+        }
+
+        private void Deactivate(object[] parameterContainer)
+        {
+            isActive = false;
+        }
+        private void Activate(object[] parameterContainer)
+        {
+            isActive = true;
+        }
+
+        private void ActivateElectric(object[] parameterContainer)
+        {
+            _skillAmount[Skills.ELECTRICITY] = 1;
+        }
+
+        private void ActivateFire(object[] parameterContainer)
+        {
+            _skillAmount[Skills.FIRE] = 1;
+        }
+
+        private void DeactivateElectric(object[] parameterContainer)
+        {
+            _skillAmount[Skills.ELECTRICITY] = 0;
+        }
+
+        private void DeactivateFire(object[] parameterContainer)
+        {
+            _skillAmount[Skills.FIRE] = 0;
         }
 
         public bool CheckSkillAmount(Skills sk)
@@ -113,6 +152,18 @@ namespace Skills
         public float SkillActualAmount(Skills sk)
         {
             return _skillAmount[sk]/_maxSkillAmount[sk];
+        }
+
+        private void OnDestroy()
+        {
+            EventManager.RemoveEventListener(GameEvent.SKILL_ACTIVATE_FIRE, ActivateFire);
+            EventManager.RemoveEventListener(GameEvent.SKILL_ACTIVATE_ELECTRIC, ActivateElectric);
+
+            EventManager.RemoveEventListener(GameEvent.SKILL_DEACTIVATE_FIRE, DeactivateFire);
+            EventManager.RemoveEventListener(GameEvent.SKILL_DEACTIVATE_ELECTRIC, DeactivateElectric);
+
+            EventManager.RemoveEventListener(GameEvent.SKILL_ACTIVATE_VACUUM, Activate);
+            EventManager.RemoveEventListener(GameEvent.SKILL_DEACTIVATE, Deactivate);
         }
     }
 

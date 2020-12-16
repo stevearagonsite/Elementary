@@ -71,6 +71,8 @@ namespace Skills
 
         private TPPController _tppC;
 
+        private bool _isActive;
+
         public Skills currentSkill;
 
         TatooTool _tatooTool;
@@ -98,7 +100,7 @@ namespace Skills
             _waterLauncher = new WaterLauncher(wetObjectsToInteract);
             _electricity = new Electricity(electricObjectsToInteract, electricityVFX);
             _freezer = new Freezer(frozenObjectsToInteract);
-
+            
             _skills = new Dictionary<Skills, ISkill>();
             _skills.Add(Skills.VACCUM, _attractor);
             _skills.Add(Skills.FIRE, _flameThrower);
@@ -119,11 +121,19 @@ namespace Skills
             InputManager.instance.AddAction(InputType.Absorb, OnAbsorb);
             InputManager.instance.AddAction(InputType.Reject, OnReject);
             InputManager.instance.AddAction(InputType.Stop, OnStop);
+
+            EventManager.AddEventListener(GameEvent.SKILL_DEACTIVATE_FIRE, DeactivateSkill);
+            //EventManager.AddEventListener(GameEvent.SKILL_DEACTIVATE_ELECTRIC, DeactivateElectric);
+        }
+
+        private void DeactivateSkill(object[] parameterContainer)
+        {
+            RecuCheckAmount(skillAction, false);
         }
 
         void OnAbsorb()
         {
-            if (_cc.isGrounded && _tppC.isActive)
+            if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
                 actualAction.Absorb();
             else
                 OnStop();
@@ -131,7 +141,7 @@ namespace Skills
 
         void OnReject()
         {
-            if(_cc.isGrounded && _tppC.isActive)
+            if(_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
                 actualAction.Eject();
             else
                 OnStop();
@@ -161,32 +171,40 @@ namespace Skills
 
         private void OnSkillDown()
         {
-            if (skillAction > 0)
+            if(SkillManager.instance.isActive)
             {
-                skillAction--;
-                RecuCheckAmount(skillAction, false);
-            }
-            else
-            {
-                skillAction = Skills.LAST;
-                skillAction--;
-                RecuCheckAmount(skillAction, false);
-            }
 
-            SkillSet();
+                if (skillAction > 0)
+                {
+                    skillAction--;
+                    RecuCheckAmount(skillAction, false);
+                }
+                else
+                {
+                    skillAction = Skills.LAST;
+                    skillAction--;
+                    RecuCheckAmount(skillAction, false);
+                }
+
+                SkillSet();
+            }
         }
 
         private void OnSkillUp()
         {
-            if (skillAction + 1 != Skills.LAST)
+            if (SkillManager.instance.isActive)
             {
-                skillAction++;
-                RecuCheckAmount(skillAction, true);
-                if (skillAction == Skills.LAST) skillAction = Skills.VACCUM;
-            }
-            else skillAction = Skills.VACCUM;
+                if (skillAction + 1 != Skills.LAST)
+                {
+                    skillAction++;
+                    RecuCheckAmount(skillAction, true);
+                    if (skillAction == Skills.LAST) skillAction = Skills.VACCUM;
+                }
+                else skillAction = Skills.VACCUM;
 
-            SkillSet();
+                SkillSet();
+
+            }
         }
 
         void RecuCheckAmount(Skills skill, bool sign)
