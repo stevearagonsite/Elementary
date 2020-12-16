@@ -11,11 +11,11 @@ public class PauseMenuManager : MonoBehaviour
 
     bool _isEnabled;
 
-    public Volume pausePostProcess;
-
+    public float blurAmount = 0.003f;
+    public Material blur;
     private void Start()
     {
-        pausePostProcess.enabled = false;
+        BlurImage(false);
         _canvas = GetComponent<Canvas>();
         _canvas.enabled = false;
         InputManager.instance.AddAction(InputType.Pause, OnPause);
@@ -25,10 +25,22 @@ public class PauseMenuManager : MonoBehaviour
     {
         _isEnabled = !_isEnabled;
         _canvas.enabled = _isEnabled;
-        pausePostProcess.enabled = _isEnabled;
+        BlurImage( _isEnabled);
         Cursor.visible = _isEnabled;
         Cursor.lockState = _isEnabled ? CursorLockMode.None: CursorLockMode.Locked;
 
+    }
+
+    private void BlurImage(bool val)
+    {
+        if (val)
+        {
+            blur.SetFloat("_BlurValue", blurAmount);
+        }
+        else
+        {
+            blur.SetFloat("_BlurValue", 0);
+        }
     }
 
     public void Resume()
