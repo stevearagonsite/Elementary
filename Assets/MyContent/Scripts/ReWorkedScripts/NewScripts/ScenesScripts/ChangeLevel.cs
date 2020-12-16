@@ -15,6 +15,7 @@ public class ChangeLevel : MonoBehaviour
 
     public void GoToNextLevel(object[] p)
     {
+        GameObjectiveManager.instance.ResetKeyHold();
         for (int i = 0; i < SceneManager.sceneCount; i++)
         {
             var scene = SceneManager.GetSceneAt(i);
