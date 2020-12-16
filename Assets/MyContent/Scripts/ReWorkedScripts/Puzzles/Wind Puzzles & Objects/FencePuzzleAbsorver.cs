@@ -6,12 +6,12 @@ using UnityEngine;
 
 public class FencePuzzleAbsorver : MediumSizeObject, IVacuumObject
 {
-    BoxCollider _bc;
+    MeshCollider _bc;
 
     new void Start()
     {
         _rb = GetComponent<Rigidbody>();
-        _bc = GetComponent<BoxCollider>();
+        _bc = GetComponent<MeshCollider>();
 
         _bc.material.dynamicFriction = 0.6f;
         base.Start();
