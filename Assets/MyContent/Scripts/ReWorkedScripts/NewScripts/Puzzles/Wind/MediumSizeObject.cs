@@ -196,7 +196,7 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
         wasShooted = true;
         isAbsorved = false;
         rb.isKinematic = false;
-        transform.SetParent(null);
+        transform.SetParent(_initialParent);
         rb.velocity = direction * shootForce / rb.mass;
         _disolveTick = 0;
     }
