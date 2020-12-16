@@ -9,7 +9,7 @@ public class ObjectToWeight : MonoBehaviour {
     [HideInInspector]
     public Weight control;
 
-    float _timmer = 2;
+    float _timmer = 0.5f;
     float _tick;
 
 	void Start ()
@@ -79,6 +79,7 @@ public class ObjectToWeight : MonoBehaviour {
         {
             control.RemoveFromWeight(this);
             _tick = 0;
+            Debug.Log("Remove Weight from controll");
         }
     }
 

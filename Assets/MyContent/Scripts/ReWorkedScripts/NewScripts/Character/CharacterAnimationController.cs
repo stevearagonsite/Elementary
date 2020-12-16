@@ -10,6 +10,7 @@ public class CharacterAnimationController : MonoBehaviour
     private TPPController _controller;
     private CinematicPlayerController _cinematicController;
     private bool _isGamePaused;
+    private bool _isJumpHeld;
 
     public float landDistance = 0.2f;
     public LayerMask landLayer;
@@ -28,6 +29,7 @@ public class CharacterAnimationController : MonoBehaviour
         _cinematicController = GetComponentInParent<CinematicPlayerController>();
 
         InputManager.instance.AddAction(InputType.Jump, Jump);
+        InputManager.instance.AddAction(InputType.Jump_Held, HeldJump);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
         InputManager.instance.AddAction(InputType.Sprint, Sprint);
         InputManager.instance.AddAction(InputType.Pause, Pause);
@@ -38,8 +40,13 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void CheckFall()
     {
-        
-        var val = _controller.velocity.y < -5 && !Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance*2);
+        var landDist = landDistance;
+        if (_isJumpHeld)
+        {
+            landDist = 0;
+            _isJumpHeld = false;
+        }
+        var val = _controller.velocity.y < -5 /*&& !Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance * 2)*/;
         _anim.SetBool("fall", val);
         
 
@@ -49,6 +56,11 @@ public class CharacterAnimationController : MonoBehaviour
         {
             _anim.SetFloat("speed", 0);
         }
+    }
+
+    void HeldJump()
+    {
+        _isJumpHeld = false;
     }
 
     /// <summary>

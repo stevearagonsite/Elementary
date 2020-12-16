@@ -32,6 +32,10 @@ public class ArmAngle : MonoBehaviour {
             armPivot.localEulerAngles = new Vector3(x, 0, 0);
             ikControl.ikActive = true;
         }
+        else
+        {
+            ikControl.ikActive = false;
+        }
     }
 
     private void Stop()

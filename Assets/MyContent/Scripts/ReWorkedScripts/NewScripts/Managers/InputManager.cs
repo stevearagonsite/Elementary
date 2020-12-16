@@ -231,10 +231,13 @@ public class InputManager : MonoBehaviour
 
     public void UnPauseGame()
     {
-        _isGamePaused = !_isGamePaused;
-        if (_actions.ContainsKey(InputType.Pause))
+        if (_isGamePaused)
         {
-            _actions[InputType.Pause]();
+            _isGamePaused = !_isGamePaused;
+            if (_actions.ContainsKey(InputType.Pause))
+            {
+                _actions[InputType.Pause]();
+            }
         }
     }
 

@@ -24,4 +24,10 @@ public class PlayAnimation : MonoBehaviour {
             _animator.SetFloat("speed", -1f);
         }
     }
+
+    public void StopAnimation(float dir)
+    {
+        if(_animator.GetFloat("speed") == dir)
+            _animator.SetFloat("speed", 0);
+    }
 }
