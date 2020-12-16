@@ -19,11 +19,15 @@ public class Waypoint : MonoBehaviour {
 
     private void OnDrawGizmos()
     {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, 0.5f);
+        if (!next) {
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(transform.position, 0.5f);
+            return;
+        }
 
-        if (!next) return;
+
         Gizmos.color = Color.green;
+        Gizmos.DrawWireSphere(transform.position, 0.5f);
         Gizmos.DrawLine(transform.position, next.transform.position);
     }
 

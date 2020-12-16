@@ -57,7 +57,6 @@ public class Weight : MonoBehaviour {
         if(_totalWeight >= actionWeight && onWeight != null && !_executedWeightAction)
         {
             onWeight.Invoke();
-            Debug.Log("FActivo ");
             _executedWeightAction = true;
         }
 	}
