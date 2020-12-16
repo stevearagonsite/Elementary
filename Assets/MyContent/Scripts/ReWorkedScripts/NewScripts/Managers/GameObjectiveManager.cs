@@ -10,6 +10,11 @@ public class GameObjectiveManager : MonoBehaviour
     //In case we want more than one goal, we can do this a Dictionary 
     private bool _hasGoals;
 
+    void Awake()
+    {
+        if (_instance == null) _instance = this;
+    }
+
 
     public bool CheckEndOfLevelGoals()
     {
