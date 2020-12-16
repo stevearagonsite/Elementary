@@ -10,11 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a8fc482b996b32c4d90d2f7d62912018, type: 3}
-  m_Name: NewBlitRenderPassFeature
+  m_Name: Blur
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
     material: {fileID: 2100000, guid: 65f83fb462e25104aa96130a35fc49b1, type: 2}
+--- !u!114 &-5987173747089875472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a8fc482b996b32c4d90d2f7d62912018, type: 3}
+  m_Name: Death
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    material: {fileID: 2100000, guid: cb0c77a200d60be4aba8dc928df6636a, type: 2}
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29,7 +44,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_RendererFeatures:
   - {fileID: -6683822908911003468}
-  m_RendererFeatureMap: b4d8bd0c7a4a3ea3
+  - {fileID: -5987173747089875472}
+  m_RendererFeatureMap: b4d8bd0c7a4a3ea3f0dd29cc3249e9ac
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   shaders:
     blitPS: {fileID: 4800000, guid: c17132b1f77d20942aa75f8429c0f8bc, type: 3}
