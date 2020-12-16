@@ -15,6 +15,7 @@ public class PlayAnimation : MonoBehaviour {
 
     public void toggleAnim(bool b)
     {
+        Debug.Log($"ANIM {b}");
         if (b)
         {
             _animator.SetFloat("speed", 1f);
