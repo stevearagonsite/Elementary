@@ -5,18 +5,19 @@ using UnityEngine;
 using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Collider))]
-[RequireComponent(typeof(Volume))]
 public class DeathFallTrigger : MonoBehaviour {
 
     public float timmer = 3;
     float _tick;
-    Volume _deathPostProcess;
+    //Volume _deathPostProcess;
     bool _isActive;
+    public Material deathMat;
 
     private void Start()
     {
-        _deathPostProcess = GetComponent<Volume>();
-        _deathPostProcess.weight = 0;
+        //_deathPostProcess = GetComponent<Volume>();
+        //_deathPostProcess.weight = 0;
+        deathMat.SetFloat("_Saturation",1);
     }
 
     void OnTriggerEnter(Collider other)
@@ -33,7 +34,7 @@ public class DeathFallTrigger : MonoBehaviour {
     void Execute()
     {
         _tick += Time.deltaTime;
-         _deathPostProcess.weight = _tick/ timmer;
+        deathMat.SetFloat("_Saturation" ,1 - _tick / timmer) ;
         if (_tick > timmer)
         {
             UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
@@ -52,10 +53,11 @@ public class DeathFallTrigger : MonoBehaviour {
     {
         EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, OnFadeOutEnd);
         _tick = 0;
-        _deathPostProcess.weight = 0;
+        //_deathPostProcess.weight = 0;
         CheckPointManager.instance.RespawnPlayerInLastActiveCheckpoint();
         EventManager.DispatchEvent(GameEvent.TRANSITION_FADEIN_DEMO);
         _isActive = false;
+        deathMat.SetFloat("_Saturation", 1);
     }
 
     private void OnDestroy()
