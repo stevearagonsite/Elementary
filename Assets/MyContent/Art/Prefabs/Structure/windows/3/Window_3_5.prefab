@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &3239178989693058945
+--- !u!1 &3306949330035559553
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,8 +8,8 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7252104438290536474}
-  - component: {fileID: 7648254708080697868}
+  - component: {fileID: 7328449869742025498}
+  - component: {fileID: 7724601239714369804}
   m_Layer: 8
   m_Name: Collider
   m_TagString: Untagged
@@ -17,34 +17,34 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &7252104438290536474
+--- !u!4 &7328449869742025498
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239178989693058945}
+  m_GameObject: {fileID: 3306949330035559553}
   m_LocalRotation: {x: -0.5000011, y: 0.49999893, z: 0.49999893, w: 0.5000011}
   m_LocalPosition: {x: -14, y: -1, z: -108}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6056269508500178880}
+  m_Father: {fileID: 6132624801468167360}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90.00001}
---- !u!65 &7648254708080697868
+--- !u!65 &7724601239714369804
 BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3239178989693058945}
+  m_GameObject: {fileID: 3306949330035559553}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 3.9999998, y: 0.5061538, z: 6.0000014}
   m_Center: {x: -1.9998187, y: 0.19308348, z: 3.0000002}
---- !u!1 &7086247846243481043
+--- !u!1 &7151764703810963155
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -52,9 +52,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6056269508500178880}
-  - component: {fileID: 2978910945581071862}
-  - component: {fileID: 8821354111068406031}
+  - component: {fileID: 6132624801468167360}
+  - component: {fileID: 2900445139770904310}
+  - component: {fileID: 8898261942788321807}
   m_Layer: 0
   m_Name: Window_3_5
   m_TagString: Untagged
@@ -62,36 +62,36 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!4 &6056269508500178880
+--- !u!4 &6132624801468167360
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086247846243481043}
-  m_LocalRotation: {x: -0.5000011, y: 0.49999893, z: 0.49999893, w: 0.5000011}
-  m_LocalPosition: {x: -14, y: -1, z: -108}
+  m_GameObject: {fileID: 7151764703810963155}
+  m_LocalRotation: {x: 0.00000015750894, y: 0.000000041296545, z: -0.7071068, w: 0.70710677}
+  m_LocalPosition: {x: -0.00000029802, y: 4, z: 6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 7252104438290536474}
+  - {fileID: 7328449869742025498}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -90.00001, y: 0, z: 90.00001}
---- !u!33 &2978910945581071862
+--- !u!33 &2900445139770904310
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086247846243481043}
+  m_GameObject: {fileID: 7151764703810963155}
   m_Mesh: {fileID: 3663834024897580639, guid: 5c68194ddefa6c84aaeb3a2d196d9891, type: 3}
---- !u!23 &8821354111068406031
+--- !u!23 &8898261942788321807
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7086247846243481043}
+  m_GameObject: {fileID: 7151764703810963155}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
@@ -103,7 +103,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67b072bb3cf976d48b88decdc89e385a, type: 2}
+  - {fileID: 2100000, guid: 79b2b3d0c1c071b4ea3535241a53875f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
