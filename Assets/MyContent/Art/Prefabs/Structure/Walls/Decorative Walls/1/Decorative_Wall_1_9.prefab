@@ -55,8 +55,9 @@ GameObject:
   - component: {fileID: 6056269508500178880}
   - component: {fileID: 2978910945581071862}
   - component: {fileID: 8821354111068406031}
+  - component: {fileID: 5723578156854740014}
   m_Layer: 0
-  m_Name: Window_3_5
+  m_Name: Decorative_Wall_1_9
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -103,7 +104,8 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 67b072bb3cf976d48b88decdc89e385a, type: 2}
+  - {fileID: 2100000, guid: 79b2b3d0c1c071b4ea3535241a53875f, type: 2}
+  - {fileID: 2100000, guid: 79b2b3d0c1c071b4ea3535241a53875f, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -124,3 +126,16 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &5723578156854740014
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7086247846243481043}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9999998, y: 0.5061538, z: 6.0000014}
+  m_Center: {x: -1.9998187, y: 0.19308315, z: 3.0000002}
