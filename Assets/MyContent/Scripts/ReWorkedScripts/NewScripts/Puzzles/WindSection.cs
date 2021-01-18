@@ -63,7 +63,7 @@ public class WindSection : MonoBehaviour
     private void OnDrawGizmos()
     {
         var collider = GetComponent<BoxCollider>();
-        Gizmos.color = new Color(200, 200, 0, 0.7f); ;
+        Gizmos.color = new Color(0.5f, 1, 0.5f, 0.7f); ;
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawCube(collider.center, collider.size);
     }

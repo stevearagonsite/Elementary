@@ -66,7 +66,7 @@ public class DeathFallTrigger : MonoBehaviour {
     private void OnDrawGizmos()
     {
         var collider = GetComponent<BoxCollider>();
-        Gizmos.color = new Color(200, 0, 0, 0.7f); ;
+        Gizmos.color = new Color(1, 0, 0, 0.5f); ;
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawCube(collider.center, collider.size);
     }
