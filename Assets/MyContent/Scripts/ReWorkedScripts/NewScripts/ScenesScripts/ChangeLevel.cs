@@ -31,7 +31,7 @@ public class ChangeLevel : MonoBehaviour
     private void OnDrawGizmos()
     {
         var collider = GetComponent<BoxCollider>();
-        Gizmos.color = new Color(100, 0, 100, 0.7f); ;
+        Gizmos.color = new Color(1, 0, 1, 0.7f); ;
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawCube(collider.center, collider.size);
     }

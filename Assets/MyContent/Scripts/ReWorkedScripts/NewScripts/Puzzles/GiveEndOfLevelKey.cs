@@ -12,7 +12,7 @@ public class GiveEndOfLevelKey : MonoBehaviour
     private void OnDrawGizmos()
     {
         var collider = GetComponent<BoxCollider>();
-        Gizmos.color = new Color(100, 0, 0, 0.7f); ;
+        Gizmos.color = new Color(0, 0, 1, 0.5f); ;
         Gizmos.matrix = transform.localToWorldMatrix;
         Gizmos.DrawCube(collider.center, collider.size);
     }
