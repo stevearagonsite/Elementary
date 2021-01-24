@@ -13,6 +13,7 @@ public class TPPController : MonoBehaviour
     [Header("Move Variables")]
     public float speed;
     public float sprintSpeed;
+    public float walkSpeed;
     public float sprintStaminaInSeconds;
     public float staminaRecoverRatio;
     public float staminaLoseRatio;
@@ -73,6 +74,7 @@ public class TPPController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
         InputManager.instance.AddAction(InputType.Sprint, Sprint);
+        InputManager.instance.AddAction(InputType.Walk, Walk);
         InputManager.instance.AddAction(InputType.Absorb, ExecutePower);
         InputManager.instance.AddAction(InputType.Reject, ExecutePower);
         InputManager.instance.AddAction(InputType.Stop, StopPower);
@@ -135,6 +137,14 @@ public class TPPController : MonoBehaviour
         {
             _actualStamina -= Time.deltaTime * (staminaLoseRatio + staminaRecoverRatio);
         }
+    }
+
+    private void Walk()
+    {
+        var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
+        var actualSpeed = walkSpeed - speed;
+        var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
+        _cc.Move(dir * movementSpeed * _pT.lifeLeft);
     }
 
 
@@ -283,6 +293,7 @@ public class TPPController : MonoBehaviour
         InputManager.instance.RemoveAction(InputType.Movement, MoveAction);
         InputManager.instance.RemoveAction(InputType.Jump_Held, JumpHeld);
         InputManager.instance.RemoveAction(InputType.Sprint, Sprint);
+        InputManager.instance.RemoveAction(InputType.Walk, Walk);
         InputManager.instance.RemoveAction(InputType.Absorb, ExecutePower);
         InputManager.instance.RemoveAction(InputType.Reject, ExecutePower);
         InputManager.instance.RemoveAction(InputType.Stop, StopPower);

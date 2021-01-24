@@ -26,6 +26,7 @@ public class InputManager : MonoBehaviour
     public KeyCode skillUp;
     public KeyCode skillDown;
     public KeyCode sprint;
+    public KeyCode walk;
     public KeyCode pause;
     /// <summary>
     /// Initialize
@@ -146,6 +147,14 @@ public class InputManager : MonoBehaviour
                 _actions[InputType.Sprint]();
             }
         }
+
+        if(Input.GetKey(walk) && !_isGamePaused)
+        {
+            if (_actions.ContainsKey(InputType.Walk))
+            {
+                _actions[InputType.Walk]();
+            }
+        }
     }
 
     //Things we must check even if the game is paused
@@ -255,6 +264,7 @@ public enum InputType
     Skill_Down,
     Skill_Up,
     Sprint,
+    Walk,
     Pause
 }
 

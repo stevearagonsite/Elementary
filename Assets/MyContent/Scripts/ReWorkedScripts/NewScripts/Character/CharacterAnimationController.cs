@@ -32,6 +32,7 @@ public class CharacterAnimationController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Jump_Held, HeldJump);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
         InputManager.instance.AddAction(InputType.Sprint, Sprint);
+        InputManager.instance.AddAction(InputType.Walk, Walk);
         InputManager.instance.AddAction(InputType.Pause, Pause);
 
         UpdatesManager.instance.AddUpdate(UpdateType.FIXED, CheckLand);
@@ -106,6 +107,18 @@ public class CharacterAnimationController : MonoBehaviour
             if(speed > 0 && _controller.actualStamina > 0) 
             {
                 _anim.SetFloat("speed", 2);
+            }
+        }
+    }
+
+    private void Walk()
+    {
+        if (_controller.isActive)
+        {
+            var speed = _anim.GetFloat("speed");
+            if(speed > 0 && speed < 2)
+            {
+                _anim.SetFloat("speed", 0.2f);
             }
         }
     }
