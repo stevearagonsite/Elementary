@@ -30,10 +30,14 @@ public class CinematicPlayerController : MonoBehaviour
 
     private void ActivateCharacterMove(object[] p)
     {
-        isActive = true;
-        _nodes = (List<CinematicNode>)p[0];
-        _actualNodeIndex = 0;
-        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
+        if (p != null && p[0] is List<CinematicNode>)
+        {
+            isActive = true;
+            _nodes = (List<CinematicNode>)p[0];
+            _actualNodeIndex = 0;
+            UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
+        }
+
     }
 
     

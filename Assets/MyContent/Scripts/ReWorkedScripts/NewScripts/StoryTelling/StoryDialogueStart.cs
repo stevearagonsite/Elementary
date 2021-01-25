@@ -6,9 +6,13 @@ public class StoryDialogueStart : MonoBehaviour
 {
     public Dialogue dialogueObject;
     public bool oneTimeStory;
+    public bool disablePlayer;
+
     private void OnTriggerEnter(Collider other)
     {
         StoryTextManager.instance.PlayDialogue(dialogueObject);
+        if (disablePlayer)
+            EventManager.DispatchEvent(GameEvent.STORY_START);
         if (oneTimeStory)
             Destroy(this);
     }
