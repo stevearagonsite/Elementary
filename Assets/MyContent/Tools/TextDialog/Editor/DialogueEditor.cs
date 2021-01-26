@@ -13,8 +13,6 @@ public class DialogueEditor : Editor
     {
         _target = (Dialogue)target;
         if (_target.nodes == null) _target.nodes = new List<BaseNode>();
-        
-        
     }
 
     public override void OnInspectorGUI()
@@ -30,7 +28,14 @@ public class DialogueEditor : Editor
 
         DrawDialogues();
 
-        
+        if (GUILayout.Button("Delete last node") && _target.nodes.Count > 0) {
+            var index = _target.nodes.Count - 1;
+            _target.nodes.RemoveAt(index);
+        }
+
+        if (!GUILayout.Button("Save")) return;
+        EditorUtility.SetDirty(_target);
+        AssetDatabase.SaveAssets();
     }
 
     private void DrawDialogues()
