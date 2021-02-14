@@ -2,16 +2,16 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(AudioClipHandler))]
 public class MusicOnStart : MonoBehaviour
 {
-    public AudioClip clip;
-    [Range(0, 1)]
-    public float volume;
-    public float transitionTime;
 
+    public float transitionTime;
+    private AudioClipHandler _clipHandler;
     void Start()
     {
-        AudioManager.instance.PlayMusicWithFade(clip, transitionTime, volume);
+        _clipHandler = GetComponent<AudioClipHandler>();
+        _clipHandler.PlayFadeIn(transitionTime);
     }
 
 }

@@ -67,26 +67,23 @@ public class MenuManager : MonoBehaviour
     #region Volume
     public void OnSoundVolumeChange(float vol)
     {
-        Debug.Log("Change Sound Volumen" + vol);
-        //SoundsManager.ChangeSoundVolume(vol);
+        AudioManager.instance.sfxVolume = vol;
     }
 
     public void OnMasterVolumeChange(float vol)
     {
-        Debug.Log("Change Master Volumen" + vol);
-        //SoundsManager.ChangeMasterVolume(vol);
+ 
+        AudioManager.instance.masterVolume = vol;
     }
 
     public void OnMusicVolumeChange(float vol)
     {
-        Debug.Log("Change Music Volumen" + vol);
-        //SoundsManager.ChangeMusicVolume(vol);
+        AudioManager.instance.musicVolume = vol;
     }
 
     public void OnAmbientVolumeChange(float vol)
     {
-        Debug.Log("Change Ambient Volumen" + vol);
-        //SoundsManager.ChangeAmbientVolume(vol);
+        AudioManager.instance.ambientVolume = vol;
     }
     #endregion
 

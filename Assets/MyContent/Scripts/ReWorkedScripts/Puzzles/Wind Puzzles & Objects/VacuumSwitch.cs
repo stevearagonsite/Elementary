@@ -108,7 +108,6 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
             }
             if(currentAmountOfAir > 0)
                 currentAmountOfAir -= 30* Time.deltaTime;
-            Debug.Log("Caigo solo");
         }
         
     }

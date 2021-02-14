@@ -20,11 +20,13 @@ public class SkillVFXController : MonoBehaviour
 
     private CharacterController _cc;
     private TPPController _tppC;
+    private SkillSFXController _sSFXC;
     void Start()
     {
         _skillController = GetComponent<SkillController>();
         _cc = GetComponent<CharacterController>();
         _tppC = GetComponent<TPPController>();
+        _sSFXC = GetComponent<SkillSFXController>();
 
         var absorbFX = new VacuumVFX(absorbParticle, blowParticle);
         var fireFX = new FireVFX(fireParticles);
@@ -56,6 +58,7 @@ public class SkillVFXController : MonoBehaviour
             {
                 sk.Value.StopEffect();
             }
+            _sSFXC.StopSkillSFX();
         }
     }
 
@@ -73,22 +76,36 @@ public class SkillVFXController : MonoBehaviour
     {
         
         if(!_isStuck && _cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+        {
             _skillDictionary[_skillController.skillAction].StartEffect();
+            if(_skillController.skillAction == Skills.Skills.VACCUM)
+            _sSFXC.PlaySkillSFX(_skillController.skillAction);
+        }
         else
+        {
             _skillDictionary[_skillController.skillAction].StopEffect();
+            _sSFXC.StopSkillSFX();
+        }
     }
 
     void Reject()
     {
         if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+        {
             _skillDictionary[_skillController.skillAction].StartEjectEffect();
+            _sSFXC.PlaySkillSFX(_skillController.skillAction);
+        }
         else
+        {
             _skillDictionary[_skillController.skillAction].StopEffect();
+            _sSFXC.StopSkillSFX();
+        }
     }
 
     void Stop() 
     {
         _skillDictionary[_skillController.skillAction].StopEffect();
+        _sSFXC.StopSkillSFX();
     }
 
     private void OnDestroy()
