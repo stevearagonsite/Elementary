@@ -4,8 +4,19 @@ using UnityEngine;
 
 public class NextLevelTransition : MonoBehaviour
 {
+    public bool checkGoals;
     private void OnTriggerEnter(Collider other)
     {
-        EventManager.DispatchEvent(GameEvent.START_LEVEL_TRANSITION);
+        if (checkGoals)
+        {
+            if (GameObjectiveManager.instance.CheckEndOfLevelGoals())
+            {
+                EventManager.DispatchEvent(GameEvent.START_LEVEL_TRANSITION);
+            }
+        }
+        else
+        {
+            EventManager.DispatchEvent(GameEvent.START_LEVEL_TRANSITION);
+        }
     }
 }
