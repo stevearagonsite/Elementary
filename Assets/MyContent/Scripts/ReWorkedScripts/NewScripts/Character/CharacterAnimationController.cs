@@ -34,9 +34,16 @@ public class CharacterAnimationController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Sprint, Sprint);
         InputManager.instance.AddAction(InputType.Walk, Walk);
         InputManager.instance.AddAction(InputType.Pause, Pause);
+        InputManager.instance.AddAction(InputType.Test, OnTest);
 
         UpdatesManager.instance.AddUpdate(UpdateType.FIXED, CheckLand);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, CheckFall);
+    }
+
+    private void OnTest()
+    {
+        GetComponentInParent<CharacterController>().enabled = false;
+        _anim.enabled = false;
     }
 
     private void CheckFall()

@@ -16,6 +16,7 @@ public class FootStepSoundCheck : MonoBehaviour
         type.Add("Stone", STEP_TYPE.STONE);
 
         _cS = GetComponentInParent<CharacterSounds>();
+        _cS.fssc = this;
     }
 
     public STEP_TYPE ForceGetcurrentType()

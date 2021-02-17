@@ -6,65 +6,30 @@ public class Platform : MonoBehaviour
 {
     public bool isActive;
     public bool relateParent;
-
+    public LayerMask layerMask;
     protected bool hasHero;
-
-    void OnCollisionEnter(Collision c)
-    {
-        if (relateParent)
-        {
-            c.transform.SetParent(transform);
-            hasHero = true;
-            
-        }
-    }
-
-    
-
-    void OnCollisionStay(Collision c)
-    {
-        if(relateParent && c.transform.parent != transform)
-        {
-            c.transform.SetParent(transform);
-            hasHero = true;
-        }
-    }
-
-    void OnCollisionExit(Collision c)
-    {
-        if (relateParent)
-        {
-            c.transform.SetParent(null);
-            hasHero = false;
-            Debug.Log("ya no tengo al heroe");
-        }
-    }
 
     private void OnTriggerEnter(Collider c)
     {
-        if (relateParent)
+        if (relateParent && c.gameObject.layer == 9)
         {
             hasHero = true;
-            var pf = c.gameObject.GetComponent<FollowPlatform>();
-            if (pf != null)
-            {
-                pf.platformTR = transform;
-                pf.isOnPlatform = true;
-            }
+            c.transform.SetParent(transform);
+            Debug.Log(c.gameObject.name);
         }
     }
 
     private void OnTriggerExit(Collider c)
     {
-        if (relateParent)
+        if (relateParent && c.gameObject.layer == 9)
         {
             hasHero = false;
             var pf = c.gameObject.GetComponent<FollowPlatform>();
             if (pf != null)
             {
-                pf.platformTR = null;
-                pf.isOnPlatform = false;
+                c.transform.SetParent(pf.parent);
             }
+            Debug.Log(c.gameObject.name);
         }
     }
 

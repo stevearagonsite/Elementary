@@ -78,6 +78,7 @@ public class TPPController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Absorb, ExecutePower);
         InputManager.instance.AddAction(InputType.Reject, ExecutePower);
         InputManager.instance.AddAction(InputType.Stop, StopPower);
+        InputManager.instance.AddAction(InputType.Test, OnTest);
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
 
@@ -100,6 +101,11 @@ public class TPPController : MonoBehaviour
     {
         
         _isActive = true;
+    }
+
+    private void OnTest()
+    {
+        
     }
 
     /// <summary>

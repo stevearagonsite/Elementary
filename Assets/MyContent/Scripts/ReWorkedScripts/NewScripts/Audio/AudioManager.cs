@@ -27,7 +27,7 @@ public class AudioManager : MonoBehaviour {
         set
         {
             mixer.SetFloat("SFXVolume", Mathf.Clamp01(value));
-            sfxVolume = value;
+            _sfxVolume = value;
         } 
     }
     public float ambientVolume { 
