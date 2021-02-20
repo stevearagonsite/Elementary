@@ -6,6 +6,7 @@ using UnityEngine.Events;
 
 public class VacuumSwitch : MonoBehaviour, IVacuumObject
 {
+    public float amountMultiplier = 60;
     bool isActive;
 
     #region VacuumObject Implementation
@@ -38,7 +39,7 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
         {
 
             if (currentAmountOfAir < maxAmountOfAir)
-                currentAmountOfAir += 60*Time.deltaTime;
+                currentAmountOfAir += amountMultiplier * Time.deltaTime;
             else
             {
                 currentAmountOfAir = maxAmountOfAir;
@@ -107,9 +108,11 @@ public class VacuumSwitch : MonoBehaviour, IVacuumObject
                 decreaseCallbacks.Invoke();
             }
             if(currentAmountOfAir > 0)
-                currentAmountOfAir -= 30* Time.deltaTime;
+                currentAmountOfAir -= (amountMultiplier/2) * Time.deltaTime;
         }
-        
+        _isBeeingAbsorved = false;
+
+
     }
 
     //TODO: Select if you want kinematic to return to false when you stop blowing up IVacuumObjects
