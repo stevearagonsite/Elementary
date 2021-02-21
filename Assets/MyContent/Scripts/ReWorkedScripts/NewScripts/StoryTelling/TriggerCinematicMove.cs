@@ -6,14 +6,14 @@ using UnityEngine;
 public class TriggerCinematicMove : MonoBehaviour
 {
     private PlayerMoveOnCinematic _move;
-
+    public bool walk;
     private void Start()
     {
         _move = GetComponent<PlayerMoveOnCinematic>();
     }
     private void OnTriggerEnter(Collider other)
     {
-        EventManager.DispatchEvent(GameEvent.STORY_START, _move.nodes);
+        EventManager.DispatchEvent(GameEvent.STORY_START, _move.nodes , walk);
         Destroy(this);
     }
 }

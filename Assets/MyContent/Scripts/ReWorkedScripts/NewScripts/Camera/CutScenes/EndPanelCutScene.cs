@@ -16,14 +16,14 @@ public class EndPanelCutScene : MonoBehaviour, CutScene
     {
         _cam = GetComponent<Camera>();
         _cam.enabled = false;
-        EventManager.AddEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
+        //EventManager.AddEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, ZoomOutTimer);
     }
 
     private void SaveDiskEnter(object[] parameterContainer)
     {
         cameraPositionCount++;
-        EventManager.RemoveEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
+        //EventManager.RemoveEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
     }
 
     public void Enter()
@@ -62,6 +62,6 @@ public class EndPanelCutScene : MonoBehaviour, CutScene
 
     void OnDestroy()
     {
-        EventManager.RemoveEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
+        //EventManager.RemoveEventListener(GameEvent.SAVEDISK_ENTER, SaveDiskEnter);
     }
 }

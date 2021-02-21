@@ -10,6 +10,7 @@ public class CinematicPlayerController : MonoBehaviour
     private CharacterController _cc;
     private TPPController _tppC;
     private CharacterAnimationController _aC;
+    private bool _walk;
 
     public bool isActive;
 
@@ -30,12 +31,17 @@ public class CinematicPlayerController : MonoBehaviour
 
     private void ActivateCharacterMove(object[] p)
     {
+        _aC.Idle();
         if (p != null && p[0] is List<CinematicNode>)
         {
             isActive = true;
             _nodes = (List<CinematicNode>)p[0];
             _actualNodeIndex = 0;
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
+        }
+        if(p != null && p[1] is bool)
+        {
+            _walk = (bool)p[1];
         }
 
     }
@@ -46,9 +52,18 @@ public class CinematicPlayerController : MonoBehaviour
         if(Vector3.Distance(transform.position, _nodes[_actualNodeIndex].position) > _nodes[_actualNodeIndex].radius)
         {
             var dir = (_nodes[_actualNodeIndex].position - transform.position).normalized;
-            _cc.Move(dir * _tppC.speed * Time.deltaTime);
+            var speed = _walk ? _tppC.walkSpeed/4*3 : _tppC.speed;
+            _cc.Move(dir * speed * Time.deltaTime);
             RotateGFX(dir);
-            _aC.MoveAction(new Vector2(dir.x, dir.z));
+           
+            if (_walk)
+            {
+                _aC.WalkForCinematic();
+            }
+            else
+            {
+                _aC.MoveForCinematic();
+            }
         }
         else
         {

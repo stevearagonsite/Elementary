@@ -38,6 +38,16 @@ public class CharacterAnimationController : MonoBehaviour
 
         UpdatesManager.instance.AddUpdate(UpdateType.FIXED, CheckLand);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, CheckFall);
+        EventManager.AddEventListener(GameEvent.KEY_TAKE, OnGetKey);
+    }
+    private void OnGetKey(object[] p)
+    {
+        _anim.SetTrigger("getKey");
+    }
+
+    public void Idle()
+    {
+        _anim.Play("Idle");
     }
 
     private void OnTest()
@@ -60,7 +70,7 @@ public class CharacterAnimationController : MonoBehaviour
 
         _anim.SetFloat("animationSpeed", playerTemperature.lifeLeft);
 
-        if (!_controller.isActive)
+        if (!_controller.isActive && !_cinematicController.isActive)
         {
             _anim.SetFloat("speed", 0);
         }
@@ -94,10 +104,15 @@ public class CharacterAnimationController : MonoBehaviour
     /// Get Axis inputs
     /// </summary>
     /// <param name="dir"></param>
-    public void MoveAction(Vector2 dir)
+    private void MoveAction(Vector2 dir)
     {
-        if(_controller.isActive || _cinematicController.isActive)
+        if(_controller.isActive)
             _anim.SetFloat("speed",Mathf.Clamp01(Math.Abs(dir.x) + Math.Abs(dir.y)));
+    }
+
+    public void MoveForCinematic()
+    {
+        _anim.SetFloat("speed", 1);
     }
 
     private void CheckLand()
@@ -128,5 +143,20 @@ public class CharacterAnimationController : MonoBehaviour
                 _anim.SetFloat("speed", 0.2f);
             }
         }
+    }
+
+    public void WalkForCinematic()
+    {
+        _anim.SetFloat("speed", 0.2f);
+    }
+
+    public void SpawnRing()
+    {
+        EventManager.DispatchEvent(GameEvent.SPAWN_RINGS);
+    }
+
+    public void GetKey()
+    {
+        EventManager.DispatchEvent(GameEvent.GET_KEY_EVENT);
     }
 }

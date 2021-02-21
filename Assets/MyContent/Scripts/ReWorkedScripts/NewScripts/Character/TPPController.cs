@@ -147,10 +147,13 @@ public class TPPController : MonoBehaviour
 
     private void Walk()
     {
-        var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
-        var actualSpeed = walkSpeed - speed;
-        var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
-        _cc.Move(dir * movementSpeed * _pT.lifeLeft);
+        if (_isActive)
+        {
+            var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
+            var actualSpeed = walkSpeed - speed;
+            var movementSpeed = new Vector2(_horizontal, _vertical).normalized.magnitude * actualSpeed * Time.deltaTime;
+            _cc.Move(dir * movementSpeed * _pT.lifeLeft);
+        }
     }
 
 

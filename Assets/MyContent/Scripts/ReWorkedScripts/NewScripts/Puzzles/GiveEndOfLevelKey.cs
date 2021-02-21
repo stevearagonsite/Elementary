@@ -7,6 +7,7 @@ public class GiveEndOfLevelKey : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         GameObjectiveManager.instance.ActivateKeyHold();
+        EventManager.DispatchEvent(GameEvent.KEY_TAKE);
     }
 
     private void OnDrawGizmos()

@@ -18,12 +18,12 @@ public class SaveDiskEnd : MonoBehaviour {
         mat.SetFloat("_DisolveAmount", disolveLerp);
 
         anim = GetComponent<Animator>();
-        EventManager.AddEventListener(GameEvent.SAVEDISK_END, OnFinalSceneStart);
+        //EventManager.AddEventListener(GameEvent.SAVEDISK_END, OnFinalSceneStart);
     }
 
     void OnFinalSceneStart(object[] parameterContainer)
     {
-        EventManager.RemoveEventListener(GameEvent.SAVEDISK_END, OnFinalSceneStart);
+        //EventManager.RemoveEventListener(GameEvent.SAVEDISK_END, OnFinalSceneStart);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
         HUDManager.instance.saveDisk.enabled = false;
     }
@@ -46,7 +46,7 @@ public class SaveDiskEnd : MonoBehaviour {
 
     public void OnEnterDrive()
     {
-       EventManager.DispatchEvent(GameEvent.SAVEDISK_ENTER);
+       //EventManager.DispatchEvent(GameEvent.SAVEDISK_ENTER);
        isActive = false; 
     }
 
@@ -54,6 +54,6 @@ public class SaveDiskEnd : MonoBehaviour {
     {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
         EventManager.RemoveEventListener(GameEvent.CAMERA_STORY, OnFinalSceneStart);
-        EventManager.RemoveEventListener(GameEvent.SAVEDISK_END, OnFinalSceneStart);
+        //EventManager.RemoveEventListener(GameEvent.SAVEDISK_END, OnFinalSceneStart);
     }
 }
