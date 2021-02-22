@@ -13,8 +13,8 @@ public class Platform : MonoBehaviour
     {
         if (relateParent && c.gameObject.layer == 9)
         {
+            c.GetComponent<FollowPlatform>().SetPlatformToFollow(transform);
             hasHero = true;
-            c.transform.SetParent(transform);
             Debug.Log(c.gameObject.name);
         }
     }
@@ -24,11 +24,7 @@ public class Platform : MonoBehaviour
         if (relateParent && c.gameObject.layer == 9)
         {
             hasHero = false;
-            var pf = c.gameObject.GetComponent<FollowPlatform>();
-            if (pf != null)
-            {
-                c.transform.SetParent(pf.parent);
-            }
+            c.GetComponent<FollowPlatform>().ReleasePlatform();
             Debug.Log(c.gameObject.name);
         }
     }
