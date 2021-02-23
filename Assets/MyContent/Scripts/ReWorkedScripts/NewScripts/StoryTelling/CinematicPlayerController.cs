@@ -39,7 +39,7 @@ public class CinematicPlayerController : MonoBehaviour
             _actualNodeIndex = 0;
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
         }
-        if(p != null && p[1] is bool)
+        if(p != null && p.Length > 1 && p[1] is bool)
         {
             _walk = (bool)p[1];
         }

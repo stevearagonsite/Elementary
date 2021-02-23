@@ -8,6 +8,7 @@ public class GiveEndOfLevelKey : MonoBehaviour
     {
         GameObjectiveManager.instance.ActivateKeyHold();
         EventManager.DispatchEvent(GameEvent.KEY_TAKE);
+        Destroy(this);
     }
 
     private void OnDrawGizmos()

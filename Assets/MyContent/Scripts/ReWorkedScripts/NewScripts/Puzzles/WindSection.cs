@@ -57,7 +57,6 @@ public class WindSection : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _cc = null;
-        Debug.Log("Salgo");
     }
 
     private void OnDrawGizmos()

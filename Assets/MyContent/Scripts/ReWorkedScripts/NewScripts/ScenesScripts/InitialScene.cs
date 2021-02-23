@@ -14,7 +14,7 @@ public class InitialScene : MonoBehaviour
             SceneLoadManager.instance.LoadSceneAsync(scenesToLoadAtStart[i], LoadSceneMode.Additive);
         }
     }
-    
+    /*
 #if UNITY_EDITOR
     private void Start() {
         StartCoroutine("LazyAddComponent");
@@ -29,5 +29,6 @@ public class InitialScene : MonoBehaviour
         }
     }
 #endif
+    */
 }
 

@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.17927603, g: 0.2244799, b: 0.30619612, a: 1}
+  m_IndirectSpecularColor: {r: 0.30576286, g: 0.34119165, b: 0.41194135, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -88,7 +88,7 @@ LightmapSettings:
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
     m_PVREnvironmentMIS: 1
-    m_PVRCulling: 1
+    m_PVRCulling: 0
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
@@ -98,7 +98,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000004, guid: a6e4b93b39f6c994bab836b5fa2c1103,
+  m_LightingDataAsset: {fileID: 112000002, guid: e3aeaff1a0125e44784d9c150da0a330,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -376,6 +376,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: DL Level 01
       objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024424, guid: de45dabcc0f506f418deb5639df95b3e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6659007335976024425, guid: de45dabcc0f506f418deb5639df95b3e,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -430,6 +435,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 18.328001
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024430, guid: de45dabcc0f506f418deb5639df95b3e,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024430, guid: de45dabcc0f506f418deb5639df95b3e,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024430, guid: de45dabcc0f506f418deb5639df95b3e,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024430, guid: de45dabcc0f506f418deb5639df95b3e,
+        type: 3}
+      propertyPath: m_CullingMask.m_Bits
+      value: 392503
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024430, guid: de45dabcc0f506f418deb5639df95b3e,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de45dabcc0f506f418deb5639df95b3e, type: 3}
@@ -495,8 +525,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 101.7, y: 35, z: 68.9}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 148.66312, y: 35, z: 68.9}
+  m_Center: {x: -23.48158, y: 0, z: 0}
 --- !u!54 &843281317
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -600,8 +630,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 64.2, y: 82.2, z: 160.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 64.2, y: 82.2, z: 234.9227}
+  m_Center: {x: 0, y: 0, z: -8.460709}
 --- !u!54 &856628582
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -905,6 +935,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 558457196}
     m_Modifications:
+    - target: {fileID: 4873769847304985641, guid: e6c6ba3b22fa47a41a3b9f9070e70dc1,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.w
+      value: 1e-45
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873769847304985641, guid: e6c6ba3b22fa47a41a3b9f9070e70dc1,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873769847304985641, guid: e6c6ba3b22fa47a41a3b9f9070e70dc1,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873769847304985641, guid: e6c6ba3b22fa47a41a3b9f9070e70dc1,
+        type: 3}
+      propertyPath: m_BoundingSphereOverride.z
+      value: -0.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873769847304985641, guid: e6c6ba3b22fa47a41a3b9f9070e70dc1,
+        type: 3}
+      propertyPath: m_Lightmapping
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4873769847304985646, guid: e6c6ba3b22fa47a41a3b9f9070e70dc1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1527,8 +1582,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 64.2, y: 46, z: 160.5}
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Size: {x: 64.2, y: 46, z: 204.69319}
+  m_Center: {x: 0, y: 0, z: 18.857643}
 --- !u!54 &2100064904
 Rigidbody:
   m_ObjectHideFlags: 0

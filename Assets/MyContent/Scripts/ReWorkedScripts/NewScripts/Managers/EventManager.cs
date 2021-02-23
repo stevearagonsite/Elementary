@@ -46,7 +46,10 @@ public class EventManager {
         if(_events.ContainsKey(eT))
         {
             if (_events[eT] != null)
+            {
                 _events[eT](paramsWrapper);
+                Debug.Log(eT);
+            }
         }
     }
 }

@@ -83,7 +83,7 @@ public class TPPController : MonoBehaviour
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
 
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, PrepareCharacterForSceneChange);
-        EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
+        //EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
         EventManager.AddEventListener(GameEvent.STORY_START, DeactivateCharacter);
         EventManager.AddEventListener(GameEvent.STORY_END, ActivateCharacter);
         EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ActivateCharacter);
