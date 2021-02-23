@@ -9,6 +9,14 @@ public class ScenePartLoader : MonoBehaviour
 
     private void LoadScene() 
     {
+        for (int i = 0; i < SceneManager.sceneCount; i++)
+        {
+            if(SceneManager.GetSceneAt(i).name == gameObject.name)
+            {
+                _isLoaded = true;
+                break;
+            }
+        }
         if (!_isLoaded) 
         {
             Application.backgroundLoadingPriority = ThreadPriority.High;

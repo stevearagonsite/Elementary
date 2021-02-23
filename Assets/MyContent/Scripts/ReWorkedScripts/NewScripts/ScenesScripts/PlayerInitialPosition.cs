@@ -6,7 +6,7 @@ public class PlayerInitialPosition : MonoBehaviour
 {
     GameObject _hero;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         _hero = GameObject.Find("Character");
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, RepositionPlayer);

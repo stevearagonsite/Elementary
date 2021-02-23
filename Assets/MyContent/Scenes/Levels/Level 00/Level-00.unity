@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000000, guid: baee40296fc406544981311d0bdf46bb,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -437,6 +437,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DL Level 00
+      objectReference: {fileID: 0}
+    - target: {fileID: 6659007335976024424, guid: 5f2ac650615ecb94c937a0f0ef905ae4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6659007335976024425, guid: 5f2ac650615ecb94c937a0f0ef905ae4,
         type: 3}
@@ -845,6 +850,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: DL Player Level 00
+      objectReference: {fileID: 0}
+    - target: {fileID: 4873769847304985647, guid: 3c374f5eea9de9047b6a9f93cb91b087,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3c374f5eea9de9047b6a9f93cb91b087, type: 3}
@@ -1997,12 +2007,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600551002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0ca3faf5ccf3943918570229cfab1dd3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  storyCam: {fileID: 0}
+  storyCam: {fileID: 130961353}
 --- !u!114 &1600551006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2010,7 +2020,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1600551002}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 128647dc1f4923d4c8d41eef5f47edfc, type: 3}
   m_Name: 
@@ -2193,6 +2203,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: StoryCam00
+      objectReference: {fileID: 0}
+    - target: {fileID: 3696336112661893852, guid: 70e15ed988d67fa4fb9bb3036a3aadcd,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 70e15ed988d67fa4fb9bb3036a3aadcd, type: 3}
@@ -2442,17 +2457,17 @@ PrefabInstance:
     - target: {fileID: 6308179394188874595, guid: 4e8e0a83548c9bc469755873f4bdcfee,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -51.691315
+      value: 47.8
       objectReference: {fileID: 0}
     - target: {fileID: 6308179394188874595, guid: 4e8e0a83548c9bc469755873f4bdcfee,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -14.451823
+      value: 1.63
       objectReference: {fileID: 0}
     - target: {fileID: 6308179394188874595, guid: 4e8e0a83548c9bc469755873f4bdcfee,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -9.683136
+      value: 154.4
       objectReference: {fileID: 0}
     - target: {fileID: 6308179394188874595, guid: 4e8e0a83548c9bc469755873f4bdcfee,
         type: 3}
@@ -2523,6 +2538,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[4]
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6308179394188874596, guid: 4e8e0a83548c9bc469755873f4bdcfee,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e8e0a83548c9bc469755873f4bdcfee, type: 3}

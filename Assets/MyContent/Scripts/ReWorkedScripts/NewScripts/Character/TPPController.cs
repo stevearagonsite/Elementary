@@ -82,13 +82,20 @@ public class TPPController : MonoBehaviour
 
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
 
-        EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, ActivateCharacter);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, PrepareCharacterForSceneChange);
         EventManager.AddEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
         EventManager.AddEventListener(GameEvent.STORY_START, DeactivateCharacter);
         EventManager.AddEventListener(GameEvent.STORY_END, ActivateCharacter);
         EventManager.AddEventListener(GameEvent.CAMERA_NORMAL, ActivateCharacter);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_FINISH, ActivateCharacter);
 
         _isActive = false;
+    }
+
+    private void PrepareCharacterForSceneChange(object[] parameterContainer)
+    {
+        transform.position = new Vector3(0, -10000, 0);
+        DeactivateCharacter(null);
     }
 
     private void DeactivateCharacter(object[] parameterContainer)
@@ -307,9 +314,12 @@ public class TPPController : MonoBehaviour
         InputManager.instance.RemoveAction(InputType.Reject, ExecutePower);
         InputManager.instance.RemoveAction(InputType.Stop, StopPower);
 
-        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_DEMO, ActivateCharacter);
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, PrepareCharacterForSceneChange);
         EventManager.RemoveEventListener(GameEvent.START_LOAD_SCENE, DeactivateCharacter);
+        EventManager.RemoveEventListener(GameEvent.STORY_START, DeactivateCharacter);
+        EventManager.RemoveEventListener(GameEvent.STORY_END, ActivateCharacter);
         EventManager.RemoveEventListener(GameEvent.CAMERA_NORMAL, ActivateCharacter);
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_FINISH, ActivateCharacter);
 
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }

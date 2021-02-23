@@ -35,7 +35,6 @@ public class TransitionController : MonoBehaviour
     {
         _anim.SetBool("in",true);
         StartCoroutine(FadeInTimeOut());
-
     }
 
     private IEnumerator FadeInTimeOut()
