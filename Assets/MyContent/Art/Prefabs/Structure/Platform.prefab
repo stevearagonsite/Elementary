@@ -27,8 +27,8 @@ GameObject:
   - component: {fileID: 2316299195696034141}
   - component: {fileID: 5420115970716778600}
   - component: {fileID: 5420115970716778601}
-  - component: {fileID: 1351377355434488675}
   - component: {fileID: 6865304701611634946}
+  - component: {fileID: 3709352845150738713}
   m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
@@ -130,7 +130,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 101.69597, y: 7.874016, z: 82.010925}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &1351377355434488675
+--- !u!114 &6865304701611634946
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4042530232759879041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 267071df22efd4c659a37c23306e90bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3709352845150738713
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +156,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 0
   relateParent: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 512
   wp: {fileID: 0}
   period: 10
   stillTime: 1
@@ -172,18 +187,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &6865304701611634946
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4042530232759879041}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 267071df22efd4c659a37c23306e90bb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!64 &3779059803430472539
 MeshCollider:
   m_ObjectHideFlags: 0

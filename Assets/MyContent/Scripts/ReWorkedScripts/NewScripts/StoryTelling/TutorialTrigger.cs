@@ -16,6 +16,12 @@ public class TutorialTrigger : MonoBehaviour
         EventManager.DispatchEvent(GameEvent.TRIGGER_TUTORIAL_STOP, tutorialNumber);
     }
     
+    private void OnDisable(){
+        EventManager.DispatchEvent(GameEvent.TRIGGER_TUTORIAL_STOP, tutorialNumber);
+        GetComponent<Collider>().enabled = false;
+    }
+    
+    
     private void OnDrawGizmos()
     {
         var collider = GetComponent<BoxCollider>();
