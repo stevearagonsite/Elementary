@@ -11,20 +11,20 @@ public class Platform : MonoBehaviour
 
     private void OnTriggerEnter(Collider c)
     {
-        if (relateParent && c.gameObject.layer == 9)
+        Debug.Log(c.gameObject.name);
+        if (relateParent && c.gameObject.GetComponent<FollowPlatform>() != null)
         {
-            c.GetComponent<FollowPlatform>().SetPlatformToFollow(transform);
+            c.gameObject.GetComponent<FollowPlatform>().SetPlatformToFollow(transform);
             hasHero = true;
-            Debug.Log(c.gameObject.name);
         }
     }
 
     private void OnTriggerExit(Collider c)
     {
-        if (relateParent && c.gameObject.layer == 9)
+        if (relateParent && c.gameObject.GetComponent<FollowPlatform>() != null)
         {
             hasHero = false;
-            c.GetComponent<FollowPlatform>().ReleasePlatform();
+            c.gameObject.GetComponent<FollowPlatform>().ReleasePlatform();
             Debug.Log(c.gameObject.name);
         }
     }

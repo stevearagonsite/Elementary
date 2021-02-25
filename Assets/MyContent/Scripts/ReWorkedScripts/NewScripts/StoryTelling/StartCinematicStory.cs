@@ -24,6 +24,7 @@ public class StartCinematicStory : MonoBehaviour
     {
         yield return new WaitForEndOfFrame();
         EventManager.DispatchEvent(GameEvent.STORY_START, _move.nodes);
+        Debug.Log("Start Story: " + gameObject.name);
         Destroy(this);
     }
 }

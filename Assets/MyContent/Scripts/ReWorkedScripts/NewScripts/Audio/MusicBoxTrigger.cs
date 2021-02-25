@@ -10,6 +10,8 @@ public class MusicBoxTrigger : MonoBehaviour
     public float transitionTime = 1;
 
     private AudioClipHandler _clipHandler;
+    public bool stopOnExit;
+    public bool destroy;
     private void OnTriggerEnter(Collider other)
     {
         if (_clipHandler == null)
@@ -18,14 +20,29 @@ public class MusicBoxTrigger : MonoBehaviour
         }
         _clipHandler.PlayFadeIn(transitionTime);
         Debug.Log("Play Music: " + other.name);
+        if (destroy)
+            Destroy(this);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (_clipHandler == null)
+        if (stopOnExit)
         {
-            _clipHandler = GetComponent<AudioClipHandler>();
+            if (_clipHandler == null)
+            {
+                _clipHandler = GetComponent<AudioClipHandler>();
+            }
+            _clipHandler.StopFadeOut(transitionTime);
         }
-        _clipHandler.StopFadeOut(transitionTime);
     }
+
+#if UNITY_EDITOR
+    private void OnDrawGizmos()
+    {
+        var collider = GetComponent<BoxCollider>();
+        Gizmos.color = Gizmos.color = new Color(0, 0, 0.7f, 0.7f);
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(collider.center, collider.size);
+    }
+#endif
 }

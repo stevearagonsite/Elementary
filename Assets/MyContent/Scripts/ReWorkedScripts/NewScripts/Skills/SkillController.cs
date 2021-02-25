@@ -71,6 +71,8 @@ namespace Skills
 
         private TPPController _tppC;
 
+        private FollowPlatform _fP;
+
         private bool _isActive;
 
         public Skills currentSkill;
@@ -83,6 +85,7 @@ namespace Skills
             _tatooTool = GetComponent<TatooTool>();
             _cc = GetComponent<CharacterController>();
             _tppC = GetComponent<TPPController>();
+            _fP = GetComponentInChildren<FollowPlatform>();
             //Lists Initializing
             objectsToInteract = new List<IVacuumObject>();
             flamableObjectsToInteract = new List<IFlamableObjects>();
@@ -133,7 +136,7 @@ namespace Skills
 
         void OnAbsorb()
         {
-            if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+            if ((_cc.isGrounded || _fP.isOnPlatform )&& _tppC.isActive && SkillManager.instance.isActive)
                 actualAction.Absorb();
             else
                 OnStop();
@@ -141,7 +144,7 @@ namespace Skills
 
         void OnReject()
         {
-            if(_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+            if((_cc.isGrounded || _fP.isOnPlatform) && _tppC.isActive && SkillManager.instance.isActive)
                 actualAction.Eject();
             else
                 OnStop();

@@ -14,6 +14,8 @@ public class TriggerCinematicMove : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         EventManager.DispatchEvent(GameEvent.STORY_START, _move.nodes , walk);
+        Debug.Log("Start Story: " + gameObject.name);
+
         Destroy(this);
     }
 }

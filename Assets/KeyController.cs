@@ -8,6 +8,8 @@ public class KeyController : MonoBehaviour
     private Animator _anim;
     private Renderer _rend;
     private float _transitionTime = 1f;
+    public Light keyLight;
+
     void Start()
     {
         _anim = GetComponent<Animator>();
@@ -17,6 +19,7 @@ public class KeyController : MonoBehaviour
 
     private void OnGetKey(object[] parameterContainer)
     {
+        EventManager.RemoveEventListener(GameEvent.GET_KEY_EVENT, OnGetKey);
         _anim.SetTrigger("GetKey");
     }
 
@@ -41,10 +44,17 @@ public class KeyController : MonoBehaviour
             {
                 _rend.materials[i].SetFloat("_alpha", 1 - (tick / _transitionTime));
             }
+            keyLight.intensity = 1 - (tick / _transitionTime);
             tick += Time.deltaTime;
             yield return null;
         }
 
         Destroy(this);
+        _rend.enabled = false;
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveEventListener(GameEvent.GET_KEY_EVENT, OnGetKey);
     }
 }

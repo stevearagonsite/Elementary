@@ -7,6 +7,7 @@ using Player;
 
 public class ArmAngle : MonoBehaviour {
     public Transform armPivot;
+    public FollowPlatform followPlatform;
     IKControl ikControl;
     bool _isActive;
     CharacterController _cc;
@@ -26,7 +27,7 @@ public class ArmAngle : MonoBehaviour {
 
     private void Absorb() 
     {
-        if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+        if ((_cc.isGrounded || followPlatform.isOnPlatform) && _tppC.isActive && SkillManager.instance.isActive)
         {
             var x = cameraT.localEulerAngles.x;
             armPivot.localEulerAngles = new Vector3(x, 0, 0);

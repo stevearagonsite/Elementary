@@ -4,20 +4,22 @@ using UnityEngine;
 
 public class FollowPlatform : MonoBehaviour
 {
-    public bool isOnPlatform;
-    public Transform parent;
+    private bool _isOnPlatform;
+    public bool isOnPlatform { get { return _isOnPlatform || _platform != null;  } set { _isOnPlatform = value; } }
     private Transform _platform;
     private CharacterController _cc;
     private Vector3 _actualPosition;
+
     private void Start()
     {
-        _cc = GetComponent<CharacterController>();
+        _cc = GetComponentInParent<CharacterController>();
     }
     public void SetPlatformToFollow(Transform platform)
     {
         _platform = platform;
         _actualPosition = _platform.position;
-        UpdatesManager.instance.AddUpdate(UpdateType.LATE, Execute);
+        _isOnPlatform = true;
+        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
     }
 
     private void Execute()
@@ -33,7 +35,8 @@ public class FollowPlatform : MonoBehaviour
     public void ReleasePlatform()
     {
         _platform = null;
-        UpdatesManager.instance.RemoveUpdate(UpdateType.LATE, Execute);
+        _isOnPlatform = false;
+        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }
 
     private void OnDestroy()

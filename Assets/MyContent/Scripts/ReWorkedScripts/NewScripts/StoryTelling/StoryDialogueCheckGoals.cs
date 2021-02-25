@@ -12,6 +12,7 @@ public class StoryDialogueCheckGoals : MonoBehaviour
     }
     public void DisablePlayer()
     {
+        Debug.Log("Start Story: " + gameObject.name);
         EventManager.DispatchEvent(GameEvent.STORY_START);
     }
 }

@@ -12,6 +12,7 @@ public class AudioClipHandler : MonoBehaviour
     {
         _source = GetComponent<AudioSource>();
         _initialVolume = _source.volume;
+        EventManager.AddEventListener(GameEvent.STOP_ALL_SONUNDS, StopOnEvent);
     }
     public void Play()
     {
@@ -21,6 +22,37 @@ public class AudioClipHandler : MonoBehaviour
     public void Stop()
     {
         _source.Stop();
+    }
+
+    public void StopOnEvent(object[] p = null)
+    {
+        StopFadeOut(1);
+    }
+
+    public void FadeToVolume(float volume)
+    {
+        StopAllCoroutines();
+        volume = Mathf.Clamp01(volume);
+        if(volume != _source.volume)
+        {
+            StartCoroutine(FadeToVolumeCorroutine(volume));
+        }
+    }
+
+    private IEnumerator FadeToVolumeCorroutine(float volume)
+    {
+        while(_source.volume > volume)
+        {
+            _source.volume -= Time.deltaTime;
+            Debug.Log("Source Volume: " + _source.volume + ", volume: " + volume);
+            yield return null;
+        }
+
+        while (_source.volume < volume)
+        {
+            _source.volume += Time.deltaTime;
+            yield return null;
+        }
     }
 
     public void PlayFadeIn(float transitionTime)
@@ -57,5 +89,10 @@ public class AudioClipHandler : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         _source.Stop();
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveEventListener(GameEvent.STOP_ALL_SONUNDS, StopOnEvent);
     }
 }

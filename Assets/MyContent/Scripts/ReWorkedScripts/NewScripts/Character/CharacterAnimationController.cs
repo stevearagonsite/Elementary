@@ -12,6 +12,7 @@ public class CharacterAnimationController : MonoBehaviour
     private bool _isGamePaused;
     private bool _isJumpHeld;
 
+    public FollowPlatform followPlatform;
     public float landDistance = 0.2f;
     public LayerMask landLayer;
     public PlayerTemperature playerTemperature;
@@ -36,9 +37,16 @@ public class CharacterAnimationController : MonoBehaviour
         InputManager.instance.AddAction(InputType.Pause, Pause);
         InputManager.instance.AddAction(InputType.Test, OnTest);
 
-        UpdatesManager.instance.AddUpdate(UpdateType.FIXED, CheckLand);
+        UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, CheckLand);
         UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, CheckFall);
         EventManager.AddEventListener(GameEvent.KEY_TAKE, OnGetKey);
+        EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_VACUUM, OnGetPower);
+        EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_FIRE, OnGetPower);
+        EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_ELECTRIC, OnGetPower);
+    }
+    private void OnGetPower(object[] p)
+    {
+        _anim.SetTrigger("getPower");
     }
     private void OnGetKey(object[] p)
     {
@@ -88,7 +96,7 @@ public class CharacterAnimationController : MonoBehaviour
     {
         if (_controller.isActive)
         {
-            if (_cc.isGrounded)
+            if (_cc.isGrounded || followPlatform.isOnPlatform)
                 _anim.SetTrigger("jump");
         }
     }
@@ -117,7 +125,7 @@ public class CharacterAnimationController : MonoBehaviour
 
     private void CheckLand()
     {
-        var val = Physics.Raycast(transform.position - transform.up * 1.05f, -transform.up, landDistance, landLayer) || _cc.isGrounded;
+        var val = Physics.Raycast(transform.position - transform.up * 0.85f, -transform.up, landDistance, landLayer) || _cc.isGrounded || followPlatform.isOnPlatform;
         _anim.SetBool("land", val);
     }
 
@@ -158,5 +166,10 @@ public class CharacterAnimationController : MonoBehaviour
     public void GetKey()
     {
         EventManager.DispatchEvent(GameEvent.GET_KEY_EVENT);
+    }
+
+    public void TakePower()
+    {
+        EventManager.DispatchEvent(GameEvent.GET_POWER_EVENT);
     }
 }

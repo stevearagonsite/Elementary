@@ -40,6 +40,7 @@ public class TPPController : MonoBehaviour
      **/
 
     private bool _isActive;
+    private bool _disableGravity;
 
     private CharacterController _cc;
     private float _horizontal;
@@ -49,6 +50,7 @@ public class TPPController : MonoBehaviour
     private bool _isUsingPower = false;
 
     private PlayerTemperature _pT;
+    private FollowPlatform _fP;
 
     /**
      * Sprint variables
@@ -69,6 +71,7 @@ public class TPPController : MonoBehaviour
     {
         _cc = GetComponent<CharacterController>();
         _pT = GetComponentInChildren<PlayerTemperature>();
+        _fP = GetComponentInChildren<FollowPlatform>();
         _actualStamina = sprintStaminaInSeconds;
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
@@ -95,18 +98,19 @@ public class TPPController : MonoBehaviour
     private void PrepareCharacterForSceneChange(object[] parameterContainer)
     {
         transform.position = new Vector3(0, -10000, 0);
+        _disableGravity = true;
         DeactivateCharacter(null);
     }
 
-    private void DeactivateCharacter(object[] parameterContainer)
+    private void DeactivateCharacter(object[] p)
     {
-        
         _isActive = false;
     }
 
     private void ActivateCharacter(object[] parameterContainer)
     {
         
+        _disableGravity = false;
         _isActive = true;
     }
 
@@ -172,10 +176,13 @@ public class TPPController : MonoBehaviour
         if (_isActive)
         {
             Move();
-            ApplyGravity();
             RotateGFX();
             AddSprintStamina();
         }
+        if (!_disableGravity)
+        {
+            ApplyGravity();
+        }    
     }
     /// <summary>
     /// Constantly add stamina, so it can recover
@@ -217,15 +224,22 @@ public class TPPController : MonoBehaviour
     /// </summary>
     private void ApplyGravity()
     {
+        Debug.Log(_cc.isGrounded);
         _velocity.y += gravity * Time.deltaTime;
         _cc.Move(_velocity * Time.deltaTime);
-        if(_cc.isGrounded && _velocity.y < 0)
+        if (_cc.isGrounded && _velocity.y < 0)
         {
             _velocity.y = -speed/2;
         }
+       
         if (_cc.isGrounded) 
         {
             _actualJumpFly = 0;
+        }
+
+        if (_fP.isOnPlatform)
+        {
+            _velocity.y = 0;
         }
     }
 
@@ -266,8 +280,11 @@ public class TPPController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        if(_cc.isGrounded)
-            _velocity.y = jumpVelocity; 
+        if (_cc.isGrounded || _fP.isOnPlatform)
+        {
+            _fP.ReleasePlatform();
+            _velocity.y = jumpVelocity;
+        }
     }
 
     /// <summary>

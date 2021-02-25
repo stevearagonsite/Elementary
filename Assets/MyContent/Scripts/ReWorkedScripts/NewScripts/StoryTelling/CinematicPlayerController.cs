@@ -21,6 +21,7 @@ public class CinematicPlayerController : MonoBehaviour
         _aC = GetComponentInChildren<CharacterAnimationController>();
         EventManager.AddEventListener(GameEvent.STORY_START, ActivateCharacterMove);
         EventManager.AddEventListener(GameEvent.STORY_END, DeActivateCharacterMove);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, DeActivateCharacterMove);
     }
 
     private void DeActivateCharacterMove(object[] p)
@@ -90,5 +91,7 @@ public class CinematicPlayerController : MonoBehaviour
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
         EventManager.RemoveEventListener(GameEvent.STORY_START, ActivateCharacterMove);
         EventManager.RemoveEventListener(GameEvent.STORY_END, DeActivateCharacterMove);
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, DeActivateCharacterMove);
+
     }
 }

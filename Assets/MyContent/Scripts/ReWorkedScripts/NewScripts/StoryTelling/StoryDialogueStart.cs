@@ -12,7 +12,11 @@ public class StoryDialogueStart : MonoBehaviour
     {
         StoryTextManager.instance.PlayDialogue(dialogueObject);
         if (disablePlayer)
+        {
             EventManager.DispatchEvent(GameEvent.STORY_START);
+            Debug.Log("Start Story: " + gameObject.name);
+
+        }
         if (oneTimeStory)
             Destroy(this);
     }

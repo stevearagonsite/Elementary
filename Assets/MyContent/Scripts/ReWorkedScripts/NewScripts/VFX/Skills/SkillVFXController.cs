@@ -21,13 +21,14 @@ public class SkillVFXController : MonoBehaviour
     private CharacterController _cc;
     private TPPController _tppC;
     private SkillSFXController _sSFXC;
+    private FollowPlatform _fP;
     void Start()
     {
         _skillController = GetComponent<SkillController>();
         _cc = GetComponent<CharacterController>();
         _tppC = GetComponent<TPPController>();
         _sSFXC = GetComponent<SkillSFXController>();
-
+        _fP = GetComponentInChildren<FollowPlatform>();
         var absorbFX = new VacuumVFX(absorbParticle, blowParticle);
         var fireFX = new FireVFX(fireParticles);
         electricFX = GetComponentInChildren<ElectricityManager>();
@@ -75,7 +76,7 @@ public class SkillVFXController : MonoBehaviour
     void Absorb() 
     {
         
-        if(!_isStuck && _cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+        if(!_isStuck && (_cc.isGrounded || _fP.isOnPlatform) && _tppC.isActive && SkillManager.instance.isActive)
         {
             _skillDictionary[_skillController.skillAction].StartEffect();
             if(_skillController.skillAction == Skills.Skills.VACCUM)
@@ -90,7 +91,7 @@ public class SkillVFXController : MonoBehaviour
 
     void Reject()
     {
-        if (_cc.isGrounded && _tppC.isActive && SkillManager.instance.isActive)
+        if ((_cc.isGrounded || _fP.isOnPlatform) && _tppC.isActive && SkillManager.instance.isActive)
         {
             _skillDictionary[_skillController.skillAction].StartEjectEffect();
             _sSFXC.PlaySkillSFX(_skillController.skillAction);

@@ -10,6 +10,11 @@ public class PlayerInitialPosition : MonoBehaviour
     {
         _hero = GameObject.Find("Character");
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, RepositionPlayer);
+        if (_hero != null)
+        {
+            _hero.transform.position = transform.position;
+            _hero.transform.rotation = transform.rotation;
+        }
     }
 
     void RepositionPlayer(object[] p)

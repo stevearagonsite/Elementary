@@ -28,10 +28,11 @@ public class SkillCollider : MonoBehaviour
         Collider[] col = Physics.OverlapSphere(transform.position, firstSphereRadius);
         Collider[] col2 = Physics.OverlapSphere(transform.position + cam.forward * secondSherePosOffset, secondSphereRadius);
         skill = skillController.skillAction;
+
         switch (skill)
         {
             case Skills.Skills.VACCUM:
-                var aux = col.Union(col2)
+                var aux = col.Concat(col2)
                             .Where(x => x.GetComponent<IVacuumObject>() != null)
                             .Select(x => x.GetComponent<IVacuumObject>())
                             .ToList();
@@ -42,7 +43,7 @@ public class SkillCollider : MonoBehaviour
                 }
                 break;
             case Skills.Skills.FIRE:
-                var auxF = col.Union(col2)
+                var auxF = col.Concat(col2)
                         .Where(x => x.GetComponent<IFlamableObjects>() != null)
                         .Select(x => x.GetComponent<IFlamableObjects>())
                         .ToList();
@@ -54,7 +55,7 @@ public class SkillCollider : MonoBehaviour
 
                 break;
             case Skills.Skills.ELECTRICITY:
-                var auxE = col.Union(col2)
+                var auxE = col.Concat(col2)
                             .Where(x => x.GetComponent<IElectricObject>() != null)
                             .Select(x => x.GetComponent<IElectricObject>())
                             .Select(x => x.transform)
@@ -66,7 +67,7 @@ public class SkillCollider : MonoBehaviour
                 }
                 break;
             case Skills.Skills.ICE:
-                var auxI = col.Union(col2)
+                var auxI = col.Concat(col2)
                                 .Where(x => x.GetComponent<IFrozenObject>() != null)
                                 .Select(x => x.GetComponent<IFrozenObject>())
                                 .ToList();

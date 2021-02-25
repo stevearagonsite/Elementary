@@ -100,6 +100,7 @@ public class StoryTextManager : MonoBehaviour
             canvasAnimator.Play("Exit");
             EventManager.DispatchEvent(GameEvent.STORY_END);
             EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
+            InputManager.instance.RemoveAction(InputType.Reject, OnNextStory);
             _isPlaying = false;
         }
     }

@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000004, guid: e3aeaff1a0125e44784d9c150da0a330,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -230,7 +230,7 @@ PrefabInstance:
     - target: {fileID: 5841382683966643507, guid: 4d1855b8943d18f46b2a89fab91b992e,
         type: 3}
       propertyPath: scenesToLoadAtStart.Array.size
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 5841382683966643507, guid: 4d1855b8943d18f46b2a89fab91b992e,
         type: 3}
@@ -251,6 +251,11 @@ PrefabInstance:
         type: 3}
       propertyPath: scenesToLoadAtStart.Array.data[3]
       value: Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 5841382683966643507, guid: 4d1855b8943d18f46b2a89fab91b992e,
+        type: 3}
+      propertyPath: scenesToLoadAtStart.Array.data[4]
+      value: HowToPlay
       objectReference: {fileID: 0}
     - target: {fileID: 5841382683966643660, guid: 4d1855b8943d18f46b2a89fab91b992e,
         type: 3}

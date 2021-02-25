@@ -49,13 +49,21 @@ public class InputManager : MonoBehaviour
 
 
         EventManager.AddEventListener(GameEvent.STORY_END, CanBePaused);
-        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_FINISH, CanBePaused);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_FINISH, CanBePausedAfterChangeLevel);
         EventManager.AddEventListener(GameEvent.START_GAME, CanBePaused);
     }
 
     private void CantBePaused(object[] parameterContainer)
     {
         _canGameBePaused = false;
+    }
+
+    private void CanBePausedAfterChangeLevel(object[] p)
+    {
+        if(GameObject.Find("character") != null)
+        {
+            CanBePaused(null);
+        }
     }
 
     private void CanBePaused(object[] parameterContainer)
