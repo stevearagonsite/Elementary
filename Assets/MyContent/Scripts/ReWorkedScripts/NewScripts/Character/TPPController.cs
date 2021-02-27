@@ -280,7 +280,7 @@ public class TPPController : MonoBehaviour
     /// </summary>
     private void Jump()
     {
-        if (_cc.isGrounded || _fP.isOnPlatform)
+        if ((_cc.isGrounded || _fP.isOnPlatform) && _isActive)
         {
             _fP.ReleasePlatform();
             _velocity.y = jumpVelocity;
