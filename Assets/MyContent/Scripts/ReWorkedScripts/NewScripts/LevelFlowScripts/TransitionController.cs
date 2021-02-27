@@ -6,12 +6,19 @@ using UnityEngine;
 public class TransitionController : MonoBehaviour
 {
     Animator _anim;
-
+    private bool _stopSounds = true;
     void Start()
     {
         _anim = GetComponent<Animator>();
         EventManager.AddEventListener(GameEvent.START_LEVEL_TRANSITION, FadeToBlackTransition);
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, FadeToSceneTransition);
+        EventManager.AddEventListener(GameEvent.START_DEATH_TRANSITION, FadeToDeath);
+    }
+
+    private void FadeToDeath(object[] parameterContainer)
+    {
+        _stopSounds = false;
+        FadeToBlackTransition(null);
     }
 
     private void FadeToBlackTransition(object[] p)
@@ -22,8 +29,13 @@ public class TransitionController : MonoBehaviour
     public void OnFadeEnd()
     {
         EventManager.DispatchEvent(GameEvent.TRANSITION_FADEOUT_WIN_FINISH);
-        EventManager.DispatchEvent(GameEvent.STOP_ALL_SONUNDS);
+        if (_stopSounds)
+        {
+            EventManager.DispatchEvent(GameEvent.STOP_ALL_SONUNDS);
+            
+        }
         _anim.SetBool("fade", false);
+        _stopSounds = true;
     }
 
     public void OnFadeToSceneEnd()
@@ -48,7 +60,7 @@ public class TransitionController : MonoBehaviour
     {
         EventManager.RemoveEventListener(GameEvent.START_LEVEL_TRANSITION, FadeToBlackTransition);
         EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_DEMO, FadeToSceneTransition);
-
+        EventManager.RemoveEventListener(GameEvent.START_DEATH_TRANSITION, FadeToDeath);
     }
 
 }

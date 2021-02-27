@@ -6,13 +6,15 @@ using System;
 [RequireComponent(typeof(AudioSource))]
 public class AudioClipHandler : MonoBehaviour
 {
+    public bool stopSound;
     private AudioSource _source;
     private float _initialVolume;
     private void Start()
     {
         _source = GetComponent<AudioSource>();
         _initialVolume = _source.volume;
-        EventManager.AddEventListener(GameEvent.STOP_ALL_SONUNDS, StopOnEvent);
+        if(stopSound)
+            EventManager.AddEventListener(GameEvent.STOP_ALL_SONUNDS, StopOnEvent);
     }
     public void Play()
     {

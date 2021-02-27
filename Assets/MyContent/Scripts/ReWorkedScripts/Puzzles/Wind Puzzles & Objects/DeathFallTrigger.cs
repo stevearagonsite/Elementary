@@ -43,7 +43,7 @@ public class DeathFallTrigger : MonoBehaviour {
 
     private void TransitionToRespawn()
     {
-        EventManager.DispatchEvent(GameEvent.START_LEVEL_TRANSITION);
+        EventManager.DispatchEvent(GameEvent.START_DEATH_TRANSITION);
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, OnFadeOutEnd);
 
     }
