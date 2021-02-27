@@ -43,6 +43,18 @@ public class CharacterAnimationController : MonoBehaviour
         EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_VACUUM, OnGetPower);
         EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_FIRE, OnGetPower);
         EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_ELECTRIC, OnGetPower);
+        EventManager.AddEventListener(GameEvent.PLAYER_DIE, PlayerDeath);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, OnFadeOutEnd);
+    }
+
+    private void OnFadeOutEnd(object[] p)
+    {
+        _anim.SetBool("die", false);
+    }
+
+    private void PlayerDeath(object[] p)
+    {
+        _anim.SetBool("die", true);
     }
     private void OnGetPower(object[] p)
     {

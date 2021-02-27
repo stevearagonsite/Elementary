@@ -25,6 +25,7 @@ public class DeathFallTrigger : MonoBehaviour {
         {
             _tick = 0;
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
+            EventManager.DispatchEvent(GameEvent.PLAYER_DIE);
             _isActive = true;
         }
          
