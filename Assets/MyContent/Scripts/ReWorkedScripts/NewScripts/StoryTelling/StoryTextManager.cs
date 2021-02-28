@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 
@@ -14,6 +15,7 @@ public class StoryTextManager : MonoBehaviour
     public Animator canvasAnimator;
     public Animator textAnimator;
     public Canvas skipCanvas;
+    public Image fadeTransitionImage;
 
     private bool _isPlaying;
     private float _textDuration;
@@ -21,6 +23,8 @@ public class StoryTextManager : MonoBehaviour
     private float _tick;
     private int _dialogueIndex = 0;
     private Dialogue _dialogue;
+
+    private bool _endBlack;
 
     private void Awake()
     {
@@ -32,16 +36,18 @@ public class StoryTextManager : MonoBehaviour
         textAnimator.Play("idle");
     }
 
-    public void PlayDialogue(Dialogue dialogue)
+    public void PlayDialogue(Dialogue dialogue , bool fadeTransition = false, bool startBlack = false, bool endBlack = false)
     {
         _dialogue = dialogue;
         _dialogueIndex = 0;
-        Debug.Log("Play Dialogue");
+        fadeTransitionImage.enabled = fadeTransition;
+        _endBlack = endBlack;
+        var startAnimation = startBlack ? "Start Black" : "Start";
         if (!_isPlaying)
         {
             _isPlaying = true;
-            textAnimator.Play("Start");
-            canvasAnimator.Play("Start");
+            textAnimator.Play(startAnimation);
+            canvasAnimator.Play(startAnimation);
             ShowDialogueSentence(_dialogue.nodes[_dialogueIndex]);
         }
     }
@@ -103,8 +109,9 @@ public class StoryTextManager : MonoBehaviour
         }
         else
         {
-            textAnimator.Play("Exit");
-            canvasAnimator.Play("Exit");
+            var endAnimation = _endBlack ? "Exit Black" : "Exit";
+            textAnimator.Play(endAnimation);
+            canvasAnimator.Play(endAnimation);
             EventManager.DispatchEvent(GameEvent.STORY_END);
             EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
             skipCanvas.enabled = false;
