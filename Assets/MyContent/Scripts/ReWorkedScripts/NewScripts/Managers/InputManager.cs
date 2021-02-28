@@ -172,6 +172,13 @@ public class InputManager : MonoBehaviour
                 _actions[InputType.Test]();
             }
         }
+        if(Input.GetKeyDown(reject) && !_isGamePaused)
+        {
+            if (_actions.ContainsKey(InputType.Skip_Dialogue) && _actions[InputType.Skip_Dialogue] != null)
+            {
+                _actions[InputType.Skip_Dialogue]();
+            }
+        }
     }
 
     //Things we must check even if the game is paused
@@ -283,6 +290,7 @@ public enum InputType
     Sprint,
     Walk,
     Pause,
+    Skip_Dialogue,
     Test
 }
 

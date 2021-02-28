@@ -59,15 +59,15 @@ public class StoryTextManager : MonoBehaviour
         }
         if (baseNode.skipable)
         {
-            InputManager.instance.AddAction(InputType.Reject, OnNextStory);
+            InputManager.instance.AddAction(InputType.Skip_Dialogue, OnNextStory);
         }
         textField.text = baseNode.dialog;
     }
 
     private void OnNextStory()
     {
-        InputManager.instance.RemoveAction(InputType.Reject, OnNextStory);
-        
+        InputManager.instance.RemoveAction(InputType.Skip_Dialogue, OnNextStory);
+        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
         GoToNext();
         _tick = 0;
     }
@@ -82,6 +82,7 @@ public class StoryTextManager : MonoBehaviour
         {
             _tick = 0;
             UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+            InputManager.instance.RemoveAction(InputType.Skip_Dialogue, OnNextStory);
             GoToNext();
         }
     }
@@ -100,7 +101,6 @@ public class StoryTextManager : MonoBehaviour
             canvasAnimator.Play("Exit");
             EventManager.DispatchEvent(GameEvent.STORY_END);
             EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
-            InputManager.instance.RemoveAction(InputType.Reject, OnNextStory);
             _isPlaying = false;
         }
     }
