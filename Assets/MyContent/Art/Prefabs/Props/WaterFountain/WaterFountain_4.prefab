@@ -124,6 +124,7 @@ GameObject:
   - component: {fileID: 6128043394905274476}
   - component: {fileID: 7793591443885482231}
   - component: {fileID: 3025682094582569657}
+  - component: {fileID: 4910607978227507449}
   m_Layer: 0
   m_Name: Fountain_Mini
   m_TagString: Untagged
@@ -192,6 +193,20 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &4910607978227507449
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3911532656443876040}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8464356850754716037, guid: 51a00cedf74c75842a2c765426407d68, type: 3}
 --- !u!1 &3999894895332291450
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +218,7 @@ GameObject:
   - component: {fileID: 6100566346360429247}
   - component: {fileID: 8417494118695930245}
   - component: {fileID: 6758202790792829220}
+  - component: {fileID: 6396119300507507953}
   m_Layer: 0
   m_Name: Fountain_Base
   m_TagString: Untagged
@@ -271,6 +287,34 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!64 &6396119300507507953
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3999894895332291450}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6749163711880380023, guid: 51a00cedf74c75842a2c765426407d68, type: 3}
+--- !u!64 &1876805716021909459
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7440255778276635557}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 5004776437404900918, guid: 96ce540c1743b4a448658e3ab60cb76d, type: 3}
 --- !u!1001 &7028298508046466021
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -278,6 +322,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3240905445568989892}
     m_Modifications:
+    - target: {fileID: -8807792576082273293, guid: 96ce540c1743b4a448658e3ab60cb76d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 96ce540c1743b4a448658e3ab60cb76d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -338,16 +387,37 @@ PrefabInstance:
       propertyPath: m_Name
       value: Water_Fountain_Planes
       objectReference: {fileID: 0}
+    - target: {fileID: 488800489752594496, guid: 96ce540c1743b4a448658e3ab60cb76d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
     - target: {fileID: 6605190311681301595, guid: 96ce540c1743b4a448658e3ab60cb76d,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605190311681301595, guid: 96ce540c1743b4a448658e3ab60cb76d,
+        type: 3}
+      propertyPath: m_TagString
+      value: Water
+      objectReference: {fileID: 0}
+    - target: {fileID: 6736281424026098659, guid: 96ce540c1743b4a448658e3ab60cb76d,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 5.8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 96ce540c1743b4a448658e3ab60cb76d, type: 3}
 --- !u!4 &2662538393511907583 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 96ce540c1743b4a448658e3ab60cb76d,
+    type: 3}
+  m_PrefabInstance: {fileID: 7028298508046466021}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7440255778276635557 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 488800489752594496, guid: 96ce540c1743b4a448658e3ab60cb76d,
     type: 3}
   m_PrefabInstance: {fileID: 7028298508046466021}
   m_PrefabAsset: {fileID: 0}
