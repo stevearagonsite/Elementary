@@ -10,7 +10,7 @@ Animator:
   m_GameObject: {fileID: 5265275883239181284}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 472577b0c21d9074bb9524b8f832cd29, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -139,7 +139,12 @@ PrefabInstance:
     - target: {fileID: 4543034448394785428, guid: 9261b3a9932266446b3d8828bfa38493,
         type: 3}
       propertyPath: m_Name
-      value: Door1_4
+      value: Door1_4 Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 4543034448394785428, guid: 9261b3a9932266446b3d8828bfa38493,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5851178627939603565, guid: 9261b3a9932266446b3d8828bfa38493,
         type: 3}
