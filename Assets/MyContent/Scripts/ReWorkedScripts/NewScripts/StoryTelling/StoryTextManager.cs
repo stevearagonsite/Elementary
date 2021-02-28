@@ -13,6 +13,7 @@ public class StoryTextManager : MonoBehaviour
     public TextMeshProUGUI textField;
     public Animator canvasAnimator;
     public Animator textAnimator;
+    public Canvas skipCanvas;
 
     private bool _isPlaying;
     private float _textDuration;
@@ -60,6 +61,11 @@ public class StoryTextManager : MonoBehaviour
         if (baseNode.skipable)
         {
             InputManager.instance.AddAction(InputType.Skip_Dialogue, OnNextStory);
+            skipCanvas.enabled = true;
+        }
+        else
+        {
+            skipCanvas.enabled = false;
         }
         textField.text = baseNode.dialog;
     }
@@ -101,6 +107,7 @@ public class StoryTextManager : MonoBehaviour
             canvasAnimator.Play("Exit");
             EventManager.DispatchEvent(GameEvent.STORY_END);
             EventManager.DispatchEvent(GameEvent.CAMERA_NORMAL);
+            skipCanvas.enabled = false;
             _isPlaying = false;
         }
     }
