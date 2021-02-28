@@ -6,12 +6,14 @@ using UnityEngine.Events;
 [RequireComponent(typeof(Collider))]
 public class HasKeyCheck : MonoBehaviour
 {
+    public bool dontCheckGoals;
     public UnityEvent onCheckSuccesfull;
     public UnityEvent onCheckUnsuccesfull;
 
+
     private void OnTriggerEnter(Collider other)
     {
-        if (GameObjectiveManager.instance.CheckEndOfLevelGoals())
+        if (GameObjectiveManager.instance.CheckEndOfLevelGoals() || dontCheckGoals)
         {
             if (onCheckSuccesfull != null)
                 onCheckSuccesfull.Invoke();

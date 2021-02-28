@@ -45,11 +45,18 @@ public class CharacterAnimationController : MonoBehaviour
         EventManager.AddEventListener(GameEvent.SKILL_ACTIVATE_ELECTRIC, OnGetPower);
         EventManager.AddEventListener(GameEvent.PLAYER_DIE, PlayerDeath);
         EventManager.AddEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, OnFadeOutEnd);
+        EventManager.AddEventListener(GameEvent.TELEPORT_START, OnTeleport);
+    }
+
+    private void OnTeleport(object[] parameterContainer)
+    {
+        _anim.SetBool("endLevel", true);
     }
 
     private void OnFadeOutEnd(object[] p)
     {
         _anim.SetBool("die", false);
+        _anim.SetBool("endLevel", false);
     }
 
     private void PlayerDeath(object[] p)
@@ -183,5 +190,10 @@ public class CharacterAnimationController : MonoBehaviour
     public void TakePower()
     {
         EventManager.DispatchEvent(GameEvent.GET_POWER_EVENT);
+    }
+
+    public void Teleporting()
+    {
+        EventManager.DispatchEvent(GameEvent.START_LEVEL_TRANSITION);
     }
 }

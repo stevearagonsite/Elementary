@@ -26,12 +26,17 @@ public class CameraManager : MonoBehaviour
 
     private void OnCameraNormal(object[] parameterContainer)
     {
+        StartCoroutine(GoToMainCamera());
+    }
+    IEnumerator GoToMainCamera()
+    {
+        yield return new WaitForSeconds(0.5f);
         foreach (var cam in _registeredCameras)
         {
             cam.enabled = false;
             cam.GetComponent<Animator>().Play("idle");
         }
-        if(_mainCamera != null)
+        if (_mainCamera != null)
         {
             _mainCamera.enabled = true;
             _mainCamera.GetComponent<Camera>().enabled = true;
@@ -41,13 +46,19 @@ public class CameraManager : MonoBehaviour
 
     private void OnCameraStory(object[] p)
     {
+        StartCoroutine(GoToStory(p));
+    }
+
+    IEnumerator GoToStory(object[] p)
+    {
+        yield return new WaitForSeconds(0.5f);
         var camToActivate = p[0] as Camera;
         foreach (var cam in _registeredCameras)
         {
             cam.enabled = false;
             cam.GetComponent<Animator>().Play("idle");
         }
-        if(_mainCamera != null)
+        if (_mainCamera != null)
         {
             _mainCamera.enabled = false;
             _mainCamera.GetComponent<Camera>().enabled = false;
