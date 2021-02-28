@@ -140,9 +140,9 @@ public class TPPController : MonoBehaviour
     /// </summary>
     private void Sprint()
     {
-        if(_actualStamina >= 0) 
+        if(_actualStamina >= 0 && _isActive) 
         {
-            if (_cc.isGrounded) 
+            if (_cc.isGrounded || _fP.isOnPlatform) 
             {
                 var dir = (GetMoveDirection() * new Vector3(_horizontal, 0, _vertical)).normalized;
                 var actualSpeed = sprintSpeed - speed;
