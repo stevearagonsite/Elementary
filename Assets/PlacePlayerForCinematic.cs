@@ -9,7 +9,7 @@ public class PlacePlayerForCinematic : MonoBehaviour
     private Transform _player;
     private void OnTriggerEnter(Collider other)
     {
-        if(_player == null)
+        if(_player == null && other.GetComponent<TPPController>() != null)
         {
             _player = other.transform;
         }

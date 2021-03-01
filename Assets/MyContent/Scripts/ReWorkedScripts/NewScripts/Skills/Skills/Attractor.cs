@@ -92,6 +92,14 @@ public class Attractor : ISkill {
             else if (_objectsToInteract[i].isAbsorved && !_objectsToInteract[i].isAbsorvable)
             {
                 var aux = _objectsToInteract[i];
+                for (int j = 0; j < _objectsToInteract.Count; j++)
+                {
+                    if(_objectsToInteract[j] != aux)
+                    {
+                        _objectsToInteract[j].isBeeingAbsorved = false;
+                        _objectsToInteract[j].Exit(); 
+                    }
+                }
                 _objectsToInteract.RemoveAll(x => x != null);
                 _objectsToInteract.Add(aux);
                 _isStuck = true;

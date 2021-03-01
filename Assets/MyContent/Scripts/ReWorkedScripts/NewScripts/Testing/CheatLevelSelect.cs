@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Skills;
 
 public class CheatLevelSelect : MonoBehaviour
 {
@@ -41,6 +42,10 @@ public class CheatLevelSelect : MonoBehaviour
         {
             UnloadCurrentLevel();
             SceneLoadManager.instance.LoadSceneAsync("Level-07", LoadSceneMode.Additive);
+        }
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            GameObject.Find("Character").GetComponent<SkillManager>().isActive = true;
         }
     }
 
