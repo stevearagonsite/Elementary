@@ -33,7 +33,7 @@ public class FencePuzzleAbsorver : MediumSizeObject, IVacuumObject
     public new void BlowUp(Transform origin, float atractForce, Vector3 direction)
     {
         var distance = (transform.position - origin.position).magnitude;
-        var forceMagnitude = rb.mass * atractForce * 10 / Mathf.Pow(distance, 2);
+        var forceMagnitude = rb.mass * atractForce * 30 / Mathf.Pow(distance, 2);
         forceMagnitude = Mathf.Clamp(forceMagnitude, 0, 2000);
         var force = direction.normalized * forceMagnitude;
         rb.AddForce(force);
@@ -43,7 +43,7 @@ public class FencePuzzleAbsorver : MediumSizeObject, IVacuumObject
     {
         var direction = origin.position - transform.position;
         var distance = direction.magnitude;
-        var forceMagnitude = (rb.mass) * atractForce / distance;
+        var forceMagnitude = (rb.mass) * atractForce * 10 / distance;
         var force = direction.normalized * forceMagnitude;
         rb.AddForce(force);
     }

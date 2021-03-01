@@ -99,7 +99,7 @@ LightmapSettings:
     m_LightProbeSampleCountMultiplier: 4
   m_LightingDataAsset: {fileID: 112000004, guid: 91e9f7a11cb505645828e195b7255c65,
     type: 2}
-  m_UseShadowmask: 1
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -359,6 +359,11 @@ PrefabInstance:
       propertyPath: cameraT
       value: 
       objectReference: {fileID: 994320255}
+    - target: {fileID: 1575956195050895279, guid: 5a5ca2897c36a4047912c4e62219b244,
+        type: 3}
+      propertyPath: m_MinMoveDistance
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4836118525382481275, guid: 5a5ca2897c36a4047912c4e62219b244,
         type: 3}
       propertyPath: stopSound
