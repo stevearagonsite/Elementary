@@ -110,19 +110,13 @@ namespace TPCamera
 
         public void GoToStartPosition()
         {
+            Debug.Log("X: " + _currentX + ",Y " + _currentY);
+            
             _currentX = 0;
             _currentY = 0;
-            var rotationWithoutY = new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
-            var lookAtWithoutY = new Vector3(_lookAt.forward.x, 0, _lookAt.forward.z).normalized;
-            int watchDog = 0;
-            while (Vector3.Distance(rotationWithoutY, lookAtWithoutY) > 0.1 && watchDog < 10000 )
-            {
-                _currentX ++;
-                Execute();
-                rotationWithoutY = new Vector3(transform.forward.x, 0, transform.forward.z).normalized;
-                lookAtWithoutY = new Vector3(_lookAt.forward.x, 0, _lookAt.forward.z).normalized;
-                watchDog++;
-            }
+            _currentX = _lookAt.rotation.eulerAngles.y;
+            Execute();
+            Debug.Log("Final X: " + _currentX + ",Final Y " + _currentY);
         }
 
         #region Camera Collision Manager
