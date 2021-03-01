@@ -249,6 +249,9 @@ public class MediumSizeObject : MonoBehaviour, IVacuumObject
     {
         if (respawnable)
             UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+
+        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, SpawnVFX);
+        UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, DespawnVFX);
     }
 
     private void OnDrawGizmos()

@@ -27,4 +27,9 @@ public class StartCinematicStory : MonoBehaviour
         Debug.Log("Start Story: " + gameObject.name);
         Destroy(this);
     }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_FINISH, OnStartScreen);
+    }
 }

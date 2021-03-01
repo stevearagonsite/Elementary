@@ -15,6 +15,7 @@ public class RingsController : MonoBehaviour
         _anim = GetComponent<Animator>();
         _rend = GetComponent<Renderer>();
         EventManager.AddEventListener(GameEvent.SPAWN_RINGS, OnActivate);
+        EventManager.AddEventListener(GameEvent.TELEPORT_START, OnDeactivate);
     }
     public void OnActivate(object[]p)
     {
@@ -24,6 +25,7 @@ public class RingsController : MonoBehaviour
 
     public void OnDeactivate(object[] p)
     {
+        EventManager.AddEventListener(GameEvent.TELEPORT_START, OnDeactivate);
         StartCoroutine(Deactivate());
     }
 

@@ -51,7 +51,7 @@ LightmapSettings:
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
@@ -72,7 +72,7 @@ LightmapSettings:
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 2
+    m_MixedBakeMode: 0
     m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
@@ -838,7 +838,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &32518009
 Transform:
@@ -1099,6 +1099,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (8)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -1492,7 +1497,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &123673687
 Transform:
@@ -2322,7 +2327,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &161224938
 Transform:
@@ -2516,7 +2521,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 175392373}
-  - component: {fileID: 175392374}
   m_Layer: 0
   m_Name: ------------//Level//-------
   m_TagString: Untagged
@@ -2541,18 +2545,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &175392374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175392372}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 128647dc1f4923d4c8d41eef5f47edfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &180396876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6008,7 +6000,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &326981007
 Transform:
@@ -6275,6 +6267,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_5
       objectReference: {fileID: 0}
+    - target: {fileID: 3561762029574067676, guid: a5020235debf1764c841974300fc01d7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5020235debf1764c841974300fc01d7, type: 3}
 --- !u!4 &330199998 stripped
@@ -6405,7 +6402,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &337397162
 Transform:
@@ -6567,6 +6564,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &340328935 stripped
@@ -6592,7 +6594,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &344035280
 Transform:
@@ -8013,6 +8015,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grunge_Decal_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -9262,6 +9269,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &536153045 stripped
@@ -9742,7 +9754,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &557368592
 Transform:
@@ -12027,6 +12039,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (11)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &709113750 stripped
@@ -12052,7 +12069,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &713389884
 Transform:
@@ -12673,6 +12690,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &739219513 stripped
@@ -13233,7 +13255,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &793929963
 Transform:
@@ -13940,6 +13962,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (10)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &824132274 stripped
@@ -14298,7 +14325,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &868821200
 Transform:
@@ -14658,7 +14685,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &880531709
 Transform:
@@ -15348,7 +15375,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &897918293
 Transform:
@@ -16387,6 +16414,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (6)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -18555,6 +18587,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (12)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &1080294311 stripped
@@ -19228,6 +19265,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -22265,7 +22307,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1221349641
 Transform:
@@ -23376,6 +23418,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -24906,6 +24953,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (9)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &1358457104 stripped
@@ -26048,6 +26100,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_5 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 3561762029574067676, guid: a5020235debf1764c841974300fc01d7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5020235debf1764c841974300fc01d7, type: 3}
 --- !u!4 &1425098492 stripped
@@ -26397,6 +26454,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (7)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -26868,7 +26930,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1490473927
 Transform:
@@ -27399,7 +27461,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1529926350
 Transform:
@@ -28489,7 +28551,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1559216925
 Transform:
@@ -31993,6 +32055,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &1694443437 stripped
@@ -33223,6 +33290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_5 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 3561762029574067676, guid: a5020235debf1764c841974300fc01d7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5020235debf1764c841974300fc01d7, type: 3}
 --- !u!4 &1740085707 stripped
@@ -33518,7 +33590,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1758921952
 Transform:
@@ -34426,7 +34498,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1801576120
 Transform:
@@ -35333,7 +35405,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1847172731
 Transform:
@@ -35710,7 +35782,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1876377872
 Transform:
@@ -35980,7 +36052,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1898372854
 Transform:
@@ -36512,7 +36584,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &1921843845
 Transform:
@@ -38794,7 +38866,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 4294967295
+  m_StaticEditorFlags: 4294967294
   m_IsActive: 1
 --- !u!4 &2068831862
 Transform:
