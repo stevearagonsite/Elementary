@@ -28,12 +28,15 @@ public class TransitionController : MonoBehaviour
 
     public void OnFadeEnd()
     {
+        
         EventManager.DispatchEvent(GameEvent.TRANSITION_FADEOUT_WIN_FINISH);
         if (_stopSounds)
         {
             EventManager.DispatchEvent(GameEvent.STOP_ALL_SONUNDS);
             
         }
+        
+        
         _anim.SetBool("fade", false);
         _stopSounds = true;
     }

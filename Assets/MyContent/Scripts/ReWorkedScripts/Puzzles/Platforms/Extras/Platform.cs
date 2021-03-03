@@ -11,7 +11,6 @@ public class Platform : MonoBehaviour
 
     private void OnTriggerEnter(Collider c)
     {
-        Debug.Log(c.gameObject.name);
         if (relateParent && c.gameObject.GetComponent<FollowPlatform>() != null)
         {
             c.gameObject.GetComponent<FollowPlatform>().SetPlatformToFollow(transform);

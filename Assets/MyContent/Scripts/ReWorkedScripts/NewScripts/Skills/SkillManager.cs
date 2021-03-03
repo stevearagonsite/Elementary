@@ -80,12 +80,12 @@ namespace Skills
             isActive = true;
         }
 
-        private void ActivateElectric(object[] parameterContainer)
+        public void ActivateElectric(object[] parameterContainer)
         {
             _skillAmount[Skills.ELECTRICITY] = 1;
         }
 
-        private void ActivateFire(object[] parameterContainer)
+        public void ActivateFire(object[] parameterContainer)
         {
             _skillAmount[Skills.FIRE] = 1;
         }

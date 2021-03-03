@@ -15,18 +15,26 @@ public class ChangeLevel : MonoBehaviour
 
     public void GoToNextLevel(object[] p)
     {
-        GameObjectiveManager.instance.ResetKeyHold();
-        for (int i = 0; i < SceneManager.sceneCount; i++)
+        if (!CheckPointManager.instance.isGoingToCheckPoint)
         {
-            var scene = SceneManager.GetSceneAt(i);
-            if (scene.name.Contains(actualLevel))
+            GameObjectiveManager.instance.ResetKeyHold();
+            for (int i = 0; i < SceneManager.sceneCount; i++)
             {
-                SceneLoadManager.instance.UnloadSceneAsync(scene.name);
+                var scene = SceneManager.GetSceneAt(i);
+                if (scene.name.Contains(actualLevel))
+                {
+                    SceneLoadManager.instance.UnloadSceneAsync(scene.name);
+                }
             }
+            SceneLoadManager.instance.LoadSceneAsync(nextLevel, LoadSceneMode.Additive);
         }
-        SceneLoadManager.instance.LoadSceneAsync(nextLevel, LoadSceneMode.Additive);
     }
-    
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEOUT_WIN_FINISH, GoToNextLevel);
+    }
+
 #if UNITY_EDITOR
     private void OnDrawGizmos()
     {

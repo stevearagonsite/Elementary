@@ -110,13 +110,10 @@ namespace TPCamera
 
         public void GoToStartPosition()
         {
-            Debug.Log("X: " + _currentX + ",Y " + _currentY);
-            
             _currentX = 0;
             _currentY = 0;
             _currentX = _lookAt.rotation.eulerAngles.y;
             Execute();
-            Debug.Log("Final X: " + _currentX + ",Final Y " + _currentY);
         }
 
         #region Camera Collision Manager

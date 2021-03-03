@@ -9,6 +9,9 @@ public class CheckPointManager : MonoBehaviour
     public static CheckPointManager instance { get { return _instance; } set { _instance = value; } }
     CheckPoint _activeCheckPoint;
 
+    private bool _isGoingToCheckPoint;
+    public bool isGoingToCheckPoint { get { var aux = isGoingToCheckPoint; _isGoingToCheckPoint = false; return aux;  } }
+
     private void Awake()
     {
         if (_instance == null) _instance = this;
@@ -35,5 +38,8 @@ public class CheckPointManager : MonoBehaviour
 
         var camera = GameObject.Find("TTPCamera");
         camera.GetComponent<CameraFSM>().GoToStartPosition();
+        _isGoingToCheckPoint = true;
     }
+
+
 }

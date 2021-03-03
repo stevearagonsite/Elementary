@@ -43,9 +43,24 @@ public class CheatLevelSelect : MonoBehaviour
             UnloadCurrentLevel();
             SceneLoadManager.instance.LoadSceneAsync("Level-07", LoadSceneMode.Additive);
         }
-        if (Input.GetKeyDown(KeyCode.F12))
+
+        if (Input.GetKeyDown(KeyCode.F9))
         {
             GameObject.Find("Character").GetComponent<SkillManager>().isActive = true;
+            GameObject.Find("Character").GetComponent<SkillManager>().ActivateElectric(null);
+        }
+        if (Input.GetKeyDown(KeyCode.F10))
+        {
+            GameObject.Find("Character").GetComponent<SkillManager>().isActive = true;
+            GameObject.Find("Character").GetComponent<SkillManager>().ActivateFire(null);
+        }
+        if (Input.GetKeyDown(KeyCode.F11))
+        {
+            GameObject.Find("Character").GetComponent<SkillManager>().isActive = true;
+        }
+        if (Input.GetKeyDown(KeyCode.F12))
+        {
+            GameObject.Find("Character").GetComponent<TPPController>().isActive = true;
         }
     }
 
