@@ -56,12 +56,12 @@ public class Attractor : ISkill {
                 _objectsToInteract[0].Shoot(_shootSpeed, _vacuumHoleTransform.forward);
             }
             _isStuck = false;
-            EventManager.DispatchEvent(GameEvent.VACUUM_FREE);
         }
         else
         {
             Reject();
         }
+        EventManager.DispatchEvent(GameEvent.VACUUM_FREE);
     }
     
 
@@ -73,6 +73,7 @@ public class Attractor : ISkill {
             obj.Exit();
         }
         _objectsToInteract.Clear();
+        EventManager.DispatchEvent(GameEvent.VACUUM_FREE);
     }
 
     void Attract ()
