@@ -21,13 +21,13 @@ RenderSettings:
   m_FogDensity: 0.01
   m_LinearFogStart: 0
   m_LinearFogEnd: 300
-  m_AmbientSkyColor: {r: 0.212, g: 0.227, b: 0.259, a: 1}
+  m_AmbientSkyColor: {r: 0.06451607, g: 0, b: 1, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 10304, guid: 0000000000000000f000000000000000, type: 0}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8ccf57638e6cd2749b5015989e1b45f4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.26848572, g: 0.22100465, b: 0.1303463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -57,27 +57,28 @@ LightmapSettings:
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
-    m_BakeResolution: 40
+    m_BakeResolution: 25
     m_AtlasSize: 1024
-    m_AO: 0
-    m_AOMaxDistance: 1
-    m_CompAOExponent: 1
+    m_AO: 1
+    m_AOMaxDistance: 0.5
+    m_CompAOExponent: 0.5
     m_CompAOExponentDirect: 0
     m_ExtractAmbientOcclusion: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 2
-    m_BakeBackend: 1
+    m_MixedBakeMode: 1
+    m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
-    m_PVRBounces: 2
+    m_PVRBounces: 3
     m_PVREnvironmentSampleCount: 256
     m_PVREnvironmentReferencePointCount: 2048
     m_PVRFilteringMode: 1
@@ -88,7 +89,7 @@ LightmapSettings:
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
     m_PVREnvironmentMIS: 1
-    m_PVRCulling: 1
+    m_PVRCulling: 0
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
     m_PVRFilteringGaussRadiusAO: 2
@@ -98,8 +99,9 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 0}
-  m_UseShadowmask: 1
+  m_LightingDataAsset: {fileID: 112000002, guid: b402a63d940764147b5ba9e885a03efa,
+    type: 2}
+  m_UseShadowmask: 0
 --- !u!196 &4
 NavMeshSettings:
   serializedVersion: 2
@@ -133,6 +135,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_6 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8211451336559970126, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8211451336560466798, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
         type: 3}
@@ -194,6 +201,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0f2f0c52029999748b03aa91d07080d5, type: 2}
+    - target: {fileID: 8211451336562235790, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0a0cb45fc81c04f8c3fc95112bfff7, type: 3}
 --- !u!4 &8257083 stripped
@@ -3522,6 +3534,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_6 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8211451336559970126, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8211451336560466798, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3582,6 +3599,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0f2f0c52029999748b03aa91d07080d5, type: 2}
+    - target: {fileID: 8211451336562235790, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0a0cb45fc81c04f8c3fc95112bfff7, type: 3}
 --- !u!4 &135304712 stripped
@@ -11816,6 +11838,160 @@ LightProbeGroup:
   - {x: 2.9999886, y: -0.21432209, z: -7.000004}
   - {x: 4.9999886, y: 1, z: -7.0000114}
   - {x: 4.9999886, y: -1, z: -7.0000114}
+  - {x: -2.9999619, y: 1, z: 15.000011}
+  - {x: -2.9999657, y: 1, z: 11.000011}
+  - {x: -0.99996185, y: 1, z: 15}
+  - {x: -0.99996567, y: 1, z: 11}
+  - {x: -2.9999657, y: 1, z: 13.000011}
+  - {x: -0.99996567, y: 1, z: 13}
+  - {x: 1.0000038, y: 1, z: 3}
+  - {x: 1, y: 1, z: -1}
+  - {x: -0.9999962, y: 1, z: 3}
+  - {x: -1, y: 1, z: -1}
+  - {x: 1, y: 1, z: 1}
+  - {x: -1, y: 1, z: 1}
+  - {x: 1.0000229, y: 1, z: 9}
+  - {x: 1.0000191, y: 1, z: 5}
+  - {x: -0.9999771, y: 1, z: 9}
+  - {x: -0.9999809, y: 1, z: 5}
+  - {x: 1.0000191, y: 1, z: 7}
+  - {x: -0.9999809, y: 1, z: 7}
+  - {x: 1.0000381, y: 1, z: 15}
+  - {x: 1.0000343, y: 1, z: 11}
+  - {x: 1.0000343, y: 1, z: 13}
+  - {x: -5.0000267, y: 1, z: -8.999985}
+  - {x: 6.9999657, y: 1, z: -15.000019}
+  - {x: -5.0000305, y: 1, z: -10.999985}
+  - {x: -3.0000267, y: 1.7856779, z: -8.999989}
+  - {x: 8.999966, y: 1, z: -15.000023}
+  - {x: -3.0000305, y: 1.7856779, z: -10.999989}
+  - {x: -1.0000267, y: 1.7856779, z: -8.999996}
+  - {x: 10.999966, y: 1, z: -15.0000305}
+  - {x: -1.0000305, y: 1.7856779, z: -10.999996}
+  - {x: -4.999962, y: 1, z: 15.000019}
+  - {x: -4.9999657, y: 1, z: 11.000019}
+  - {x: -4.9999657, y: 1, z: 13.000019}
+  - {x: 11.000038, y: 1, z: 14.9999695}
+  - {x: 11.000034, y: 1, z: 10.9999695}
+  - {x: 11.000034, y: 1, z: 12.9999695}
+  - {x: 3.0000381, y: 1, z: 14.999992}
+  - {x: 3.0000343, y: 1, z: 10.999992}
+  - {x: 3.0000343, y: 1, z: 12.999992}
+  - {x: 5.000038, y: 1, z: 14.999989}
+  - {x: 5.0000343, y: 1, z: 10.999989}
+  - {x: 5.0000343, y: 1, z: 12.999989}
+  - {x: 7.000038, y: 1, z: 14.999981}
+  - {x: 7.0000343, y: 1, z: 10.999981}
+  - {x: 7.0000343, y: 1, z: 12.999981}
+  - {x: 9.000038, y: 1, z: 14.999977}
+  - {x: 9.000034, y: 1, z: 10.999977}
+  - {x: 9.000034, y: 1, z: 12.999977}
+  - {x: -10.999962, y: 1, z: 15.000034}
+  - {x: -10.999966, y: 1, z: 11.000034}
+  - {x: -10.999966, y: 1, z: 13.000034}
+  - {x: -8.999962, y: 1, z: 15.0000305}
+  - {x: -8.999966, y: 1, z: 11.0000305}
+  - {x: -8.999966, y: 1, z: 13.0000305}
+  - {x: -6.999962, y: 1, z: 15.000023}
+  - {x: -6.9999657, y: 1, z: 11.000023}
+  - {x: -6.9999657, y: 1, z: 13.000023}
+  - {x: 7.0000267, y: 1, z: 8.999981}
+  - {x: 3.000023, y: 1, z: 4.9999924}
+  - {x: 7.000023, y: 1, z: 6.999981}
+  - {x: 9.000027, y: 1, z: 8.999977}
+  - {x: 5.000023, y: 1, z: 4.9999886}
+  - {x: 9.000023, y: 1, z: 6.999977}
+  - {x: 11.000027, y: 1, z: 8.9999695}
+  - {x: 11.000023, y: 1, z: 4.9999695}
+  - {x: 11.000023, y: 1, z: 6.9999695}
+  - {x: 3.0000076, y: 1, z: 2.9999924}
+  - {x: 7.000004, y: 1, z: -1.0000191}
+  - {x: 7.000004, y: 1, z: 0.9999809}
+  - {x: 5.0000076, y: 1, z: 2.9999886}
+  - {x: 9.000004, y: 1, z: -1.0000229}
+  - {x: 9.000004, y: 1, z: 0.9999771}
+  - {x: 11.000008, y: 1, z: 2.9999695}
+  - {x: 11.000004, y: 1, z: -1.0000305}
+  - {x: 11.000004, y: 1, z: 0.9999695}
+  - {x: -5.0000076, y: 1, z: -2.9999847}
+  - {x: -5.0000114, y: 1, z: -6.9999847}
+  - {x: 6.9999886, y: 1, z: -5.000019}
+  - {x: -3.0000076, y: 1, z: -2.9999886}
+  - {x: -3.0000114, y: 1.7856779, z: -6.9999886}
+  - {x: 8.999989, y: 1, z: -5.000023}
+  - {x: -1.0000076, y: 1, z: -2.9999962}
+  - {x: -1.0000114, y: 1.7856779, z: -6.999996}
+  - {x: 10.999989, y: 1, z: -5.0000305}
+  - {x: 6.9999695, y: 1, z: -13.000019}
+  - {x: 8.9999695, y: 1, z: -13.000023}
+  - {x: 10.9999695, y: 1, z: -13.0000305}
+  - {x: -11.0000305, y: 1, z: -8.999966}
+  - {x: -11.000038, y: 1, z: -14.999966}
+  - {x: -11.000034, y: 1, z: -10.999966}
+  - {x: -9.0000305, y: 1, z: -8.9999695}
+  - {x: -9.000038, y: 1, z: -14.9999695}
+  - {x: -9.000034, y: 1, z: -10.9999695}
+  - {x: -7.0000305, y: 1, z: -8.999977}
+  - {x: -7.000038, y: 1, z: -14.999977}
+  - {x: -7.0000343, y: 1, z: -10.999977}
+  - {x: -10.999977, y: 1, z: 9.000034}
+  - {x: -10.999981, y: 1, z: 5.0000343}
+  - {x: -10.999981, y: 1, z: 7.0000343}
+  - {x: -8.999977, y: 1, z: 9.0000305}
+  - {x: -8.999981, y: 1, z: 5.0000305}
+  - {x: -8.999981, y: 1, z: 7.0000305}
+  - {x: -6.999977, y: 1, z: 9.000023}
+  - {x: -6.999981, y: 1, z: 5.000023}
+  - {x: -6.999981, y: 1, z: 7.000023}
+  - {x: -10.999996, y: 1, z: 3.0000343}
+  - {x: -11, y: 1, z: -0.99996567}
+  - {x: -11, y: 1, z: 1.0000343}
+  - {x: -8.999996, y: 1, z: 3.0000305}
+  - {x: -9, y: 1, z: -0.9999695}
+  - {x: -9, y: 1, z: 1.0000305}
+  - {x: -6.999996, y: 1, z: 3.000023}
+  - {x: -7, y: 1, z: -0.9999771}
+  - {x: -7, y: 1, z: 1.0000229}
+  - {x: -11.000011, y: 1, z: -2.9999657}
+  - {x: -11.000015, y: 1, z: -6.9999657}
+  - {x: -11.000015, y: 1, z: -4.9999657}
+  - {x: -9.000011, y: 1, z: -2.9999695}
+  - {x: -9.000015, y: 1, z: -6.9999695}
+  - {x: -9.000015, y: 1, z: -4.9999695}
+  - {x: -7.0000114, y: 1, z: -2.999977}
+  - {x: -7.0000153, y: 1, z: -6.999977}
+  - {x: -7.0000153, y: 1, z: -4.999977}
+  - {x: -11.000034, y: 1, z: -12.999966}
+  - {x: -9.000034, y: 1, z: -12.9999695}
+  - {x: -7.0000343, y: 1, z: -12.999977}
+  - {x: 7.000023, y: 1, z: 4.999981}
+  - {x: 9.000023, y: 1, z: 4.999977}
+  - {x: 7.0000076, y: 1, z: 2.999981}
+  - {x: 9.000008, y: 1, z: 2.999977}
+  - {x: 6.9999924, y: 1, z: -3.000019}
+  - {x: 8.999992, y: 1, z: -3.000023}
+  - {x: 10.999992, y: 1, z: -3.0000305}
+  - {x: 0.9999924, y: 1, z: -3}
+  - {x: 2.9999924, y: 1, z: -3.0000038}
+  - {x: 4.9999924, y: 1, z: -3.0000114}
+  - {x: 6.9999733, y: 1, z: -9.000019}
+  - {x: 6.9999695, y: 1, z: -11.000019}
+  - {x: 8.999973, y: 1, z: -9.000023}
+  - {x: 8.9999695, y: 1, z: -11.000023}
+  - {x: 10.999973, y: 1, z: -9.0000305}
+  - {x: 10.9999695, y: 1, z: -11.0000305}
+  - {x: 6.9999886, y: 1, z: -7.000019}
+  - {x: 8.999989, y: 1, z: -7.000023}
+  - {x: 10.999989, y: 1, z: -7.0000305}
+  - {x: 0.9999733, y: 1.7856779, z: -9}
+  - {x: 0.9999695, y: 1.7856779, z: -11}
+  - {x: 2.9999733, y: 1.7856779, z: -9.000004}
+  - {x: 2.9999695, y: 1.7856779, z: -11.000004}
+  - {x: 4.9999733, y: 1, z: -9.000011}
+  - {x: 4.9999695, y: 1, z: -11.000011}
+  - {x: 0.99998856, y: 1.7856779, z: -7}
+  - {x: 2.9999886, y: 1.7856779, z: -7.000004}
+  - {x: 4.9999886, y: 1, z: -7.0000114}
   m_Dering: 1
 --- !u!1 &519641032
 GameObject:
@@ -11936,6 +12112,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_6 (5)
       objectReference: {fileID: 0}
+    - target: {fileID: 8211451336559970126, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8211451336560466798, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -12006,6 +12187,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ae103f8bfef560448ae0da5ddae276f, type: 2}
+    - target: {fileID: 8211451336562235790, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0a0cb45fc81c04f8c3fc95112bfff7, type: 3}
 --- !u!4 &524634365 stripped
@@ -12270,6 +12456,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393948540772970413, guid: fa84f505a73591546b865502ac6f3cbb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2592200117342042310, guid: fa84f505a73591546b865502ac6f3cbb,
         type: 3}
@@ -15463,6 +15654,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_6 (4)
       objectReference: {fileID: 0}
+    - target: {fileID: 8211451336559970126, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8211451336560466798, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -15533,6 +15729,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 7ae103f8bfef560448ae0da5ddae276f, type: 2}
+    - target: {fileID: 8211451336562235790, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0a0cb45fc81c04f8c3fc95112bfff7, type: 3}
 --- !u!4 &692537602 stripped
@@ -16351,6 +16552,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393948540772970413, guid: fa84f505a73591546b865502ac6f3cbb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2592200117342042310, guid: fa84f505a73591546b865502ac6f3cbb,
         type: 3}
@@ -18268,7 +18474,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 772059250}
-  - component: {fileID: 772059249}
   m_Layer: 0
   m_Name: ------------//Decals//------
   m_TagString: Untagged
@@ -18276,18 +18481,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
   m_IsActive: 1
---- !u!114 &772059249
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 772059248}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 128647dc1f4923d4c8d41eef5f47edfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &772059250
 Transform:
   m_ObjectHideFlags: 0
@@ -19321,10 +19514,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 45a81d792de0b9744bbc93e92d75b31d, type: 2}
+    - target: {fileID: 4645108568004154734, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_Name
       value: Grunge_Decal_1 (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
@@ -20659,6 +20862,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_6 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8211451336559970126, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8211451336560466798, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -20719,6 +20927,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 0f2f0c52029999748b03aa91d07080d5, type: 2}
+    - target: {fileID: 8211451336562235790, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0a0cb45fc81c04f8c3fc95112bfff7, type: 3}
 --- !u!4 &901307983 stripped
@@ -31711,10 +31924,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 45a81d792de0b9744bbc93e92d75b31d, type: 2}
+    - target: {fileID: 4645108568004154734, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_Name
       value: Grunge_Decal_1 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
@@ -32804,6 +33027,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393948540772970413, guid: fa84f505a73591546b865502ac6f3cbb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2592200117342042310, guid: fa84f505a73591546b865502ac6f3cbb,
         type: 3}
@@ -34994,6 +35222,11 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 4562783284540065689, guid: 3185506a457cdcd4fa95743db7504b2f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4643218232355785958, guid: 3185506a457cdcd4fa95743db7504b2f,
         type: 3}
       propertyPath: m_Layer
@@ -35098,6 +35331,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148605968465791916, guid: 3185506a457cdcd4fa95743db7504b2f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148605968465791916, guid: 3185506a457cdcd4fa95743db7504b2f,
+        type: 3}
+      propertyPath: m_Range
+      value: 8.024424
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3185506a457cdcd4fa95743db7504b2f, type: 3}
@@ -35429,7 +35672,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &1556238818
 Transform:
   m_ObjectHideFlags: 0
@@ -38166,6 +38409,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_6
       objectReference: {fileID: 0}
+    - target: {fileID: 8211451336559970126, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 8211451336560466798, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -38226,6 +38474,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: dca89634f84767b42b5b1e15f766b10d, type: 2}
+    - target: {fileID: 8211451336562235790, guid: ab0a0cb45fc81c04f8c3fc95112bfff7,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab0a0cb45fc81c04f8c3fc95112bfff7, type: 3}
 --- !u!4 &1672526155 stripped
@@ -39423,10 +39676,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 45a81d792de0b9744bbc93e92d75b31d, type: 2}
+    - target: {fileID: 4645108568004154734, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_Name
       value: Grunge_Decal_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
@@ -41496,6 +41759,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2393948540772970413, guid: fa84f505a73591546b865502ac6f3cbb,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2592200117342042310, guid: fa84f505a73591546b865502ac6f3cbb,
         type: 3}
@@ -44458,10 +44726,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 45a81d792de0b9744bbc93e92d75b31d, type: 2}
+    - target: {fileID: 4645108568004154734, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_ReceiveGI
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_Name
       value: Grunge_Decal_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
