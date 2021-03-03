@@ -17,7 +17,7 @@ public class StoryDialogueStart : MonoBehaviour
         if (disablePlayer)
         {
             EventManager.DispatchEvent(GameEvent.STORY_START);
-            Debug.Log("Start Story: " + gameObject.name);
+            Debug.Log("Start Story: " + gameObject.name + "Collides with: " + other.name);
 
         }
         if (oneTimeStory)

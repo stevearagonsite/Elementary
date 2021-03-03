@@ -53,6 +53,7 @@ public class CinematicPlayerController : MonoBehaviour
         if(Vector3.Distance(transform.position, _nodes[_actualNodeIndex].position) > _nodes[_actualNodeIndex].radius)
         {
             var dir = (_nodes[_actualNodeIndex].position - transform.position).normalized;
+            dir.y = 0;
             var speed = _walk ? _tppC.walkSpeed/4*3 : _tppC.speed;
             _cc.Move(dir * speed * Time.deltaTime);
             RotateGFX(dir);

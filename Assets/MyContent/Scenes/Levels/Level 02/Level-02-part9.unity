@@ -10063,7 +10063,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.65172
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7400324325087686239, guid: d0e1208719c92fc4e874c321b98cfdf9, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d0e1208719c92fc4e874c321b98cfdf9, type: 3}
 --- !u!4 &243902833 stripped
 Transform:
@@ -10071,6 +10072,27 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 243902832}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &243902834 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7400324325087686209, guid: d0e1208719c92fc4e874c321b98cfdf9,
+    type: 3}
+  m_PrefabInstance: {fileID: 243902832}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &243902835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 243902834}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aca1061f43ae4b942b368f4865b06700, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodes:
+  - position: {x: 95.17071, y: 64.76403, z: -302.47}
+    radius: 0.5
 --- !u!1001 &245064341
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -85771,7 +85793,7 @@ GameObject:
   - component: {fileID: 6152659162174297138}
   - component: {fileID: 6152659162174297137}
   - component: {fileID: 6152659162174297136}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Possprocessing Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
