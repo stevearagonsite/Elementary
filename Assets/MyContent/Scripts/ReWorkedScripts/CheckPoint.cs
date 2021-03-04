@@ -8,11 +8,13 @@ public class CheckPoint : MonoBehaviour {
     private void OnTriggerEnter(Collider other)
     {
         CheckPointManager.instance.RegisterActiveCheckPoint(this);
+        Debug.Log("Registe on enter" + gameObject.name);
     }
 
     private void OnTriggerStay(Collider other)
     {
         CheckPointManager.instance.RegisterActiveCheckPoint(this);
+        Debug.Log("Registe on stay" + gameObject.name);
     }
 
     private void OnDrawGizmos()
