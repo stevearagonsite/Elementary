@@ -28,7 +28,8 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
         if (_clipHandler != null && !_clipHandler.isPlaying)
             _clipHandler.PlayFadeIn(1);
         isOnFire = true;
-        fireParticle.Play();
+        if(fireParticle != null)
+            fireParticle.Play();
     }
 
     void Start()
@@ -36,7 +37,8 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
         _clipHandler = GetComponent<AudioClipHandler>();
         isOnFire = false;
         currentLife = maxLife;
-        fireParticle.Stop();
+        if (fireParticle != null)
+            fireParticle.Stop();
         rend = GetComponent<Renderer>();
         foreach (var item in rend.materials)
         {
@@ -57,7 +59,8 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
             }
             else
             {
-                fireParticle.Stop();
+                if (fireParticle != null)
+                    fireParticle.Stop();
                 Die();
             }
         }
@@ -83,7 +86,6 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
             _clipHandler.StopFadeOut(0.5f);
         GetComponent<Collider>().isTrigger = true;
         Invoke("DestroyAll", 2f);
-        Destroy(this);
         
     }
 
