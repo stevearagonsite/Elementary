@@ -51,6 +51,7 @@ public class TPPController : MonoBehaviour
 
     private PlayerTemperature _pT;
     private FollowPlatform _fP;
+    private CharacterAnimationController _characterAnimation;
 
     /**
      * Sprint variables
@@ -72,6 +73,7 @@ public class TPPController : MonoBehaviour
         _cc = GetComponent<CharacterController>();
         _pT = GetComponentInChildren<PlayerTemperature>();
         _fP = GetComponentInChildren<FollowPlatform>();
+        _characterAnimation = GetComponentInChildren<CharacterAnimationController>();
         _actualStamina = sprintStaminaInSeconds;
         InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Jump_Held, JumpHeld);
@@ -284,6 +286,8 @@ public class TPPController : MonoBehaviour
         {
             _fP.ReleasePlatform();
             _velocity.y = jumpVelocity;
+            _characterAnimation.Jump();
+
         }
     }
 

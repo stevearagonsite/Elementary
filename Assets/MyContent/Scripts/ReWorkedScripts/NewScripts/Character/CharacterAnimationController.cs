@@ -111,11 +111,11 @@ public class CharacterAnimationController : MonoBehaviour
     /// <summary>
     /// Set Jump trigger
     /// </summary>
-    void Jump() 
+    public void Jump() 
     {
         if (_controller.isActive)
         {
-            if (_cc.isGrounded || followPlatform.isOnPlatform)
+            //if (_cc.isGrounded || followPlatform.isOnPlatform)
                 _anim.SetTrigger("jump");
         }
     }
