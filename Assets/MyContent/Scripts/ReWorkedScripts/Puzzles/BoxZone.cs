@@ -64,4 +64,12 @@ public class BoxZone : MonoBehaviour {
         UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
     }
 
+
+    private void OnDrawGizmos()
+    {
+        var collider = GetComponent<BoxCollider>();
+        Gizmos.color = new Color(100, 100, 100, 0.2f); ;
+        Gizmos.matrix = transform.localToWorldMatrix;
+        Gizmos.DrawCube(collider.center, collider.size);
+    }
 }
