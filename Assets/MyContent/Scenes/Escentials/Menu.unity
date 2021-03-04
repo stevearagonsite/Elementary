@@ -4292,6 +4292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopSound: 1
+  isPlaying: 0
 --- !u!82 &767198235
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4305,7 +4306,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: 60577cc3cce0949e9a56ef14b4a3437d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -8264,6 +8265,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopSound: 0
+  isPlaying: 0
 --- !u!82 &1541712730
 AudioSource:
   m_ObjectHideFlags: 0
