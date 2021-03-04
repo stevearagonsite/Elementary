@@ -27,7 +27,7 @@ RenderSettings:
   m_AmbientIntensity: 1
   m_AmbientMode: 0
   m_SubtractiveShadowColor: {r: 0.42, g: 0.478, b: 0.627, a: 1}
-  m_SkyboxMaterial: {fileID: 2100000, guid: 73345e05f5a957f48b96b3c87e02ccbc, type: 2}
+  m_SkyboxMaterial: {fileID: 2100000, guid: 8ccf57638e6cd2749b5015989e1b45f4, type: 2}
   m_HaloStrength: 0.5
   m_FlareStrength: 1
   m_FlareFadeSpeed: 3
@@ -39,7 +39,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.26848572, g: 0.22100465, b: 0.1303463, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -51,33 +51,34 @@ LightmapSettings:
     m_BounceScale: 1
     m_IndirectOutputScale: 1
     m_AlbedoBoost: 1
-    m_EnvironmentLightingMode: 0
+    m_EnvironmentLightingMode: 1
     m_EnableBakedLightmaps: 1
     m_EnableRealtimeLightmaps: 1
   m_LightmapEditorSettings:
     serializedVersion: 12
     m_Resolution: 2
-    m_BakeResolution: 40
+    m_BakeResolution: 25
     m_AtlasSize: 1024
     m_AO: 1
-    m_AOMaxDistance: 3
-    m_CompAOExponent: 1
+    m_AOMaxDistance: 0.5
+    m_CompAOExponent: 0.5
     m_CompAOExponentDirect: 0
     m_ExtractAmbientOcclusion: 0
     m_Padding: 2
-    m_LightmapParameters: {fileID: 0}
+    m_LightmapParameters: {fileID: 15200, guid: 0000000000000000f000000000000000,
+      type: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
     m_FinalGather: 0
     m_FinalGatherFiltering: 1
     m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
-    m_MixedBakeMode: 2
-    m_BakeBackend: 1
+    m_MixedBakeMode: 1
+    m_BakeBackend: 2
     m_PVRSampling: 1
     m_PVRDirectSampleCount: 32
     m_PVRSampleCount: 512
-    m_PVRBounces: 2
+    m_PVRBounces: 3
     m_PVREnvironmentSampleCount: 256
     m_PVREnvironmentReferencePointCount: 2048
     m_PVRFilteringMode: 1
@@ -87,7 +88,7 @@ LightmapSettings:
     m_PVRFilterTypeDirect: 0
     m_PVRFilterTypeIndirect: 0
     m_PVRFilterTypeAO: 0
-    m_PVREnvironmentMIS: 1
+    m_PVREnvironmentMIS: 0
     m_PVRCulling: 1
     m_PVRFilteringGaussRadiusDirect: 1
     m_PVRFilteringGaussRadiusIndirect: 5
@@ -98,7 +99,7 @@ LightmapSettings:
     m_ExportTrainingData: 0
     m_TrainingDataDestination: TrainingData
     m_LightProbeSampleCountMultiplier: 4
-  m_LightingDataAsset: {fileID: 112000000, guid: 15eced6c4dc1833498176e639d266fcb,
+  m_LightingDataAsset: {fileID: 112000002, guid: 06a814857eaf5a74899a0e88d0962824,
     type: 2}
   m_UseShadowmask: 0
 --- !u!196 &4
@@ -3516,7 +3517,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &170311939
 Transform:
@@ -5768,7 +5769,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &276601792
 Transform:
   m_ObjectHideFlags: 0
@@ -8137,6 +8138,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &410173598 stripped
@@ -8724,6 +8730,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Grunge_Decal_1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
@@ -13513,6 +13524,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &624584826 stripped
@@ -13607,6 +13623,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (5)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -13992,6 +14013,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (4)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -15650,6 +15676,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4 (6)
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &734288475 stripped
@@ -15755,7 +15786,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &738308187
 Transform:
@@ -16490,7 +16521,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &762227005
 Transform:
   m_ObjectHideFlags: 0
@@ -26597,6 +26628,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grunge_Decal_1 (3)
       objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -29674,7 +29710,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &1271616689
 Transform:
@@ -33828,7 +33864,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &1428849088
 Transform:
@@ -38806,6 +38842,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grunge_Decal_1
       objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -39411,7 +39452,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &1671492964
 Transform:
@@ -41002,6 +41043,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_4
       objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
 --- !u!4 &1713747374 stripped
@@ -41612,7 +41658,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &1743488298
 Transform:
@@ -41799,7 +41845,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &1748901383
 Transform:
@@ -44111,6 +44157,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: GrungeDecal_4 (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 8397255800630671591, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 592e9dfc7f7c8f143ad8f72a2e56c84c, type: 3}
@@ -46987,6 +47038,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Grunge_Decal_1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 4645108568006085550, guid: 883e69c841cc51b44b55fe2cc2fff542,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 4645108568006580110, guid: 883e69c841cc51b44b55fe2cc2fff542,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48384,6 +48440,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GrungeDecal_2
       objectReference: {fileID: 0}
+    - target: {fileID: 7596626196462902774, guid: 38258a1d4ed3a5341ac95c1c353acad1,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967294
+      objectReference: {fileID: 0}
     - target: {fileID: 7596626196463256022, guid: 38258a1d4ed3a5341ac95c1c353acad1,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48784,7 +48845,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &2089307913
 Transform:
@@ -49387,7 +49448,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 81
+  m_StaticEditorFlags: 80
   m_IsActive: 1
 --- !u!4 &2101953646
 Transform:
@@ -50667,7 +50728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 4294967295
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!1001 &834045942318304438
 PrefabInstance:
   m_ObjectHideFlags: 0

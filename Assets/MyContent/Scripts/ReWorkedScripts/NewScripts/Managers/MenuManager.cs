@@ -44,6 +44,7 @@ public class MenuManager : MonoBehaviour
         Cursor.visible = false;
         Cursor.lockState = CursorLockMode.Locked;
         EventManager.DispatchEvent(GameEvent.START_GAME);
+        SceneManager.SetActiveScene(SceneManager.GetSceneByName("Level-00"));
     }
 
     public void OnSettingsMenuButton()
