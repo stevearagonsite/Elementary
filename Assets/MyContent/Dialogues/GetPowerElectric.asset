@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7dc4dd29d7a727408d3aed9ba6bcd2c, type: 3}
-  m_Name: Llave1Level2
+  m_Name: GetPowerElectric
   m_EditorClassIdentifier: 
   nodes:
   - myRect:
@@ -20,9 +20,9 @@ MonoBehaviour:
       width: 200
       height: 150
     isInitialNode: 1
-    dialog: LlaveLevel
+    dialog: 
     duration: 2
-    skipable: 1
+    skipable: 0
   - myRect:
       serializedVersion: 2
       x: 406
@@ -30,6 +30,26 @@ MonoBehaviour:
       width: 200
       height: 150
     isInitialNode: 0
-    dialog: fin
+    dialog: Esta gema tiene grabado a Ugarith
     duration: 2
-    skipable: 1
+    skipable: 0
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: "Amo y se\xF1or de la naturaleza"
+    duration: 3
+    skipable: 0
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: Siento la energia de la vida misma.
+    duration: 5
+    skipable: 0

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7dc4dd29d7a727408d3aed9ba6bcd2c, type: 3}
-  m_Name: Llave2Level4
+  m_Name: LlaveLevel2
   m_EditorClassIdentifier: 
   nodes:
   - myRect:
@@ -20,9 +20,9 @@ MonoBehaviour:
       width: 200
       height: 150
     isInitialNode: 1
-    dialog: LlaveLevel
+    dialog: 
     duration: 2
-    skipable: 1
+    skipable: 0
   - myRect:
       serializedVersion: 2
       x: 406
@@ -30,6 +30,36 @@ MonoBehaviour:
       width: 200
       height: 150
     isInitialNode: 0
-    dialog: fin
+    dialog: De nuevo este cristal
     duration: 2
-    skipable: 1
+    skipable: 0
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: Es parte de los templos
+    duration: 2
+    skipable: 0
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: Creo que debo tomarlos
+    duration: 2
+    skipable: 0
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: 
+    duration: 2
+    skipable: 0
