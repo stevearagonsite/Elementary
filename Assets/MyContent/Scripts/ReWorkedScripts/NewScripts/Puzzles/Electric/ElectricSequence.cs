@@ -16,11 +16,13 @@ public class ElectricSequence : MonoBehaviour
     public void Activate()
     {
         isActive = true;
+        Debug.Log("Activate Sequence: " + gameObject.name);
     }
 
     public void Deactivate()
     {
         isActive = false;
         _eSwitch.Restart();
+        Debug.Log("Deactivate Sequence: " + gameObject.name);
     }   
 }

@@ -16,6 +16,7 @@ public class ElectricSwitch : MonoBehaviour, IElectricObject
     public UnityEvent onSwitchDeactivated;
 
     private float _actualCharge;
+    private bool _fullCharged;
 
     private void Start()
     {
@@ -41,8 +42,10 @@ public class ElectricSwitch : MonoBehaviour, IElectricObject
             else
             {
                 Debug.Log("Charged");
-                onSwitchActivated.Invoke();
+                _fullCharged = true;
+                _isElectrified = false;
                 UpdatesManager.instance.RemoveUpdate(UpdateType.UPDATE, Execute);
+                onSwitchActivated.Invoke();
             }
         }
         else
@@ -56,8 +59,13 @@ public class ElectricSwitch : MonoBehaviour, IElectricObject
 
     public void Restart()
     {
-        Start();
+        if (_fullCharged)
+        {
+            Start();
+        }
+        Debug.Log("Restart: " + gameObject.name + "Full charge: " + _fullCharged);
         _actualCharge = 0;
+        _fullCharged = false;
         _isElectrified = false;
         onSwitchDeactivated.Invoke();
     }

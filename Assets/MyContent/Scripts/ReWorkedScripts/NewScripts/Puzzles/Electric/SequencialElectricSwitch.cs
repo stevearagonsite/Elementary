@@ -33,6 +33,7 @@ public class SequencialElectricSwitch : MonoBehaviour
             for (int i = 0; i < electricSequence.Length; i++)
             {
                 electricSequence[i].Deactivate();
+                _activatedSwitches = 0;
             }
         }
     }
