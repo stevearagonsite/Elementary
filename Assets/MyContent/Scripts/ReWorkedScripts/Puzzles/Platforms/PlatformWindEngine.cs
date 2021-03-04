@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlatformWindEngine : MonoBehaviour {
 
     public ElevatorPlatform plat;
-
+    public float speedMultiplier;
+    public float maxSpeed;
     Vector3 _rotation;
 
 	void Start ()
@@ -16,7 +17,8 @@ public class PlatformWindEngine : MonoBehaviour {
 	
 	void Execute ()
     {
-        _rotation.z = plat.currentSpeed;
+        _rotation.z = plat.currentSpeed * speedMultiplier * Time.deltaTime;
+        _rotation.z = Mathf.Clamp(_rotation.z, 0, maxSpeed);
         transform.Rotate(_rotation);
 	}
 

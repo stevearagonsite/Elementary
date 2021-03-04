@@ -78,12 +78,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isActive: 1
   relateParent: 1
+  layerMask:
+    serializedVersion: 2
+    m_Bits: 0
   speed: 2
   lerpValue: 0.5
   minY: 1.4
   maxY: 6.36
   maxYOffset: 0.1
-  gravityValue: 9.8
+  gravityValue: 20
 --- !u!1 &3886294944070741191
 GameObject:
   m_ObjectHideFlags: 0
@@ -177,6 +180,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   plat: {fileID: 4300278353980298410}
+  speedMultiplier: 10000
+  maxSpeed: 200
 --- !u!1 &5196143528747483626
 GameObject:
   m_ObjectHideFlags: 0
