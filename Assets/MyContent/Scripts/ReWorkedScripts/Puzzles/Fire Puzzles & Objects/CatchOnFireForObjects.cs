@@ -13,6 +13,8 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
     public ParticleSystem fireParticle;
     Renderer rend;
 
+    private AudioClipHandler _clipHandler;
+
     public bool consumable;
 
     public bool isOnFire
@@ -23,12 +25,15 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
 
     public void SetOnFire()
     {
+        if (_clipHandler != null && !_clipHandler.isPlaying)
+            _clipHandler.PlayFadeIn(1);
         isOnFire = true;
         fireParticle.Play();
     }
 
     void Start()
     {
+        _clipHandler = GetComponent<AudioClipHandler>();
         isOnFire = false;
         currentLife = maxLife;
         fireParticle.Stop();
@@ -74,8 +79,17 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
         fireParticle.transform.SetParent(null);
         fireParticle.Stop();
         Invoke("KillParticle", 2);
-        Destroy(gameObject);
+        if (_clipHandler != null)
+            _clipHandler.StopFadeOut(0.5f);
+        Destroy(GetComponent<Collider>());
+        Invoke("DestroyAll", 2f);
+        Destroy(this);
         
+    }
+
+    void DestroyAll()
+    {
+        Destroy(gameObject);
     }
 
     void KillParticle()

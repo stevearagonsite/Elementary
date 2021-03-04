@@ -7,6 +7,10 @@ using System;
 public class AudioClipHandler : MonoBehaviour
 {
     public bool stopSound;
+
+    [HideInInspector]
+    public bool isPlaying;
+
     private AudioSource _source;
     private float _initialVolume;
     private void Awake()
@@ -24,6 +28,7 @@ public class AudioClipHandler : MonoBehaviour
     public void Stop()
     {
         _source.Stop();
+        isPlaying = false;
     }
 
     public void StopOnEvent(object[] p = null)
@@ -61,6 +66,7 @@ public class AudioClipHandler : MonoBehaviour
     {
         StopAllCoroutines();
         StartCoroutine(FadeInCoroutine(transitionTime));
+        isPlaying = true;
     }
 
     private IEnumerator FadeInCoroutine(float transitionTime)
@@ -91,6 +97,7 @@ public class AudioClipHandler : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         _source.Stop();
+        isPlaying = false;
     }
 
     private void OnDestroy()

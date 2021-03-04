@@ -81,7 +81,6 @@ public class SkillVFXController : MonoBehaviour
         if(!_isStuck && (_cc.isGrounded || _fP.isOnPlatform) && _tppC.isActive && SkillManager.instance.isActive)
         {
             _skillDictionary[_skillController.skillAction].StartEffect();
-            if(_skillController.skillAction == Skills.Skills.VACCUM)
             _sSFXC.PlaySkillSFX(_skillController.skillAction);
         }
         else
