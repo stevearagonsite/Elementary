@@ -81,7 +81,7 @@ public class CatchOnFireForObjects : MonoBehaviour, IFlamableObjects {
         Invoke("KillParticle", 2);
         if (_clipHandler != null)
             _clipHandler.StopFadeOut(0.5f);
-        Destroy(GetComponent<Collider>());
+        GetComponent<Collider>().isTrigger = true;
         Invoke("DestroyAll", 2f);
         Destroy(this);
         

@@ -287,7 +287,6 @@ public class TPPController : MonoBehaviour
             _fP.ReleasePlatform();
             _velocity.y = jumpVelocity;
             _characterAnimation.Jump();
-
         }
     }
 

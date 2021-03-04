@@ -63,11 +63,11 @@ public class CharacterSounds : MonoBehaviour
 
     private void OnRespawn(object[] p)
     {
-        if (CheckPointManager.instance.isGoingToCheckPoint)
+        /*if (CheckPointManager.instance.isGoingToCheckPoint)
         {
             _source.clip = respawn;
             _clipHandler.Play();
-        }
+        }*/
     }
 
     private void OnDestroy()

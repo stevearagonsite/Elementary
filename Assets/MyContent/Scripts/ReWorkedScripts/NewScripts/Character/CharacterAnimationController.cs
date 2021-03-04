@@ -29,7 +29,7 @@ public class CharacterAnimationController : MonoBehaviour
         _controller = GetComponentInParent<TPPController>();
         _cinematicController = GetComponentInParent<CinematicPlayerController>();
 
-        InputManager.instance.AddAction(InputType.Jump, Jump);
+       // InputManager.instance.AddAction(InputType.Jump, Jump);
         InputManager.instance.AddAction(InputType.Jump_Held, HeldJump);
         InputManager.instance.AddAction(InputType.Movement, MoveAction);
         InputManager.instance.AddAction(InputType.Sprint, Sprint);

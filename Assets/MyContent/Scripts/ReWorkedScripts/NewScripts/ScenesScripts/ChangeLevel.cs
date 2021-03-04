@@ -28,6 +28,7 @@ public class ChangeLevel : MonoBehaviour
             }
             SceneLoadManager.instance.LoadSceneAsync(nextLevel, LoadSceneMode.Additive);
         }
+        CheckPointManager.instance.isGoingToCheckPoint = false;
     }
 
     private void OnDestroy()

@@ -27,6 +27,7 @@ public class DeathFallTrigger : MonoBehaviour {
             UpdatesManager.instance.AddUpdate(UpdateType.UPDATE, Execute);
             EventManager.DispatchEvent(GameEvent.PLAYER_DIE);
             _isActive = true;
+            CheckPointManager.instance.isGoingToCheckPoint = true;
         }
          
     }

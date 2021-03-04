@@ -22,11 +22,13 @@ public class FencePuzzleAbsorver : MediumSizeObject, IVacuumObject
     {
         if (_isBeeingAbsorved)
         {
-            _bc.material.dynamicFriction = 0.0f;
+            if(_bc != null)
+                _bc.material.dynamicFriction = 0.0f;
         }
         else
         {
-            _bc.material.dynamicFriction = 0.6f;
+            if (_bc != null)
+                _bc.material.dynamicFriction = 0.6f;
         }
     }
 

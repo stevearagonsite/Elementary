@@ -172,7 +172,7 @@ public class InputManager : MonoBehaviour
                 _actions[InputType.Test]();
             }
         }
-        if(Input.GetKeyDown(reject) && !_isGamePaused)
+        if(Input.GetKeyDown(jump) && !_isGamePaused)
         {
             if (_actions.ContainsKey(InputType.Skip_Dialogue) && _actions[InputType.Skip_Dialogue] != null)
             {

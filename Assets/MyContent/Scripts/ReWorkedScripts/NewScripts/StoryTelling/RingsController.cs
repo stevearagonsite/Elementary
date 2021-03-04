@@ -19,14 +19,13 @@ public class RingsController : MonoBehaviour
     }
     public void OnActivate(object[]p)
     {
-        EventManager.RemoveEventListener(GameEvent.SPAWN_RINGS, OnActivate);
         StartCoroutine(Activate());
     }
 
     public void OnDeactivate(object[] p)
     {
-        EventManager.AddEventListener(GameEvent.TELEPORT_START, OnDeactivate);
-        StartCoroutine(Deactivate());
+        if(GameObjectiveManager.instance.CheckEndOfLevelGoals())
+            StartCoroutine(Deactivate());
     }
 
     private IEnumerator Activate()

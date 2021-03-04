@@ -22,6 +22,8 @@ public class AudioClipHandler : MonoBehaviour
     }
     public void Play()
     {
+        StopAllCoroutines();
+        _source.volume = _initialVolume;
         _source.PlayOneShot(_source.clip) ;
     }
 

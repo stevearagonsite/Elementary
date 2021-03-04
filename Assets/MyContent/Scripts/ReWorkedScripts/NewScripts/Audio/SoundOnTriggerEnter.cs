@@ -8,11 +8,11 @@ public class SoundOnTriggerEnter : MonoBehaviour
     private AudioClipHandler _clipHandler;
     private void OnTriggerEnter(Collider other)
     {
-        if (_clipHandler == null)
+        if (_clipHandler == null && other.gameObject.layer == 9)
         {
             _clipHandler = GetComponent<AudioClipHandler>();
+            _clipHandler.Play();
         }
-        _clipHandler.Play();
-        Debug.Log("Play sonido: " + other.name);
+       
     }
 }
