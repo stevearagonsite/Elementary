@@ -60,7 +60,7 @@ public class InputManager : MonoBehaviour
 
     private void CanBePausedAfterChangeLevel(object[] p)
     {
-        if(GameObject.Find("character") != null)
+        if(GameObject.Find("Character") != null)
         {
             CanBePaused(null);
         }

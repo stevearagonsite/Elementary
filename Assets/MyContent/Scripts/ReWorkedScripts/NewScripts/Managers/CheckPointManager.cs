@@ -10,7 +10,7 @@ public class CheckPointManager : MonoBehaviour
     CheckPoint _activeCheckPoint;
 
     private bool _isGoingToCheckPoint;
-    public bool isGoingToCheckPoint { get { var aux = isGoingToCheckPoint; _isGoingToCheckPoint = false; return aux;  } }
+    public bool isGoingToCheckPoint { get { var aux = _isGoingToCheckPoint; _isGoingToCheckPoint = false; return aux;  } }
 
     private void Awake()
     {
