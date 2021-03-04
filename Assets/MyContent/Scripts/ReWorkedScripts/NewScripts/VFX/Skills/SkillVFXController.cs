@@ -22,6 +22,7 @@ public class SkillVFXController : MonoBehaviour
     private TPPController _tppC;
     private SkillSFXController _sSFXC;
     private FollowPlatform _fP;
+
     void Start()
     {
         _skillController = GetComponent<SkillController>();
@@ -60,6 +61,7 @@ public class SkillVFXController : MonoBehaviour
                 sk.Value.StopEffect();
             }
             _sSFXC.StopSkillSFX();
+            _sSFXC.PlayChangeSkillSFX();
         }
     }
 

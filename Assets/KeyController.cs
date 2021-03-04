@@ -8,12 +8,14 @@ public class KeyController : MonoBehaviour
     private Animator _anim;
     private Renderer _rend;
     private float _transitionTime = 1f;
+    private AudioClipHandler _audioClipHandler;
     public Light keyLight;
 
     void Start()
     {
         _anim = GetComponent<Animator>();
         _rend = GetComponent<Renderer>();
+        _audioClipHandler = GetComponent<AudioClipHandler>();
         EventManager.AddEventListener(GameEvent.GET_KEY_EVENT, OnGetKey);
     }
 
@@ -26,6 +28,8 @@ public class KeyController : MonoBehaviour
     public void KeyInHand()
     {
         StartCoroutine(DisapearKey());
+        _audioClipHandler.Play();
+
     }
 
     private IEnumerator DisapearKey()

@@ -9,7 +9,7 @@ public class AudioClipHandler : MonoBehaviour
     public bool stopSound;
     private AudioSource _source;
     private float _initialVolume;
-    private void Start()
+    private void Awake()
     {
         _source = GetComponent<AudioSource>();
         _initialVolume = _source.volume;

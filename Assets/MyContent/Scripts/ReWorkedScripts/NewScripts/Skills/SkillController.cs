@@ -157,12 +157,13 @@ namespace Skills
 
         private void SkillSet()
         {
+            var changedSkill = currentSkill != skillAction;
             currentSkill = skillAction;
             actualAction.Exit();
             actualAction = _skills[skillAction];
             actualAction.Enter();
-            
-            EventManager.DispatchEvent(GameEvent.ON_SKILL_CHANGE, currentSkill);
+            if(changedSkill)
+                EventManager.DispatchEvent(GameEvent.ON_SKILL_CHANGE, currentSkill);
             ChangeHandMesh();
 
         }

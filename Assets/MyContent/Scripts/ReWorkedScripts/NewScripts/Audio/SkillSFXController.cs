@@ -8,6 +8,7 @@ public class SkillSFXController : MonoBehaviour
     public AudioClip vacuumClip;
     public AudioClip fireClip;
     public AudioClip electricClip;
+    public AudioClip changePower;
     [Range(0,1)]
     public float skillVolume;
     public float transitionTime;
@@ -42,5 +43,11 @@ public class SkillSFXController : MonoBehaviour
     {
         _clipHandler.StopFadeOut(transitionTime);
         _isPlaying = false;
+    }
+
+    public void PlayChangeSkillSFX()
+    {
+        _source.clip = changePower;
+        _clipHandler.Play();
     }
 }

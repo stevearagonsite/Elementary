@@ -10,6 +10,8 @@ public class CharacterSounds : MonoBehaviour
     public AudioClip[] stepMarmolClips;
     public AudioClip[] stepSandClips;
     public AudioClip[] stepWaterClips;
+    public AudioClip teleport;
+    public AudioClip respawn;
     public STEP_TYPE stepType;
 
     private AudioClipHandler _clipHandler;
@@ -27,6 +29,8 @@ public class CharacterSounds : MonoBehaviour
         stepDict.Add(STEP_TYPE.WATER, stepWaterClips);
         _clipHandler = GetComponent<AudioClipHandler>();
         _source = GetComponent<AudioSource>();
+        EventManager.AddEventListener(GameEvent.START_LEVEL_TRANSITION, OnTeleport);
+        EventManager.AddEventListener(GameEvent.TRANSITION_FADEIN_DEMO, OnRespawn);
 
     }
     public void Step()
@@ -49,6 +53,27 @@ public class CharacterSounds : MonoBehaviour
         _source.clip = clips[number];
         _clipHandler.Play();
         _clipHandler.Play();
+    }
+
+    private void OnTeleport(object[] p)
+    {
+        _source.clip = teleport;
+        _clipHandler.PlayFadeIn(1);
+    }
+
+    private void OnRespawn(object[] p)
+    {
+        if (CheckPointManager.instance.isGoingToCheckPoint)
+        {
+            _source.clip = respawn;
+            _clipHandler.Play();
+        }
+    }
+
+    private void OnDestroy()
+    {
+        EventManager.RemoveEventListener(GameEvent.START_LEVEL_TRANSITION, OnTeleport);
+        EventManager.RemoveEventListener(GameEvent.TRANSITION_FADEIN_DEMO, OnRespawn);
     }
 }
 
