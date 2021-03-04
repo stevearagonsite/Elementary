@@ -1,40 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!95 &9199921014064123141
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109619604305499642}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 40355f31119e3d447b143d93b14af1ae, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &9199921014064123140
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109619604305499642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5dea58e61e7d64c4a96c384c6584bfdc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explotion: {fileID: 898734156144492397}
-  magic: {fileID: 1767176924137506262}
-  sparks: {fileID: 665914260557626817}
-  light: {fileID: 9199921014374955967}
 --- !u!82 &1390687429
 AudioSource:
   m_ObjectHideFlags: 0
@@ -132,6 +97,25 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!95 &9199921014064123141
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109619604305499642}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 40355f31119e3d447b143d93b14af1ae, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &1390687428
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,6 +129,23 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   stopSound: 0
+  isPlaying: 0
+--- !u!114 &9199921014064123140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109619604305499642}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5dea58e61e7d64c4a96c384c6584bfdc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explotion: {fileID: 898734156144492397}
+  magic: {fileID: 1767176924137506262}
+  sparks: {fileID: 665914260557626817}
+  light: {fileID: 9199921014374955967}
 --- !u!1 &9199921013079025149
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3ded11d28d469d4da699e2726efe0ab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dialogueObject: {fileID: 11400000, guid: 2ac9bfa42bfbc9846b3f6f81ffbf8b39, type: 2}
+  dialogueObject: {fileID: 11400000, guid: b47d2409e5ddf66488d7035aa56e5b38, type: 2}
   oneTimeStory: 1
   disablePlayer: 1
   fadeTransition: 0

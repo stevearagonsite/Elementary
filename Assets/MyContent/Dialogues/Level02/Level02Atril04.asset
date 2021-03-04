@@ -1,0 +1,56 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7dc4dd29d7a727408d3aed9ba6bcd2c, type: 3}
+  m_Name: Level02Atril04
+  m_EditorClassIdentifier: 
+  nodes:
+  - myRect:
+      serializedVersion: 2
+      x: 94
+      y: 79
+      width: 200
+      height: 150
+    isInitialNode: 1
+    dialog: Maliyat Bialshari (El ocaso de Wassukanni)
+    duration: 2
+    skipable: 1
+  - myRect:
+      serializedVersion: 2
+      x: 406
+      y: 192
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: "Hambriento de ambici\xF3n y poder aliment\xF3 la ira de Moloch y junto
+      a muchos otros hombres"
+    duration: 3
+    skipable: 1
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: "Sepultaron la civilizaci\xF3n bajo capas de cenizas y mentiras."
+    duration: 2
+    skipable: 1
+  - myRect:
+      serializedVersion: 2
+      x: 0
+      y: 0
+      width: 200
+      height: 150
+    isInitialNode: 0
+    dialog: para que no existiera rastro de Elohim y su familia en el mundo.
+    duration: 2.5
+    skipable: 1
