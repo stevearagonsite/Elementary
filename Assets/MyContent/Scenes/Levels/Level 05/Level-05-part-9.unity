@@ -19180,6 +19180,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 421113419}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &422325800
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 422325801}
+  m_Layer: 0
+  m_Name: Bake
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &422325801
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 422325800}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 180, y: 89, z: 5}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 719816202}
+  - {fileID: 812750740}
+  m_Father: {fileID: 0}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &425318130
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -32719,6 +32751,257 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 718999935}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &719816201
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 719816202}
+  - component: {fileID: 719816203}
+  m_Layer: 0
+  m_Name: Light Probe Group
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &719816202
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719816201}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 43, y: -16, z: 30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422325801}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!220 &719816203
+LightProbeGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719816201}
+  m_Enabled: 1
+  m_SourcePositions:
+  - {x: -63, y: 11, z: -47}
+  - {x: -63, y: 11, z: -63}
+  - {x: -63, y: -1, z: -47}
+  - {x: -63, y: -1, z: -63}
+  - {x: -71, y: 11, z: -47}
+  - {x: -71, y: 11, z: -63}
+  - {x: -71, y: -1, z: -47}
+  - {x: -71, y: -1, z: -63}
+  - {x: -31, y: 11, z: -47}
+  - {x: -31, y: 11, z: -63}
+  - {x: -31, y: -1, z: -47}
+  - {x: -31, y: -1, z: -63}
+  - {x: -39, y: 11, z: -47}
+  - {x: -39, y: 11, z: -63}
+  - {x: -39, y: -1, z: -47}
+  - {x: -39, y: -1, z: -63}
+  - {x: -15, y: 11, z: -47}
+  - {x: -15, y: 11, z: -63}
+  - {x: -15, y: -1, z: -47}
+  - {x: -15, y: -1, z: -63}
+  - {x: -23, y: 11, z: -47}
+  - {x: -23, y: 11, z: -63}
+  - {x: -23, y: -1, z: -47}
+  - {x: -23, y: -1, z: -63}
+  - {x: 1, y: 11, z: -47}
+  - {x: 1, y: 11, z: -63}
+  - {x: 1, y: -1, z: -47}
+  - {x: 1, y: -1, z: -63}
+  - {x: -7, y: 11, z: -47}
+  - {x: -7, y: 11, z: -63}
+  - {x: -7, y: -1, z: -47}
+  - {x: -7, y: -1, z: -63}
+  - {x: -47, y: 11, z: -47}
+  - {x: -47, y: 11, z: -63}
+  - {x: -47, y: -1, z: -47}
+  - {x: -47, y: -1, z: -63}
+  - {x: -55, y: 11, z: -47}
+  - {x: -55, y: 11, z: -63}
+  - {x: -55, y: -1, z: -47}
+  - {x: -55, y: -1, z: -63}
+  - {x: -63, y: 11, z: -31}
+  - {x: -63, y: 11, z: -39}
+  - {x: -63, y: -1, z: -31}
+  - {x: -63, y: -1, z: -39}
+  - {x: -115, y: 11, z: -31}
+  - {x: -115, y: 11, z: -39}
+  - {x: -115, y: -1, z: -31}
+  - {x: -115, y: -1, z: -39}
+  - {x: -31, y: 11, z: -31}
+  - {x: -31, y: 11, z: -39}
+  - {x: -31, y: -1, z: -31}
+  - {x: -31, y: -1, z: -39}
+  - {x: -39, y: 11, z: -31}
+  - {x: -39, y: 11, z: -39}
+  - {x: -39, y: -1, z: -31}
+  - {x: -39, y: -1, z: -39}
+  - {x: -15, y: 11, z: -31}
+  - {x: -15, y: 11, z: -39}
+  - {x: -15, y: -1, z: -31}
+  - {x: -15, y: -1, z: -39}
+  - {x: -23, y: 11, z: -31}
+  - {x: -23, y: 11, z: -39}
+  - {x: -23, y: -1, z: -31}
+  - {x: -23, y: -1, z: -39}
+  - {x: 1, y: 11, z: -31}
+  - {x: 1, y: 11, z: -39}
+  - {x: 1, y: -1, z: -31}
+  - {x: 1, y: -1, z: -39}
+  - {x: -7, y: 11, z: -31}
+  - {x: -7, y: 11, z: -39}
+  - {x: -7, y: -1, z: -31}
+  - {x: -7, y: -1, z: -39}
+  - {x: -47, y: 11, z: -31}
+  - {x: -47, y: 11, z: -39}
+  - {x: -47, y: -1, z: -31}
+  - {x: -47, y: -1, z: -39}
+  - {x: -55, y: 11, z: -31}
+  - {x: -55, y: 11, z: -39}
+  - {x: -55, y: -1, z: -31}
+  - {x: -55, y: -1, z: -39}
+  - {x: -63, y: 11, z: -15}
+  - {x: -63, y: 11, z: -23}
+  - {x: -63, y: -1, z: -15}
+  - {x: -63, y: -1, z: -23}
+  - {x: -71, y: 11, z: -15}
+  - {x: -115, y: 11, z: -23}
+  - {x: -71, y: -1, z: -15}
+  - {x: -115, y: -1, z: -23}
+  - {x: -31, y: 11, z: -15}
+  - {x: -31, y: 11, z: -23}
+  - {x: -31, y: -1, z: -15}
+  - {x: -31, y: -1, z: -23}
+  - {x: -39, y: 11, z: -15}
+  - {x: -39, y: 11, z: -23}
+  - {x: -39, y: -1, z: -15}
+  - {x: -39, y: -1, z: -23}
+  - {x: -15, y: 11, z: -15}
+  - {x: -15, y: 11, z: -23}
+  - {x: -15, y: -1, z: -15}
+  - {x: -15, y: -1, z: -23}
+  - {x: -23, y: 11, z: -15}
+  - {x: -23, y: 11, z: -23}
+  - {x: -23, y: -1, z: -15}
+  - {x: -23, y: -1, z: -23}
+  - {x: 1, y: 11, z: -15}
+  - {x: 1, y: 11, z: -23}
+  - {x: 1, y: -1, z: -15}
+  - {x: 1, y: -1, z: -23}
+  - {x: -7, y: 11, z: -15}
+  - {x: -7, y: 11, z: -23}
+  - {x: -7, y: -1, z: -15}
+  - {x: -7, y: -1, z: -23}
+  - {x: -47, y: 11, z: -15}
+  - {x: -47, y: 11, z: -23}
+  - {x: -47, y: -1, z: -15}
+  - {x: -47, y: -1, z: -23}
+  - {x: -55, y: 11, z: -15}
+  - {x: -55, y: 11, z: -23}
+  - {x: -55, y: -1, z: -15}
+  - {x: -55, y: -1, z: -23}
+  - {x: -63, y: 11, z: 1}
+  - {x: -63, y: 11, z: -7}
+  - {x: -63, y: -1, z: 1}
+  - {x: -63, y: -1, z: -7}
+  - {x: -71, y: 11, z: 1}
+  - {x: -71, y: 11, z: -7}
+  - {x: -71, y: -1, z: 1}
+  - {x: -71, y: -1, z: -7}
+  - {x: -31, y: 11, z: 1}
+  - {x: -31, y: 11, z: -7}
+  - {x: -31, y: -1, z: 1}
+  - {x: -31, y: -1, z: -7}
+  - {x: -39, y: 11, z: 1}
+  - {x: -39, y: 11, z: -7}
+  - {x: -39, y: -1, z: 1}
+  - {x: -39, y: -1, z: -7}
+  - {x: -15, y: 11, z: 1}
+  - {x: -15, y: 11, z: -7}
+  - {x: -15, y: -1, z: 1}
+  - {x: -15, y: -1, z: -7}
+  - {x: -23, y: 11, z: 1}
+  - {x: -23, y: 11, z: -7}
+  - {x: -23, y: -1, z: 1}
+  - {x: -23, y: -1, z: -7}
+  - {x: 1, y: 11, z: 1}
+  - {x: 1, y: 11, z: -7}
+  - {x: 1, y: -1, z: 1}
+  - {x: 1, y: -1, z: -7}
+  - {x: -7, y: 11, z: 1}
+  - {x: -7, y: 11, z: -7}
+  - {x: -7, y: -1, z: 1}
+  - {x: -7, y: -1, z: -7}
+  - {x: -47, y: 11, z: 1}
+  - {x: -47, y: 11, z: -7}
+  - {x: -47, y: -1, z: 1}
+  - {x: -47, y: -1, z: -7}
+  - {x: -55, y: 11, z: 1}
+  - {x: -55, y: 11, z: -7}
+  - {x: -55, y: -1, z: 1}
+  - {x: -55, y: -1, z: -7}
+  - {x: -63, y: 11, z: -55}
+  - {x: -63, y: -1, z: -55}
+  - {x: -71, y: 11, z: -55}
+  - {x: -71, y: -1, z: -55}
+  - {x: -31, y: 11, z: -55}
+  - {x: -31, y: -1, z: -55}
+  - {x: -39, y: 11, z: -55}
+  - {x: -39, y: -1, z: -55}
+  - {x: -15, y: 11, z: -55}
+  - {x: -15, y: -1, z: -55}
+  - {x: -23, y: 11, z: -55}
+  - {x: -23, y: -1, z: -55}
+  - {x: 1, y: 11, z: -55}
+  - {x: 1, y: -1, z: -55}
+  - {x: -7, y: 11, z: -55}
+  - {x: -7, y: -1, z: -55}
+  - {x: -47, y: 11, z: -55}
+  - {x: -47, y: -1, z: -55}
+  - {x: -55, y: 11, z: -55}
+  - {x: -55, y: -1, z: -55}
+  - {x: -105, y: 11, z: -31}
+  - {x: -105, y: 11, z: -39}
+  - {x: -105, y: -1, z: -31}
+  - {x: -105, y: -1, z: -39}
+  - {x: -105, y: 11, z: -23}
+  - {x: -105, y: -1, z: -23}
+  - {x: -81, y: 11, z: -31}
+  - {x: -81, y: 11, z: -39}
+  - {x: -81, y: -1, z: -31}
+  - {x: -81, y: -1, z: -39}
+  - {x: -81, y: 11, z: -23}
+  - {x: -81, y: -1, z: -23}
+  - {x: -71, y: 11, z: -31}
+  - {x: -71, y: 11, z: -39}
+  - {x: -71, y: -1, z: -31}
+  - {x: -71, y: -1, z: -39}
+  - {x: -71, y: 11, z: -23}
+  - {x: -71, y: -1, z: -23}
+  - {x: -99, y: 11, z: -31}
+  - {x: -99, y: 11, z: -39}
+  - {x: -99, y: -1, z: -31}
+  - {x: -99, y: -1, z: -39}
+  - {x: -99, y: 11, z: -23}
+  - {x: -99, y: -1, z: -23}
+  - {x: -89, y: 11, z: -31}
+  - {x: -89, y: 11, z: -39}
+  - {x: -89, y: -1, z: -31}
+  - {x: -89, y: -1, z: -39}
+  - {x: -89, y: 11, z: -23}
+  - {x: -89, y: -1, z: -23}
+  m_Dering: 1
 --- !u!1001 &719956094
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -36588,6 +36871,70 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 811824568}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &812750739
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 812750740}
+  - component: {fileID: 812750741}
+  m_Layer: 0
+  m_Name: Reflection Probe
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &812750740
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812750739}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -12, y: -3, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 422325801}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!215 &812750741
+ReflectionProbe:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 812750739}
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Type: 0
+  m_Mode: 0
+  m_RefreshMode: 0
+  m_TimeSlicingMode: 0
+  m_Resolution: 128
+  m_UpdateFrequency: 0
+  m_BoxSize: {x: 125, y: 40, z: 70}
+  m_BoxOffset: {x: 0, y: 0, z: 0}
+  m_NearClip: 0.3
+  m_FarClip: 1000
+  m_ShadowDistance: 100
+  m_ClearFlags: 1
+  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_CullingMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IntensityMultiplier: 1
+  m_BlendDistance: 1
+  m_HDR: 1
+  m_BoxProjection: 0
+  m_RenderDynamicObjects: 0
+  m_UseOcclusionCulling: 1
+  m_Importance: 1
+  m_CustomBakedTexture: {fileID: 0}
 --- !u!1001 &815227578
 PrefabInstance:
   m_ObjectHideFlags: 0
